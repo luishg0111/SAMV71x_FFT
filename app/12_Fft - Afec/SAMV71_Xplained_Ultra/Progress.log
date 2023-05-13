@@ -1,0 +1,9 @@
+LOADING	C:\Users\Trino\Documents\Iteso\SAMV71x\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Fft.elf
+ANALYZING
+ANALYZING
+EMULATION	POD: Cortex (JTAG,SWD)   CPU: Cortex-M7
+DEBUG	PROTOCOL: SWD; RESET: SoC
+LOADING 	282768 bytes
+UMI INFO	Loading UMI monitor...
+PROGRAMMING	Atmel ATSAMV7 (2048 kB) (5 sectors)
+UMI INFO	Unloading UMI monitor...
