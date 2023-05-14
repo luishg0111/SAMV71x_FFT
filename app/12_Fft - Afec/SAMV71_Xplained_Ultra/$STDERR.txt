@@ -1,0 +1,5 @@
+C:\SAMV71x\app\12_Fft_AFEC_Test\src\Objects\SchM.o: In function `SysTick_Handler':
+D:\02_Work\01_Iteso\2018\Fall\EmbededSystems\99_Reference\Solutions\SAMV71x_B\app\10_FoatingPoint\src\Bsw\Services\SchM/SchM.c:242: multiple definition of `SysTick_Handler'
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\timetick.o:C:\SAMV71x\hal\libchip_samv7\source/timetick.c:66: first defined here
+collect2.exe: error: ld returned 1 exit status
+

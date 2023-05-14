@@ -27,44 +27,51 @@
 /* EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                           */
 /* ---------------------------------------------------------------------------- */
 
-INPUT ("D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\system_sam.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\syscalls.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\dac_dma.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\xdma_hardware_interface.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\xdmac.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\xdmad.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\tc.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\startup_sam.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\dbg_console.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\board_lowlevel.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\board_memories.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\led.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\wdt.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\pmc.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\pio.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\pio_it.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\supc.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\exceptions.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\mpu.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Led_Ctrl.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Button_Ctrl.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\SchM_Tasks.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Wdg.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\SchM_Cfg.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Fpu.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\src\Objects\MemAlloc.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\src\Objects\SchM.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_bitreversal2.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_f32.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_radix8_f32.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cmplx_mag_f32.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_common_tables.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_const_structs.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_fft_bin_data.o" 
-"D:\SAMV71x_FFT\app\12_Fft - Afec\src\Lib\libm.a")
+INPUT (C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\system_sam.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\syscalls.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\dac_dma.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\xdma_hardware_interface.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\xdmac.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\xdmad.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\tc.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\twid.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\twi.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\ssc.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\timetick.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\startup_sam.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\dbg_console.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\board_lowlevel.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\board_memories.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\led.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\wdt.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\pmc.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\pio.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\pio_it.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\supc.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\exceptions.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\mpu.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\Main.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\Led_Ctrl.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\Button_Ctrl.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\SchM_Tasks.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\Wdg.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\SchM_Cfg.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\Fpu.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\Codec_DMA.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\wm8904.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\SSC_Config.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\src\Objects\MemAlloc.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\src\Objects\SchM.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\fft_float.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\arm_bitreversal2.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\arm_cfft_f32.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\arm_cfft_radix8_f32.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\arm_cmplx_mag_f32.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\arm_common_tables.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\arm_const_structs.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\SAMV71_Xplained_Ultra\Debug\arm_fft_bin_data.o 
+C:\SAMV71x\app\12_Fft_AFEC_Test\src\Lib\libm.a)
 
 /*------------------------------------------------------------------------------
  *      Linker script for running in internal FLASH on the ATSAMV71Q21

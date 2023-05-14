@@ -24,10 +24,20 @@
 /** Floating Point Unit */
 #include    "Fpu.h"
 
+/*  libreria del DMA    */
+#include    "Codec_DMA.h"
+/*  libreria de AudioCodec    */
+#include "wm8904.h"
+
+#include "SSC_Config.h"
+
 /*~~~~~~  Local definitions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
   #define SAMP_PER  (50)
   #define BUFF_SIZE (2048)
+
+    /** TWI High Speed clock */
+	#define TWI_CLOCK		  400000
 
 /*~~~~~~  Global variables ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -40,11 +50,33 @@ uint32_t    u32fft_maxPowerIndex;
 /** Auxiliary output variable that holds the maximum level of signal power */
 float       fft_maxPower;
 
+uint16_t AudioBuffer[2048];     
+float fft_signalPower[FFT_BUFF_SIZE / 2];  
+
+/*    Configuracion de los pines de TWI   */
+static const Pin SscTwiPins[] = { PIN_TWI_TWD0, PIN_TWI_TWCK0, PIN_SSC_TD, PIN_SSC_TK, PIN_SSC_TF, PIN_SSC_RD,  PIN_SSC_RK, PIN_SSC_RF, PIN_PCK2 };
+
+/*    TWI instancia    */
+static Twid twid;
+
 /*~~~~~~  Local functions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 void fft_process(void);
 
 pfun pFFT = &fft_process;
+
+/*    Interrupcion de TWI    */
+void TWIHS0_Handler(void){
+	TWID_Handler(&twid);
+}
+
+/*      Transferir el buffer del Codec al de enrtrada de FFT  */
+static void Codec_To_InputFFT(void){
+  __uint16_t u16i = 0;
+	for (u16i = 0; u16i < FFT_BUFF_SIZE; u16i ++) {
+		fft_inputData[u16i] = (float)AudioBuffer[u16i];
+	}
+}
 
 /*----------------------------------------------------------------------------
  *        Exported functions
@@ -56,15 +88,21 @@ pfun pFFT = &fft_process;
  */
 extern int main( void )
 {
+  uint16_t data = 0;
+  
 	/* Disable watchdog */
 	Wdg_Disable();
+
 	/* Configure LEDs */
 	LedCtrl_Configure();
+
   /* Configure Button */  
   ButtonCtrl_ConfigureSW0Button();
+
   /* Enable I and D cache */
 	SCB_EnableICache();
 	SCB_EnableDCache(); 
+
   /* Enable Floating Point Unit */
   Fpu_Enable();
     
@@ -72,15 +110,59 @@ extern int main( void )
 	printf( "-- %s\n\r", BOARD_NAME ) ;
 	printf( "-- Compiled: %s %s With %s --\n\r", __DATE__, __TIME__ , COMPILER_NAME);
 
-  /* Scheduler Inititalization */
-  printf( "-- Scheduler Initialization --\n\r" ) ;
-	SchM_Init(ScheduleConfig);
-	
-	/* Should never reach this code */
-	for(;;)
-    {
-		printf( "-- Unexpected Error at Scheduler Initialization --\n\r" ) ;
+  printf("Configuracion del SystemSystick a 1ms.\n\r");
+  if (TimeTick_Configure())
+		printf("Error en la config. Systick.\n\r");
+
+	/* Configuracion de los pines */
+	PIO_Configure(SscTwiPins, PIO_LISTSIZE(SscTwiPins));
+
+	/* Configure SSC */
+	//configureSSC();
+	SSC_Config();
+
+	/* Configuracion del DMA */
+	DMA_Configure();
+
+  	/* Configuracion y habilitacion de TWIHS0  */
+	PMC_EnablePeripheral(ID_TWIHS0);
+	TWI_ConfigureMaster(TWIHS0, TWI_CLOCK, BOARD_MCK);
+	TWID_Initialize(&twid, TWIHS0);
+
+	/* Configuracion de la interrupcion de TWI */
+	NVIC_ClearPendingIRQ(TWIHS0_IRQn);
+	NVIC_EnableIRQ(TWIHS0_IRQn);
+
+	/* check that WM8904 is present */
+	WM8904_Write(&twid, WM8904_SLAVE_ADDRESS, 22, 0);
+	data = WM8904_Read(&twid, WM8904_SLAVE_ADDRESS, 0);
+	if (data != 0x8904) {
+		printf("WM8904 not found!\n\r");
+		while (1);
 	}
+
+	/* Initialize the audio DAC */
+	WM8904_Init(&twid, WM8904_SLAVE_ADDRESS, PMC_MCKR_CSS_SLOW_CLK);
+
+	/* Enable the DAC master clock */
+	PMC_ConfigurePCK2(PMC_MCKR_CSS_SLOW_CLK, PMC_MCKR_PRES_CLK_1); 
+
+	// Record data from codec using SSC
+	PlayRecording();
+
+	//Cast DMA uint16 data array to float for usage with the FFT function
+	Codec_To_InputFFT();
+
+	//Apply FFT to get frequency of the obtained data  
+	fft_process();
+	//Nothing else to do
+	while (1);
+	
+//	/* Should never reach this code */
+//for(;;)
+//   {
+//		printf( "-- Unexpected Error at Scheduler Initialization --\n\r" ) ;
+//	}
 }
 
 void fft_process(void)

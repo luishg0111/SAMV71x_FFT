@@ -22,7 +22,7 @@
 	.type	arm_sqrt_f32, %function
 arm_sqrt_f32:
 .LFB121:
-	.file 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Lib\\arm_math.h"
+	.file 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Lib\\arm_math.h"
 	.loc 1 5748 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 8
@@ -85,7 +85,7 @@ arm_sqrt_f32:
 	.type	arm_cmplx_mag_f32, %function
 arm_cmplx_mag_f32:
 .LFB132:
-	.file 2 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Lib\\arm_cmplx_mag_f32.c"
+	.file 2 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Lib\\arm_cmplx_mag_f32.c"
 	.loc 2 88 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 32
@@ -1801,7 +1801,7 @@ arm_cmplx_mag_f32:
 	.uleb128 0x1
 	.byte	0x7
 	.4byte	.Ldebug_macro1
-	.file 5 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\include\\cmsis\\CMSIS\\Include/core_cm7.h"
+	.file 5 "C:\\SAMV71x\\hal\\libchip_samv7\\include\\cmsis\\CMSIS\\Include/core_cm7.h"
 	.byte	0x3
 	.uleb128 0x12e
 	.uleb128 0x5
@@ -1854,14 +1854,14 @@ arm_cmplx_mag_f32:
 	.uleb128 0xd
 	.4byte	.LASF492
 	.byte	0x4
-	.file 10 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\include\\cmsis\\CMSIS\\Include/core_cmInstr.h"
+	.file 10 "C:\\SAMV71x\\hal\\libchip_samv7\\include\\cmsis\\CMSIS\\Include/core_cmInstr.h"
 	.byte	0x3
 	.uleb128 0xbd
 	.uleb128 0xa
 	.byte	0x7
 	.4byte	.Ldebug_macro8
 	.byte	0x4
-	.file 11 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\include\\cmsis\\CMSIS\\Include/core_cmFunc.h"
+	.file 11 "C:\\SAMV71x\\hal\\libchip_samv7\\include\\cmsis\\CMSIS\\Include/core_cmFunc.h"
 	.byte	0x3
 	.uleb128 0xbe
 	.uleb128 0xb
@@ -1869,7 +1869,7 @@ arm_cmplx_mag_f32:
 	.uleb128 0x27
 	.4byte	.LASF496
 	.byte	0x4
-	.file 12 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\include\\cmsis\\CMSIS\\Include/core_cmSimd.h"
+	.file 12 "C:\\SAMV71x\\hal\\libchip_samv7\\include\\cmsis\\CMSIS\\Include/core_cmSimd.h"
 	.byte	0x3
 	.uleb128 0xbf
 	.uleb128 0xc
@@ -2002,7 +2002,7 @@ arm_cmplx_mag_f32:
 	.uleb128 0x18
 	.byte	0x4
 	.byte	0x4
-	.file 25 "D:\\SAMV71x_FFT\\bsp\\libboard_samv7-ek\\include/math.h"
+	.file 25 "C:\\SAMV71x\\bsp\\libboard_samv7-ek\\include/math.h"
 	.byte	0x3
 	.uleb128 0x13f
 	.uleb128 0x19
@@ -3936,6 +3936,9 @@ arm_cmplx_mag_f32:
 .LASF766:
 	.ascii	"__sym_default(sym,impl,verid) __asm__(\".symver \" "
 	.ascii	"#impl \", \" #sym \"@@\" #verid)\000"
+.LASF843:
+	.ascii	"C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Lib\\arm_c"
+	.ascii	"mplx_mag_f32.c\000"
 .LASF459:
 	.ascii	"INT_FAST8_MAX (__INT_FAST8_MAX__)\000"
 .LASF808:
@@ -4264,9 +4267,8 @@ arm_cmplx_mag_f32:
 	.ascii	"__UINT8_MAX__ 255\000"
 .LASF340:
 	.ascii	"__APCS_32__ 1\000"
-.LASF843:
-	.ascii	"D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Lib\\arm_"
-	.ascii	"cmplx_mag_f32.c\000"
+.LASF780:
+	.ascii	"__need_NULL \000"
 .LASF746:
 	.ascii	"__fastcall __attribute__((__fastcall__))\000"
 .LASF69:
@@ -5046,8 +5048,6 @@ arm_cmplx_mag_f32:
 	.ascii	"_NULL 0\000"
 .LASF689:
 	.ascii	"__flexarr [0]\000"
-.LASF780:
-	.ascii	"__need_NULL \000"
 .LASF422:
 	.ascii	"__int64_t_defined 1\000"
 .LASF508:
