@@ -1,5 +1,5 @@
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw//"
+# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_HOSTED__ 1
@@ -364,16 +364,8 @@
 #define ENABLE_TCM 1
 #define ARM_MATH_CM7 1
 #define __FPU_PRESENT 1
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
-# 15 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 1
-# 12 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h"
-#define STD_TYPES_H 
-
-
-
-
-
+# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+# 41 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
 # 1 "D:\\SAMV71x_FFT\\bsp\\libboard_samv7-ek/board.h" 1
 # 77 "D:\\SAMV71x_FFT\\bsp\\libboard_samv7-ek/board.h"
 #define _BOARD_H_ 
@@ -26757,309 +26749,228 @@ extern int _write( int file, char *ptr, int len );
 
 
 #define PINS_VBUS_EN {PIO_PC16, PIOC, ID_PIOC, PIO_OUTPUT_1, PIO_DEFAULT}
-# 19 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 2
+# 42 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c" 2
+# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.h" 1
+# 43 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c" 2
 
 
 
-# 1 "D:\\SAMV71x_FFT\\hal\\libchip_samv7/compiler.h" 1
-# 23 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 2
 
-# 1 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\include\\cmsis\\CMSIS\\Include/core_cm7.h" 1
-# 25 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 2
-
-# 1 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\include\\samv7/system_samv71.h" 1
-# 27 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 2
-
-# 1 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\include\\samv7/samv71.h" 1
-# 29 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 2
-
-
-
-
-
-  typedef uint8_t Std_ReturnType;
-  typedef void (*pfun) ();
-
-
-#define STATUSTYPEDEFINED 
-#define E_OK (Std_ReturnType)0x00
-#define E_NOT_OK (Std_ReturnType)0x01
-
-
-#define STD_HIGH 0x01
-#define STD_LOW 0x00
-#define STD_ACTIVE 0x01
-#define STD_IDLE 0x00
-#define STD_ON 0x01
-#define STD_OFF 0x00
-# 16 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM.h" 1
-# 18 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM.h"
-#define SCHM_H 
-
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_Types.h" 1
-# 22 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM.h" 2
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM_Cfg.h" 1
-# 12 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM_Cfg.h"
-#define _SCHM_CFG_H 
-
-
-
- typedef void ( * SchMCallbackType )( void );
-
-
- typedef enum
- {
-  TASK_1MS,
-  TASK_2MSA,
-  TASK_2MSB,
-  TASK_10MS,
-  TASK_50MS,
-  TASK_100MS,
-        TASK_SW0,
-  TASK_BKG,
- }SchMTaskIdType;
-
- typedef struct
- {
-  uint8_t TaskPriority;
-  SchMTaskIdType TaskId;
-  SchMCallbackType TaskFcnPtr;
- }SchMTaskType;
-
- typedef struct
- {
-  uint8_t NoOfTasks;
-  SchMTaskType * TaskCfg;
- }SchMCfgType;
-
-    extern SchMCfgType ScheduleConfig[];
-# 23 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM.h" 2
-
-
- void SchM_Init(SchMCfgType *SchMCfg);
-
-
- void SchM_Start(void);
-
-
- void SchM_Stop(void);
-
-
- void SchM_SchedulePoint(void);
-
-
- void SchM_ActivateTask(SchMTaskIdType TaskId);
-
-
- void SchM_Scheduler(void);
-# 18 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\LedCtrl/Led_Ctrl.h" 1
-# 13 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\LedCtrl/Led_Ctrl.h"
-#define __LED_CTRL_H 
-# 38 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\LedCtrl/Led_Ctrl.h"
-void LedCtrl_Configure( void );
-
-
-void LedCtrl_BlinkingPattern(void);
-
-
-void LedCtrl_ToogleBlinkingPattern(void);
-# 20 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Wdg/Wdg.h" 1
-# 11 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Wdg/Wdg.h"
-#define WDG_H 
-# 22 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Wdg/Wdg.h"
-#define WDG_PERIOD 250
-
-
-
-
-void Wdg_Init(uint32_t Wdg_Period);
-
-void Wdg_Restart( void );
-
-void Wdg_Disable( void );
-# 22 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\ButtonCtrl/Button_Ctrl.h" 1
-# 12 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\ButtonCtrl/Button_Ctrl.h"
-#define __BUTTON_CTRL_H 
-# 37 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\ButtonCtrl/Button_Ctrl.h"
-extern void ButtonCtrl_ConfigureSW0Button( void );
-# 24 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Fpu/Fpu.h" 1
-# 13 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Fpu/Fpu.h"
-#define __FPU_H 
-# 37 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Fpu/Fpu.h"
-void Fpu_Enable(void);
-# 26 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_DMA/Codec_DMA.h" 1
-
-#define CODEC_DMA_H_ 
-
-
-
-
-#define TOTAL_Buffers 4
-#define AUDIO_IF SSC
-
-
-#define MAX_RECORD_SIZE 0xFFFFFFFF
-
-
-#define MAX_DMA_SIZE 0x1000
-
-
-#define FFT_BUFF_SIZE (2048)
-
-extern void DMA_Configure(void);
-extern void PlayRecording(void);
-# 29 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\bsp\\libboard_samv7-ek\\include/wm8904.h" 1
-# 31 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\SSC_Config/SSC_Config.h" 1
-
-#define _SSC_Config_H_ 
-
-
-
-
-extern void SSC_Config(void);
-# 33 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-
-
-#define SAMP_PER (50)
-#define BUFF_SIZE (2048)
-
-
-#define TWI_CLOCK 400000
-
-
-
-
-float fft_inputData[(2048)];
-
-float fft_signalPower[(2048)/2];
-
-uint32_t u32fft_maxPowerIndex;
-
-float fft_maxPower;
-
-uint16_t AudioBuffer[2048];
-float fft_signalPower[(2048) / 2];
-
-
-static const Pin SscTwiPins[] = { {(1u << 3), ((Pio *)0x400E0E00U), (10), 0, (0 << 0)}, {(1u << 4), ((Pio *)0x400E0E00U), (10), 0, (0 << 0)}, {(1u << 26), ((Pio *)0x400E1400U), (16), 1, (0 << 0)}, {(1u << 1), ((Pio *)0x400E1000U), (11), 3, (0 << 0)}, {(1u << 0), ((Pio *)0x400E1000U), (11), 3, (0 << 0)}, {(1u << 10), ((Pio *)0x400E0E00U), (10), 2, (0 << 0)}, {(1u << 22), ((Pio *)0x400E0E00U), (10), 0, (0 << 0)}, {(1u << 24), ((Pio *)0x400E1400U), (16), 1, (0 << 0)}, {(1u << 18), ((Pio *)0x400E0E00U), (10), 1, (0 << 0)} };
-
-
-static Twid twid;
-
-
-
-void fft_process(void);
-
-pfun pFFT = &fft_process;
-
-
-void TWIHS0_Handler(void){
- TWID_Handler(&twid);
-}
-
-
-static void Codec_To_InputFFT(void){
-  __uint16_t u16i = 0;
- for (u16i = 0; u16i < (2048); u16i ++) {
-  fft_inputData[u16i] = (float)AudioBuffer[u16i];
- }
-}
-# 89 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
-extern int main( void )
+typedef struct {
+    uint16_t value;
+    uint8_t address;
+  }WM8904_PARA;
+# 63 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+uint16_t WM8904_Read(Twid *pTwid,
+  uint32_t device,
+  uint32_t regAddr)
 {
-  uint16_t data = 0;
+ uint16_t bitsDataRegister;
+ uint8_t Tdata[2]={0,0};
 
+ TWID_Read(pTwid, device, regAddr, 1, Tdata, 2, 0);
+ bitsDataRegister = (Tdata[0] << 8) | Tdata[1];
+ return bitsDataRegister;
+}
+# 83 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+void WM8904_Write(Twid *pTwid,
+  uint32_t device,
+  uint32_t regAddr,
+  uint16_t data)
+{
+ uint8_t tmpData[2];
 
- Wdg_Disable();
-
-
- SCB_EnableICache();
- SCB_EnableDCache();
-
-
-  Fpu_Enable();
-
- printf( "\n\r-- Scheduler Project %s --\n\r", "1.3" ) ;
- printf( "-- %s\n\r", "SAM V71 Xplained Ultra" ) ;
- printf( "-- Compiled: %s %s With %s --\n\r", "May 14 2023", "13:55:27" , "GCC");
-
-  printf("Configuracion del SystemSystick a 1ms.\n\r");
-  if (TimeTick_Configure())
-  printf("Error en la config. Systick.\n\r");
-
-
- PIO_Configure(SscTwiPins, (sizeof(SscTwiPins) / sizeof(Pin)));
-
-
- SSC_Config();
-
-
- DMA_Configure();
-
-
- PMC_EnablePeripheral((19));
- TWI_ConfigureMaster(((Twihs *)0x40018000U), 400000, 150000000);
- TWID_Initialize(&twid, ((Twihs *)0x40018000U));
-
-
- NVIC_ClearPendingIRQ(TWIHS0_IRQn);
- NVIC_EnableIRQ(TWIHS0_IRQn);
-
-
- WM8904_Write(&twid, 0x1a | (0x0 << 0), 22, 0);
- data = WM8904_Read(&twid, 0x1a | (0x0 << 0), 0);
- if (data != 0x8904) {
-  printf("WM8904 not found!\n\r");
-  while (1);
- }
-
-
- WM8904_Init(&twid, 0x1a | (0x0 << 0), (0x0u << 0));
-
- PMC_ConfigurePCK2((0x0u << 0), (0x0u << 4));
-
-
- PlayRecording();
-
-
- Codec_To_InputFFT();
-
-
- fft_process();
-
- while (1);
-
-
-  for(;;)
-  {
-   printf( "-- Unexpected Error at Scheduler Initialization --\n\r" ) ;
- }
+ tmpData[0] = (data & 0xff00) >> 8;
+ tmpData[1] = data & 0xff;
+ TWID_Write(pTwid, device, regAddr, 1, tmpData, 2, 0);
 }
 
-void fft_process(void)
+static WM8904_PARA wm8904_access_slow[]=
+{
+ { 0x0000, 0},
+ { 0x001A, 4},
+ { 0x0047, 5},
+
+ { 0x0043, 5},
+ { 0x000B, 4},
+
+ { 0x0003, 0x0C},
+
+ { 0x0003, 0x0E},
+ { 0x000C, 0x12},
+ { 0x0000, 0x21},
+ { 0x0000, 0x3D},
+ { 0x0001, 0x62},
+ { 0x0005, 0x68},
+
+
+ { 0x0000, 0x74},
+ { 0x0704, 0x75},
+ { 0x8000, 0x76},
+ { 0x1760, 0x77},
+ { 0x0005, 0x74},
+
+ { 0x0C05, 0x15},
+ { 0x845E, 0x14},
+ { 0x4006, 0x16},
+
+
+
+
+ { 0x0042, 0x18},
+ { 0x0042, 0x19},
+ { 0x00E8, 0x1A},
+ { 0x0820, 0x1B},
+
+
+ { 0x0003, 0x0C},
+ { 0x000F, 0x12},
+
+ { 0x0010, 0x2C},
+ { 0x0010, 0x2D},
+ { 0x0044, 0x2E},
+ { 0x0044, 0x2F},
+
+ { 0x0011, 0x5A},
+ { 0x0033, 0x5A},
+
+ { 0x000F, 0x43},
+ { 0x00F0, 0x44},
+
+ { 0x0077, 0x5A},
+ { 0x00FF, 0x5A},
+ { 0x00B9, 0x39},
+ { 0x00B9, 0x3A},
+};
+
+static WM8904_PARA wm8904_access_main[] =
 {
 
-  fft(fft_inputData, fft_signalPower, (2048)/2, &u32fft_maxPowerIndex, &fft_maxPower);
 
 
-  printf("%5d  %5.4f \r\n", u32fft_maxPowerIndex, fft_maxPower);
+
+ { 0x0019, 4},
+ { 0x0043, 5},
+
+
+
+ { 0xFFFF, 9},
+
+
+ { 0x0003, 12},
+
+ { 0x0003, 14},
+
+
+
+ { 0x000F, 18},
+
+ { 0x845E, 20},
+
+ { 0x0006, 22},
+
+
+ { 0x404A, 25},
+
+ { 0x0840, 27},
+
+
+
+
+
+ { 0x0000, 33},
+# 199 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+ { 0x0005, 44},
+ { 0x0005, 45},
+ { 0x0000, 46},
+ { 0x0000, 47},
+# 213 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+ { 0x00AD, 58},
+# 222 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+ { 0x0003, 67},
+# 245 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+ { 0x00FF, 90},
+
+
+
+
+
+
+
+ { 0x0001, 98},
+
+
+
+
+
+ { 0x0005, 104},
+# 271 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+ { 0x0004, 116},
+ { 0x0704, 117},
+ { 0x8000, 118},
+ { 0x1760, 119},
+# 404 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+ { 0x55AA, 255}
+};
+
+uint8_t WM8904_Init(Twid *pTwid, uint32_t device, uint32_t PCK)
+{
+ uint8_t count, size;
+ uint16_t data = 0;
+
+
+ WM8904_Write(pTwid, device, 0, 0xFFFF);
+
+ for(data=0;data<1000;data++);
+
+ while(data!=0x8904)
+  data=WM8904_Read(pTwid, device, 0);
+
+ if ((0x0u << 0) == PCK) {
+  size = sizeof(wm8904_access_slow) / 4 + 1;
+  for(count=0; count<size; count++) {
+   WM8904_Write(pTwid, device, wm8904_access_slow[count].address,
+       wm8904_access_slow[count].value);
+   if(((wm8904_access_slow[count].address==0x05)
+       &&(wm8904_access_slow[count].value==0x0047))
+     ||((wm8904_access_slow[count].address==0x74)
+       &&(wm8904_access_slow[count].value==0x0005))
+     ||((wm8904_access_slow[count].address==0x12)
+       &&(wm8904_access_slow[count].value==0x000F))) {
+    Wait(5);
+   }
+   if (((wm8904_access_slow[count].address==0x44)
+       &&(wm8904_access_slow[count].value==0x00F0))
+     ||((wm8904_access_slow[count].address==0x3A)
+       &&(wm8904_access_slow[count].value==0x00B9))) {
+    Wait(100);
+   }
+  }
+ }
+ else if ((0x1u << 0) == PCK) {
+  for(count = 0; count < 255; count++) {
+   if(wm8904_access_main[count].address < 255) {
+    WM8904_Write(pTwid, device, wm8904_access_main[count].address,
+        wm8904_access_main[count].value);
+   } else {
+    break;
+   }
+  }
+ } else {
+  printf("W: PCK not supported! \n\r");
+  while(1);
+ }
+ return 0;
+}
+
+void WM8904_IN2R_IN1L(Twid *pTwid, uint32_t device)
+{
+
+
+
+
+ WM8904_Write(pTwid, device, 0x2C, 0x0008);
+ WM8904_Write(pTwid, device, 0x2D, 0x0005);
+ WM8904_Write(pTwid, device, 0x2E, 0x0000);
+ WM8904_Write(pTwid, device, 0x2F, 0x0010);
 }

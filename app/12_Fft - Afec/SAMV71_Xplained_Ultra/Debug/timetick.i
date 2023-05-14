@@ -1,5 +1,5 @@
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw//"
+# 1 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\source\\timetick.c"
+# 1 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\source//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_HOSTED__ 1
@@ -364,16 +364,8 @@
 #define ENABLE_TCM 1
 #define ARM_MATH_CM7 1
 #define __FPU_PRESENT 1
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
-# 15 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 1
-# 12 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h"
-#define STD_TYPES_H 
-
-
-
-
-
+# 1 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\source\\timetick.c"
+# 39 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\source\\timetick.c"
 # 1 "D:\\SAMV71x_FFT\\bsp\\libboard_samv7-ek/board.h" 1
 # 77 "D:\\SAMV71x_FFT\\bsp\\libboard_samv7-ek/board.h"
 #define _BOARD_H_ 
@@ -26757,309 +26749,154 @@ extern int _write( int file, char *ptr, int len );
 
 
 #define PINS_VBUS_EN {PIO_PC16, PIOC, ID_PIOC, PIO_OUTPUT_1, PIO_DEFAULT}
-# 19 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 2
+# 40 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\source\\timetick.c" 2
+# 1 "c:\\isystem\\winidea9\\gcc\\arm\\arm-none-eabi\\include\\assert.h" 1 3
+# 11 "c:\\isystem\\winidea9\\gcc\\arm\\arm-none-eabi\\include\\assert.h" 3
+#undef assert
 
 
 
-# 1 "D:\\SAMV71x_FFT\\hal\\libchip_samv7/compiler.h" 1
-# 23 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 2
 
-# 1 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\include\\cmsis\\CMSIS\\Include/core_cm7.h" 1
-# 25 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 2
+#define assert(__e) ((__e) ? (void)0 : __assert_func (__FILE__, __LINE__, __ASSERT_FUNC, #__e))
+# 39 "c:\\isystem\\winidea9\\gcc\\arm\\arm-none-eabi\\include\\assert.h" 3
+void __assert (const char *, int, const char *) __attribute__ ((__noreturn__))
+                                 ;
+void __assert_func (const char *, int, const char *, const char *) __attribute__ ((__noreturn__))
+                                 ;
+# 41 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\source\\timetick.c" 2
 
-# 1 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\include\\samv7/system_samv71.h" 1
-# 27 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 2
 
-# 1 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\include\\samv7/samv71.h" 1
-# 29 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 2
 
+#define MAX_TIMER 4
 
+static volatile uint32_t _dwTickCount = 0 ;
+static uint8_t SysTickConfigured = 0 ;
 
+static volatile uint32_t _dwTickTimer = 0 ;
+static TimeEvent *pTimeEventList = 0;
 
-
-  typedef uint8_t Std_ReturnType;
-  typedef void (*pfun) ();
-
-
-#define STATUSTYPEDEFINED 
-#define E_OK (Std_ReturnType)0x00
-#define E_NOT_OK (Std_ReturnType)0x01
-
-
-#define STD_HIGH 0x01
-#define STD_LOW 0x00
-#define STD_ACTIVE 0x01
-#define STD_IDLE 0x00
-#define STD_ON 0x01
-#define STD_OFF 0x00
-# 16 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM.h" 1
-# 18 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM.h"
-#define SCHM_H 
-
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_Types.h" 1
-# 22 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM.h" 2
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM_Cfg.h" 1
-# 12 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM_Cfg.h"
-#define _SCHM_CFG_H 
-
-
-
- typedef void ( * SchMCallbackType )( void );
-
-
- typedef enum
- {
-  TASK_1MS,
-  TASK_2MSA,
-  TASK_2MSB,
-  TASK_10MS,
-  TASK_50MS,
-  TASK_100MS,
-        TASK_SW0,
-  TASK_BKG,
- }SchMTaskIdType;
-
- typedef struct
- {
-  uint8_t TaskPriority;
-  SchMTaskIdType TaskId;
-  SchMCallbackType TaskFcnPtr;
- }SchMTaskType;
-
- typedef struct
- {
-  uint8_t NoOfTasks;
-  SchMTaskType * TaskCfg;
- }SchMCfgType;
-
-    extern SchMCfgType ScheduleConfig[];
-# 23 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM.h" 2
-
-
- void SchM_Init(SchMCfgType *SchMCfg);
-
-
- void SchM_Start(void);
-
-
- void SchM_Stop(void);
-
-
- void SchM_SchedulePoint(void);
-
-
- void SchM_ActivateTask(SchMTaskIdType TaskId);
-
-
- void SchM_Scheduler(void);
-# 18 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\LedCtrl/Led_Ctrl.h" 1
-# 13 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\LedCtrl/Led_Ctrl.h"
-#define __LED_CTRL_H 
-# 38 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\LedCtrl/Led_Ctrl.h"
-void LedCtrl_Configure( void );
-
-
-void LedCtrl_BlinkingPattern(void);
-
-
-void LedCtrl_ToogleBlinkingPattern(void);
-# 20 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Wdg/Wdg.h" 1
-# 11 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Wdg/Wdg.h"
-#define WDG_H 
-# 22 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Wdg/Wdg.h"
-#define WDG_PERIOD 250
-
-
-
-
-void Wdg_Init(uint32_t Wdg_Period);
-
-void Wdg_Restart( void );
-
-void Wdg_Disable( void );
-# 22 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\ButtonCtrl/Button_Ctrl.h" 1
-# 12 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\ButtonCtrl/Button_Ctrl.h"
-#define __BUTTON_CTRL_H 
-# 37 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\ButtonCtrl/Button_Ctrl.h"
-extern void ButtonCtrl_ConfigureSW0Button( void );
-# 24 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Fpu/Fpu.h" 1
-# 13 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Fpu/Fpu.h"
-#define __FPU_H 
-# 37 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Fpu/Fpu.h"
-void Fpu_Enable(void);
-# 26 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_DMA/Codec_DMA.h" 1
-
-#define CODEC_DMA_H_ 
-
-
-
-
-#define TOTAL_Buffers 4
-#define AUDIO_IF SSC
-
-
-#define MAX_RECORD_SIZE 0xFFFFFFFF
-
-
-#define MAX_DMA_SIZE 0x1000
-
-
-#define FFT_BUFF_SIZE (2048)
-
-extern void DMA_Configure(void);
-extern void PlayRecording(void);
-# 29 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\bsp\\libboard_samv7-ek\\include/wm8904.h" 1
-# 31 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\SSC_Config/SSC_Config.h" 1
-
-#define _SSC_Config_H_ 
-
-
-
-
-extern void SSC_Config(void);
-# 33 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-
-
-#define SAMP_PER (50)
-#define BUFF_SIZE (2048)
-
-
-#define TWI_CLOCK 400000
-
-
-
-
-float fft_inputData[(2048)];
-
-float fft_signalPower[(2048)/2];
-
-uint32_t u32fft_maxPowerIndex;
-
-float fft_maxPower;
-
-uint16_t AudioBuffer[2048];
-float fft_signalPower[(2048) / 2];
-
-
-static const Pin SscTwiPins[] = { {(1u << 3), ((Pio *)0x400E0E00U), (10), 0, (0 << 0)}, {(1u << 4), ((Pio *)0x400E0E00U), (10), 0, (0 << 0)}, {(1u << 26), ((Pio *)0x400E1400U), (16), 1, (0 << 0)}, {(1u << 1), ((Pio *)0x400E1000U), (11), 3, (0 << 0)}, {(1u << 0), ((Pio *)0x400E1000U), (11), 3, (0 << 0)}, {(1u << 10), ((Pio *)0x400E0E00U), (10), 2, (0 << 0)}, {(1u << 22), ((Pio *)0x400E0E00U), (10), 0, (0 << 0)}, {(1u << 24), ((Pio *)0x400E1400U), (16), 1, (0 << 0)}, {(1u << 18), ((Pio *)0x400E0E00U), (10), 1, (0 << 0)} };
-
-
-static Twid twid;
-
-
-
-void fft_process(void);
-
-pfun pFFT = &fft_process;
-
-
-void TWIHS0_Handler(void){
- TWID_Handler(&twid);
-}
-
-
-static void Codec_To_InputFFT(void){
-  __uint16_t u16i = 0;
- for (u16i = 0; u16i < (2048); u16i ++) {
-  fft_inputData[u16i] = (float)AudioBuffer[u16i];
- }
-}
-# 89 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
-extern int main( void )
+SyTickDelayCounter_t DelayTimer;
+# 65 "D:\\SAMV71x_FFT\\hal\\libchip_samv7\\source\\timetick.c"
+void SysTick_Handler( void )
 {
-  uint16_t data = 0;
-
-
- Wdg_Disable();
-
-
- SCB_EnableICache();
- SCB_EnableDCache();
-
-
-  Fpu_Enable();
-
- printf( "\n\r-- Scheduler Project %s --\n\r", "1.3" ) ;
- printf( "-- %s\n\r", "SAM V71 Xplained Ultra" ) ;
- printf( "-- Compiled: %s %s With %s --\n\r", "May 14 2023", "13:55:27" , "GCC");
-
-  printf("Configuracion del SystemSystick a 1ms.\n\r");
-  if (TimeTick_Configure())
-  printf("Error en la config. Systick.\n\r");
-
-
- PIO_Configure(SscTwiPins, (sizeof(SscTwiPins) / sizeof(Pin)));
-
-
- SSC_Config();
-
-
- DMA_Configure();
-
-
- PMC_EnablePeripheral((19));
- TWI_ConfigureMaster(((Twihs *)0x40018000U), 400000, 150000000);
- TWID_Initialize(&twid, ((Twihs *)0x40018000U));
-
-
- NVIC_ClearPendingIRQ(TWIHS0_IRQn);
- NVIC_EnableIRQ(TWIHS0_IRQn);
-
-
- WM8904_Write(&twid, 0x1a | (0x0 << 0), 22, 0);
- data = WM8904_Read(&twid, 0x1a | (0x0 << 0), 0);
- if (data != 0x8904) {
-  printf("WM8904 not found!\n\r");
-  while (1);
- }
-
-
- WM8904_Init(&twid, 0x1a | (0x0 << 0), (0x0u << 0));
-
- PMC_ConfigurePCK2((0x0u << 0), (0x0u << 4));
-
-
- PlayRecording();
-
-
- Codec_To_InputFFT();
-
-
- fft_process();
-
- while (1);
-
-
-  for(;;)
-  {
-   printf( "-- Unexpected Error at Scheduler Initialization --\n\r" ) ;
+  TimeEvent *pEvent;
+ pEvent = pTimeEventList;
+ _dwTickCount ++;
+ if(_dwTickTimer)
+   _dwTickTimer --;
+ while(pEvent) {
+  if(pEvent->time_start && pEvent->occur == 0) {
+   pEvent->time_tick--;
+   if(pEvent->time_tick == 0) {
+      pEvent->time_start = 0;
+      pEvent->occur = 1;
+   }
+  }
+  pEvent = pEvent->pNextEvent;
  }
 }
 
-void fft_process(void)
+void SetTimeEvent(TimeEvent* pEvent)
 {
+    pTimeEventList = pEvent;
+}
 
-  fft(fft_inputData, fft_signalPower, (2048)/2, &u32fft_maxPowerIndex, &fft_maxPower);
 
 
-  printf("%5d  %5.4f \r\n", u32fft_maxPowerIndex, fft_maxPower);
+
+
+
+
+uint32_t TimeTick_Configure( void )
+{
+ uint8_t Mdiv_Val;
+ uint32_t Pck;
+ _dwTickCount = 0 ;
+
+ { printf("-I- " "Configure system tick to get 1ms tick period.\n\r"); } ;
+
+ Mdiv_Val = ( (((Pmc *)0x400E0600U)->PMC_MCKR & (0x3u << 8)) >> 8);
+
+ if(Mdiv_Val == 0) {
+   Pck = 150000000;
+ } else if(Mdiv_Val == 3 ) {
+   Pck = 150000000 * Mdiv_Val;
+ } else {
+   Pck = 150000000 * (Mdiv_Val*2);
+ }
+
+  DelayTimer.pTimer1 = ((void *)0); DelayTimer.pTimer1=((void *)0);
+
+ if ( SysTick_Config( Pck/1000 ) ) {
+  { printf("-E- " "SysTick configuration error\n\r"); } ;
+  SysTickConfigured = 0;
+  return 1;
+ }
+ SysTickConfigured = 1;
+ return 0;
+}
+
+
+
+
+
+
+uint32_t GetDelayInTicks(uint32_t startTick, uint32_t endTick)
+{
+ ((SysTickConfigured) ? (void)0 : __assert_func ("D:\\SAMV71x_FFT\\hal\\libchip_samv7\\source\\timetick.c", 131, __FUNCTION__, "SysTickConfigured"));
+
+ if (endTick >= startTick) return (endTick - startTick);
+ return (endTick + (0xFFFFFFFF - startTick) + 1);
+
+}
+
+
+
+
+
+
+uint32_t GetTicks(void)
+{
+ ((SysTickConfigured) ? (void)0 : __assert_func ("D:\\SAMV71x_FFT\\hal\\libchip_samv7\\source\\timetick.c", 145, __FUNCTION__, "SysTickConfigured"));
+
+ return _dwTickCount;
+}
+
+
+
+
+
+void Wait( volatile uint32_t dwMs )
+{
+ uint32_t dwStart , dwEnd;
+
+ ((SysTickConfigured) ? (void)0 : __assert_func ("D:\\SAMV71x_FFT\\hal\\libchip_samv7\\source\\timetick.c", 158, __FUNCTION__, "SysTickConfigured"));
+
+ dwStart = _dwTickCount ;
+ dwEnd = _dwTickCount;
+ while(GetDelayInTicks(dwStart, dwEnd) < dwMs ){
+  dwEnd = _dwTickCount;
+ }
+}
+
+
+
+
+
+void Sleep( volatile uint32_t dwMs )
+{
+ uint32_t dwStart , dwEnd;
+
+ ((SysTickConfigured) ? (void)0 : __assert_func ("D:\\SAMV71x_FFT\\hal\\libchip_samv7\\source\\timetick.c", 175, __FUNCTION__, "SysTickConfigured"));
+
+ __asm("CPSIE   I");
+ dwStart = _dwTickCount ;
+ dwEnd = _dwTickCount;
+ do {
+  if (GetDelayInTicks(dwStart, dwEnd) < dwMs ) {
+   break ;
+  }
+  dwEnd = _dwTickCount;
+  __asm("WFI");
+ } while( 1 ) ;
 }

@@ -71,79 +71,91 @@
       <__></__>
      </Env.1>
      <IncludePath.0>
-      <Path>$(IRFDIR)..\..\..\hal\libchip_samv7\include\cmsis\CMSIS\Include</Path>
+      <Path>$(IRFDIR)..\src\Bsw\Ecual\SSC_Config</Path>
       <SubDir>0</SubDir>
      </IncludePath.0>
      <IncludePath.1>
-      <Path>$(IRFDIR)..\src\Bsw\Mcal\MicroController\Fpu</Path>
+      <Path>$(IRFDIR)..\src\Bsw\Ecual\Codec_DMA</Path>
       <SubDir>0</SubDir>
      </IncludePath.1>
      <IncludePath.10>
-      <Path>$(IRFDIR)..\..\..\bsp\libboard_samv7-ek\include</Path>
+      <Path>$(IRFDIR)..\..\..\hal\utils</Path>
       <SubDir>0</SubDir>
      </IncludePath.10>
      <IncludePath.11>
-      <Path>$(IRFDIR)..\..\..\bsp\libboard_samv7-ek</Path>
+      <Path>$(IRFDIR)..\..\..\hal\libchip_samv7\source</Path>
       <SubDir>0</SubDir>
      </IncludePath.11>
      <IncludePath.12>
-      <Path>$(IRFDIR)..\src</Path>
+      <Path>$(IRFDIR)..\..\..\hal\libchip_samv7</Path>
       <SubDir>0</SubDir>
      </IncludePath.12>
      <IncludePath.13>
-      <Path>$(IRFDIR)..\src\Commons</Path>
+      <Path>$(IRFDIR)..\..\..\bsp\libboard_samv7-ek\include</Path>
       <SubDir>0</SubDir>
      </IncludePath.13>
      <IncludePath.14>
-      <Path>$(IRFDIR)..\src\Bsw</Path>
+      <Path>$(IRFDIR)..\..\..\bsp\libboard_samv7-ek</Path>
       <SubDir>0</SubDir>
      </IncludePath.14>
      <IncludePath.15>
-      <Path>$(IRFDIR)..\src\Bsw\Ecual\LED control</Path>
+      <Path>$(IRFDIR)..\src</Path>
       <SubDir>0</SubDir>
      </IncludePath.15>
      <IncludePath.16>
-      <Path>$(IRFDIR)..\src\Bsw\Mcal\MicroController\Wdg</Path>
+      <Path>$(IRFDIR)..\src\Commons</Path>
       <SubDir>0</SubDir>
      </IncludePath.16>
      <IncludePath.17>
-      <Path>$(IRFDIR)..\src\Bsw\Services\SchM</Path>
+      <Path>$(IRFDIR)..\src\Bsw</Path>
       <SubDir>0</SubDir>
      </IncludePath.17>
      <IncludePath.18>
-      <Path>$(IRFDIR)..\src\Lib</Path>
+      <Path>$(IRFDIR)..\src\Bsw\Ecual\LED control</Path>
       <SubDir>0</SubDir>
      </IncludePath.18>
+     <IncludePath.19>
+      <Path>$(IRFDIR)..\src\Bsw\Mcal\MicroController\Wdg</Path>
+      <SubDir>0</SubDir>
+     </IncludePath.19>
      <IncludePath.2>
-      <Path>$(IRFDIR)..\src\Asw\SchMTasks</Path>
+      <Path>$(IRFDIR)..\..\..\hal\libchip_samv7\include\cmsis\CMSIS\Include</Path>
       <SubDir>0</SubDir>
      </IncludePath.2>
+     <IncludePath.20>
+      <Path>$(IRFDIR)..\src\Bsw\Services\SchM</Path>
+      <SubDir>0</SubDir>
+     </IncludePath.20>
+     <IncludePath.21>
+      <Path>$(IRFDIR)..\src\Lib</Path>
+      <SubDir>0</SubDir>
+     </IncludePath.21>
      <IncludePath.3>
-      <Path>$(IRFDIR)..\src\Bsw\Mcal\Com\Uart</Path>
+      <Path>$(IRFDIR)..\src\Bsw\Mcal\MicroController\Fpu</Path>
       <SubDir>0</SubDir>
      </IncludePath.3>
      <IncludePath.4>
-      <Path>$(IRFDIR)..\src\Bsw\Services\MemAlloc</Path>
+      <Path>$(IRFDIR)..\src\Asw\SchMTasks</Path>
       <SubDir>0</SubDir>
      </IncludePath.4>
      <IncludePath.5>
-      <Path>$(IRFDIR)..\src\Asw\ButtonCtrl</Path>
+      <Path>$(IRFDIR)..\src\Bsw\Mcal\Com\Uart</Path>
       <SubDir>0</SubDir>
      </IncludePath.5>
      <IncludePath.6>
-      <Path>$(IRFDIR)..\src\Asw\LedCtrl</Path>
+      <Path>$(IRFDIR)..\src\Bsw\Services\MemAlloc</Path>
       <SubDir>0</SubDir>
      </IncludePath.6>
      <IncludePath.7>
-      <Path>$(IRFDIR)..\..\..\hal\libchip_samv7\include\samv7</Path>
+      <Path>$(IRFDIR)..\src\Asw\ButtonCtrl</Path>
       <SubDir>0</SubDir>
      </IncludePath.7>
      <IncludePath.8>
-      <Path>$(IRFDIR)..\..\..\hal\utils</Path>
+      <Path>$(IRFDIR)..\src\Asw\LedCtrl</Path>
       <SubDir>0</SubDir>
      </IncludePath.8>
      <IncludePath.9>
-      <Path>$(IRFDIR)..\..\..\hal\libchip_samv7</Path>
+      <Path>$(IRFDIR)..\..\..\hal\libchip_samv7\include\samv7</Path>
       <SubDir>0</SubDir>
      </IncludePath.9>
      <mbBuild>
@@ -198,6 +210,20 @@
          <CompilerOptions>-x c  -mcpu=cortex-m7  -mthumb -mfloat-abi=softfp -mfpu=fpv5-sp-d16 $(DEFINES) $(INCLUDES)  -g3 -c -I $(IRFDIR) -o $(NOEXT).o $(EDNAME) -fno-builtin-fabs  -save-temps=obj -o $(OUTPUTDIR)$(NOEXT).o</CompilerOptions>
         </FileOptios>
        </File.1>
+       <File.10>
+        <FileName>$(IRFDIR)..\..\..\hal\libchip_samv7\source\ssc.c</FileName>
+        <FileOptios>
+         <CompilerDefines>__SAMV71Q21__&#xA;ENABLE_TCM&#xA;ARM_MATH_CM7&#xA;__FPU_PRESENT</CompilerDefines>
+         <CompilerOptions>-x c  -mcpu=cortex-m7  -mthumb -mfloat-abi=softfp -mfpu=fpv5-sp-d16 $(DEFINES) $(INCLUDES)  -g3 -c -I $(IRFDIR) -o $(NOEXT).o $(EDNAME) -fno-builtin-fabs  -save-temps=obj -o $(OUTPUTDIR)$(NOEXT).o</CompilerOptions>
+        </FileOptios>
+       </File.10>
+       <File.11>
+        <FileName>$(IRFDIR)..\..\..\hal\libchip_samv7\source\timetick.c</FileName>
+        <FileOptios>
+         <CompilerDefines>__SAMV71Q21__&#xA;ENABLE_TCM&#xA;ARM_MATH_CM7&#xA;__FPU_PRESENT</CompilerDefines>
+         <CompilerOptions>-x c  -mcpu=cortex-m7  -mthumb -mfloat-abi=softfp -mfpu=fpv5-sp-d16 $(DEFINES) $(INCLUDES)  -g3 -c -I $(IRFDIR) -o $(NOEXT).o $(EDNAME) -fno-builtin-fabs  -save-temps=obj -o $(OUTPUTDIR)$(NOEXT).o</CompilerOptions>
+        </FileOptios>
+       </File.11>
        <File.2>
         <FileName>$(IRFDIR)..\readme.txt</FileName>
        </File.2>
@@ -236,6 +262,20 @@
          <CompilerOptions>-x c  -mcpu=cortex-m7  -mthumb -mfloat-abi=softfp -mfpu=fpv5-sp-d16 $(DEFINES) $(INCLUDES)  -g3 -c -I $(IRFDIR) -o $(NOEXT).o $(EDNAME) -fno-builtin-fabs  -save-temps=obj -o $(OUTPUTDIR)$(NOEXT).o</CompilerOptions>
         </FileOptios>
        </File.7>
+       <File.8>
+        <FileName>$(IRFDIR)..\..\..\hal\libchip_samv7\source\twid.c</FileName>
+        <FileOptios>
+         <CompilerDefines>__SAMV71Q21__&#xA;ENABLE_TCM&#xA;ARM_MATH_CM7&#xA;__FPU_PRESENT</CompilerDefines>
+         <CompilerOptions>-x c  -mcpu=cortex-m7  -mthumb -mfloat-abi=softfp -mfpu=fpv5-sp-d16 $(DEFINES) $(INCLUDES)  -g3 -c -I $(IRFDIR) -o $(NOEXT).o $(EDNAME) -fno-builtin-fabs  -save-temps=obj -o $(OUTPUTDIR)$(NOEXT).o</CompilerOptions>
+        </FileOptios>
+       </File.8>
+       <File.9>
+        <FileName>$(IRFDIR)..\..\..\hal\libchip_samv7\source\twi.c</FileName>
+        <FileOptios>
+         <CompilerDefines>__SAMV71Q21__&#xA;ENABLE_TCM&#xA;ARM_MATH_CM7&#xA;__FPU_PRESENT</CompilerDefines>
+         <CompilerOptions>-x c  -mcpu=cortex-m7  -mthumb -mfloat-abi=softfp -mfpu=fpv5-sp-d16 $(DEFINES) $(INCLUDES)  -g3 -c -I $(IRFDIR) -o $(NOEXT).o $(EDNAME) -fno-builtin-fabs  -save-temps=obj -o $(OUTPUTDIR)$(NOEXT).o</CompilerOptions>
+        </FileOptios>
+       </File.9>
       </LinkGroup.0>
       <LinkGroup.1>
        <LinkGroupName>Toolset</LinkGroupName>
@@ -396,6 +436,27 @@
          <CompilerOptions>-x c  -mcpu=cortex-m7  -mthumb -mfloat-abi=softfp -mfpu=fpv5-sp-d16 $(DEFINES) $(INCLUDES)  -g3 -c -I $(IRFDIR) -o $(NOEXT).o $(EDNAME) -fno-builtin-fabs  -save-temps=obj -o $(OUTPUTDIR)$(NOEXT).o</CompilerOptions>
         </FileOptios>
        </File.2>
+       <File.3>
+        <FileName>$(IRFDIR)..\src\Bsw\Ecual\Codec_DMA\Codec_DMA.c</FileName>
+        <FileOptios>
+         <CompilerDefines>__SAMV71Q21__&#xA;ENABLE_TCM&#xA;ARM_MATH_CM7&#xA;__FPU_PRESENT</CompilerDefines>
+         <CompilerOptions>-x c  -mcpu=cortex-m7  -mthumb -mfloat-abi=softfp -mfpu=fpv5-sp-d16 $(DEFINES) $(INCLUDES)  -g3 -c -I $(IRFDIR) -o $(NOEXT).o $(EDNAME) -fno-builtin-fabs  -save-temps=obj -o $(OUTPUTDIR)$(NOEXT).o</CompilerOptions>
+        </FileOptios>
+       </File.3>
+       <File.4>
+        <FileName>$(IRFDIR)..\src\Bsw\Ecual\Codec_wm8904\wm8904.c</FileName>
+        <FileOptios>
+         <CompilerDefines>__SAMV71Q21__&#xA;ENABLE_TCM&#xA;ARM_MATH_CM7&#xA;__FPU_PRESENT</CompilerDefines>
+         <CompilerOptions>-x c  -mcpu=cortex-m7  -mthumb -mfloat-abi=softfp -mfpu=fpv5-sp-d16 $(DEFINES) $(INCLUDES)  -g3 -c -I $(IRFDIR) -o $(NOEXT).o $(EDNAME) -fno-builtin-fabs  -save-temps=obj -o $(OUTPUTDIR)$(NOEXT).o</CompilerOptions>
+        </FileOptios>
+       </File.4>
+       <File.5>
+        <FileName>$(IRFDIR)..\src\Bsw\Ecual\SSC_Config\SSC_Config.c</FileName>
+        <FileOptios>
+         <CompilerDefines>__SAMV71Q21__&#xA;ENABLE_TCM&#xA;ARM_MATH_CM7&#xA;__FPU_PRESENT</CompilerDefines>
+         <CompilerOptions>-x c  -mcpu=cortex-m7  -mthumb -mfloat-abi=softfp -mfpu=fpv5-sp-d16 $(DEFINES) $(INCLUDES)  -g3 -c -I $(IRFDIR) -o $(NOEXT).o $(EDNAME) -fno-builtin-fabs  -save-temps=obj -o $(OUTPUTDIR)$(NOEXT).o</CompilerOptions>
+        </FileOptios>
+       </File.5>
       </LinkGroup.5>
       <LinkGroup.6>
        <LinkGroupName>Objects</LinkGroupName>

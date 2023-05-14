@@ -1,5 +1,5 @@
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw//"
+# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\SSC_Config\\SSC_Config.c"
+# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\SSC_Config//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_HOSTED__ 1
@@ -364,14 +364,7 @@
 #define ENABLE_TCM 1
 #define ARM_MATH_CM7 1
 #define __FPU_PRESENT 1
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
-# 15 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 1
-# 12 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h"
-#define STD_TYPES_H 
-
-
-
+# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\SSC_Config\\SSC_Config.c"
 
 
 # 1 "D:\\SAMV71x_FFT\\bsp\\libboard_samv7-ek/board.h" 1
@@ -26757,10 +26750,12 @@ extern int _write( int file, char *ptr, int len );
 
 
 #define PINS_VBUS_EN {PIO_PC16, PIOC, ID_PIOC, PIO_OUTPUT_1, PIO_DEFAULT}
-# 19 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 2
+# 4 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\SSC_Config\\SSC_Config.c" 2
 
-
-
+# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 1
+# 12 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h"
+#define STD_TYPES_H 
+# 22 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h"
 # 1 "D:\\SAMV71x_FFT\\hal\\libchip_samv7/compiler.h" 1
 # 23 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_types.h" 2
 
@@ -26792,142 +26787,9 @@ extern int _write( int file, char *ptr, int len );
 #define STD_IDLE 0x00
 #define STD_ON 0x01
 #define STD_OFF 0x00
-# 16 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
+# 6 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\SSC_Config\\SSC_Config.c" 2
 
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM.h" 1
-# 18 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM.h"
-#define SCHM_H 
-
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Commons/Std_Types.h" 1
-# 22 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM.h" 2
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM_Cfg.h" 1
-# 12 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM_Cfg.h"
-#define _SCHM_CFG_H 
-
-
-
- typedef void ( * SchMCallbackType )( void );
-
-
- typedef enum
- {
-  TASK_1MS,
-  TASK_2MSA,
-  TASK_2MSB,
-  TASK_10MS,
-  TASK_50MS,
-  TASK_100MS,
-        TASK_SW0,
-  TASK_BKG,
- }SchMTaskIdType;
-
- typedef struct
- {
-  uint8_t TaskPriority;
-  SchMTaskIdType TaskId;
-  SchMCallbackType TaskFcnPtr;
- }SchMTaskType;
-
- typedef struct
- {
-  uint8_t NoOfTasks;
-  SchMTaskType * TaskCfg;
- }SchMCfgType;
-
-    extern SchMCfgType ScheduleConfig[];
-# 23 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Services\\SchM/SchM.h" 2
-
-
- void SchM_Init(SchMCfgType *SchMCfg);
-
-
- void SchM_Start(void);
-
-
- void SchM_Stop(void);
-
-
- void SchM_SchedulePoint(void);
-
-
- void SchM_ActivateTask(SchMTaskIdType TaskId);
-
-
- void SchM_Scheduler(void);
-# 18 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\LedCtrl/Led_Ctrl.h" 1
-# 13 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\LedCtrl/Led_Ctrl.h"
-#define __LED_CTRL_H 
-# 38 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\LedCtrl/Led_Ctrl.h"
-void LedCtrl_Configure( void );
-
-
-void LedCtrl_BlinkingPattern(void);
-
-
-void LedCtrl_ToogleBlinkingPattern(void);
-# 20 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Wdg/Wdg.h" 1
-# 11 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Wdg/Wdg.h"
-#define WDG_H 
-# 22 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Wdg/Wdg.h"
-#define WDG_PERIOD 250
-
-
-
-
-void Wdg_Init(uint32_t Wdg_Period);
-
-void Wdg_Restart( void );
-
-void Wdg_Disable( void );
-# 22 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\ButtonCtrl/Button_Ctrl.h" 1
-# 12 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\ButtonCtrl/Button_Ctrl.h"
-#define __BUTTON_CTRL_H 
-# 37 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\ButtonCtrl/Button_Ctrl.h"
-extern void ButtonCtrl_ConfigureSW0Button( void );
-# 24 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Fpu/Fpu.h" 1
-# 13 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Fpu/Fpu.h"
-#define __FPU_H 
-# 37 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\MicroController\\Fpu/Fpu.h"
-void Fpu_Enable(void);
-# 26 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_DMA/Codec_DMA.h" 1
-
-#define CODEC_DMA_H_ 
-
-
-
-
-#define TOTAL_Buffers 4
-#define AUDIO_IF SSC
-
-
-#define MAX_RECORD_SIZE 0xFFFFFFFF
-
-
-#define MAX_DMA_SIZE 0x1000
-
-
-#define FFT_BUFF_SIZE (2048)
-
-extern void DMA_Configure(void);
-extern void PlayRecording(void);
-# 29 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\bsp\\libboard_samv7-ek\\include/wm8904.h" 1
-# 31 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
-
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\SSC_Config/SSC_Config.h" 1
+# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\SSC_Config\\SSC_Config.h" 1
 
 #define _SSC_Config_H_ 
 
@@ -26935,131 +26797,45 @@ extern void PlayRecording(void);
 
 
 extern void SSC_Config(void);
-# 33 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
+# 8 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\SSC_Config\\SSC_Config.c" 2
+
+
+#define SAMPLE_RATE (48000)
+#define SLOT_BY_FRAME (2)
+#define BITS_BY_SLOT (16)
+#define AUDIO_IF SSC
+
+
+#define I2S_SLAVE_TX_SETTING ((SSC_TCMR_CKS_TK) | (SSC_TCMR_CKO_NONE) | (SSC_TCMR_START_TF_EDGE) | (SSC_TCMR_STTDLY(1)) | (SSC_TCMR_PERIOD(0)))
 
 
 
-#define SAMP_PER (50)
-#define BUFF_SIZE (2048)
 
 
-#define TWI_CLOCK 400000
-
+#define I2S_SLAVE_RX_SETTING ((SSC_RCMR_CKS_TK) | (SSC_RCMR_CKO_NONE) | (SSC_RCMR_CKI) | (SSC_RCMR_START_RF_EDGE) | (SSC_RCMR_STTDLY(1)) | (SSC_RCMR_PERIOD(0)))
 
 
 
-float fft_inputData[(2048)];
-
-float fft_signalPower[(2048)/2];
-
-uint32_t u32fft_maxPowerIndex;
-
-float fft_maxPower;
-
-uint16_t AudioBuffer[2048];
-float fft_signalPower[(2048) / 2];
-
-
-static const Pin SscTwiPins[] = { {(1u << 3), ((Pio *)0x400E0E00U), (10), 0, (0 << 0)}, {(1u << 4), ((Pio *)0x400E0E00U), (10), 0, (0 << 0)}, {(1u << 26), ((Pio *)0x400E1400U), (16), 1, (0 << 0)}, {(1u << 1), ((Pio *)0x400E1000U), (11), 3, (0 << 0)}, {(1u << 0), ((Pio *)0x400E1000U), (11), 3, (0 << 0)}, {(1u << 10), ((Pio *)0x400E0E00U), (10), 2, (0 << 0)}, {(1u << 22), ((Pio *)0x400E0E00U), (10), 0, (0 << 0)}, {(1u << 24), ((Pio *)0x400E1400U), (16), 1, (0 << 0)}, {(1u << 18), ((Pio *)0x400E0E00U), (10), 1, (0 << 0)} };
-
-
-static Twid twid;
 
 
 
-void fft_process(void);
-
-pfun pFFT = &fft_process;
+#define I2S_SLAVE_TX_FRM_SETTING ((SSC_TFMR_DATLEN(BITS_BY_SLOT - 1)) | (SSC_TFMR_MSBF) | (SSC_TFMR_DATNB(SLOT_BY_FRAME - 1)) | (SSC_TFMR_FSOS_NONE))
 
 
-void TWIHS0_Handler(void){
- TWID_Handler(&twid);
-}
 
 
-static void Codec_To_InputFFT(void){
-  __uint16_t u16i = 0;
- for (u16i = 0; u16i < (2048); u16i ++) {
-  fft_inputData[u16i] = (float)AudioBuffer[u16i];
- }
-}
-# 89 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
-extern int main( void )
-{
-  uint16_t data = 0;
+#define I2S_SLAVE_RX_FRM_SETTING ((SSC_RFMR_DATLEN(BITS_BY_SLOT - 1)) | (SSC_RFMR_MSBF) | (SSC_RFMR_DATNB(SLOT_BY_FRAME - 1)) | (SSC_RFMR_FSOS_NONE))
 
 
- Wdg_Disable();
 
 
- SCB_EnableICache();
- SCB_EnableDCache();
 
 
-  Fpu_Enable();
 
- printf( "\n\r-- Scheduler Project %s --\n\r", "1.3" ) ;
- printf( "-- %s\n\r", "SAM V71 Xplained Ultra" ) ;
- printf( "-- Compiled: %s %s With %s --\n\r", "May 14 2023", "13:55:27" , "GCC");
-
-  printf("Configuracion del SystemSystick a 1ms.\n\r");
-  if (TimeTick_Configure())
-  printf("Error en la config. Systick.\n\r");
-
-
- PIO_Configure(SscTwiPins, (sizeof(SscTwiPins) / sizeof(Pin)));
-
-
- SSC_Config();
-
-
- DMA_Configure();
-
-
- PMC_EnablePeripheral((19));
- TWI_ConfigureMaster(((Twihs *)0x40018000U), 400000, 150000000);
- TWID_Initialize(&twid, ((Twihs *)0x40018000U));
-
-
- NVIC_ClearPendingIRQ(TWIHS0_IRQn);
- NVIC_EnableIRQ(TWIHS0_IRQn);
-
-
- WM8904_Write(&twid, 0x1a | (0x0 << 0), 22, 0);
- data = WM8904_Read(&twid, 0x1a | (0x0 << 0), 0);
- if (data != 0x8904) {
-  printf("WM8904 not found!\n\r");
-  while (1);
- }
-
-
- WM8904_Init(&twid, 0x1a | (0x0 << 0), (0x0u << 0));
-
- PMC_ConfigurePCK2((0x0u << 0), (0x0u << 4));
-
-
- PlayRecording();
-
-
- Codec_To_InputFFT();
-
-
- fft_process();
-
- while (1);
-
-
-  for(;;)
-  {
-   printf( "-- Unexpected Error at Scheduler Initialization --\n\r" ) ;
- }
-}
-
-void fft_process(void)
-{
-
-  fft(fft_inputData, fft_signalPower, (2048)/2, &u32fft_maxPowerIndex, &fft_maxPower);
-
-
-  printf("%5d  %5.4f \r\n", u32fft_maxPowerIndex, fft_maxPower);
-}
+void SSC_Config(void){
+        SSC_Configure(((Ssc *)0x40004000U) , 0 , 150000000);
+     SSC_ConfigureReceiver(((Ssc *)0x40004000U),(((0x1u << 0)) | ((0x0u << 2)) | ((0x1u << 5)) | ((0x7u << 8)) | ((((0xffu << 16) & ((1) << 16)))) | ((((0xffu << 24) & ((0) << 24))))),(((((0x1fu << 0) & (((16) - 1) << 0)))) | ((0x1u << 7)) | ((((0xfu << 8) & (((2) - 1) << 8)))) | ((0x0u << 20))));
+     SSC_DisableReceiver(((Ssc *)0x40004000U));
+     SSC_ConfigureTransmitter(((Ssc *)0x40004000U),(((0x2u << 0)) | ((0x0u << 2)) | ((0x7u << 8)) | ((((0xffu << 16) & ((1) << 16)))) | ((((0xffu << 24) & ((0) << 24))))),(((((0x1fu << 0) & (((16) - 1) << 0)))) | ((0x1u << 7)) | ((((0xfu << 8) & (((2) - 1) << 8)))) | ((0x0u << 20))));
+     SSC_DisableTransmitter(((Ssc *)0x40004000U));
+    }
