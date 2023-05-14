@@ -26938,7 +26938,7 @@ extern int main( void )
 
  printf( "\n\r-- Scheduler Project %s --\n\r", "1.3" ) ;
  printf( "-- %s\n\r", "SAM V71 Xplained Ultra" ) ;
- printf( "-- Compiled: %s %s With %s --\n\r", "May 13 2023", "17:26:28" , "GCC");
+ printf( "-- Compiled: %s %s With %s --\n\r", "May 13 2023", "17:35:21" , "GCC");
 
 
   printf( "-- Scheduler Initialization --\n\r" ) ;
