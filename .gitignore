@@ -2,4 +2,6 @@
 bsp/
 hal/
 os/
-'app/12_Fft - Afec/SAMV71_Xplained_Ultra/Debug'
+app/12_Fft - Afec/SAMV71_Xplained_Ultra/Debug
+app/12_Fft - Afec Test 1/
+app/12_Fft - Afec Test 2/
