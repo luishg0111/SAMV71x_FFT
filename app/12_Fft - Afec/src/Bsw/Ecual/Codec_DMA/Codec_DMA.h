@@ -4,7 +4,7 @@
 #include "Std_Types.h"
 
 /** DMA Descriptor */
-#define TOTAL_Buffers            2
+#define TOTAL_Buffers            4
 #define AUDIO_IF                SSC
 
 /** MAX size of the recorded sound */
