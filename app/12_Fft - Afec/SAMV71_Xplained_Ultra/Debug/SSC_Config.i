@@ -26801,7 +26801,7 @@ extern void SSC_Config(void);
 
 
 #define SAMPLE_RATE (48000)
-#define SLOT_BY_FRAME (2)
+#define SLOT_BY_FRAME (1)
 #define BITS_BY_SLOT (16)
 #define AUDIO_IF SSC
 
@@ -26834,8 +26834,8 @@ extern void SSC_Config(void);
 
 void SSC_Config(void){
         SSC_Configure(((Ssc *)0x40004000U) , 0 , 150000000);
-     SSC_ConfigureReceiver(((Ssc *)0x40004000U),(((0x1u << 0)) | ((0x0u << 2)) | ((0x1u << 5)) | ((0x7u << 8)) | ((((0xffu << 16) & ((1) << 16)))) | ((((0xffu << 24) & ((0) << 24))))),(((((0x1fu << 0) & (((16) - 1) << 0)))) | ((0x1u << 7)) | ((((0xfu << 8) & (((2) - 1) << 8)))) | ((0x0u << 20))));
+     SSC_ConfigureReceiver(((Ssc *)0x40004000U),(((0x1u << 0)) | ((0x0u << 2)) | ((0x1u << 5)) | ((0x7u << 8)) | ((((0xffu << 16) & ((1) << 16)))) | ((((0xffu << 24) & ((0) << 24))))),(((((0x1fu << 0) & (((16) - 1) << 0)))) | ((0x1u << 7)) | ((((0xfu << 8) & (((1) - 1) << 8)))) | ((0x0u << 20))));
      SSC_DisableReceiver(((Ssc *)0x40004000U));
-     SSC_ConfigureTransmitter(((Ssc *)0x40004000U),(((0x2u << 0)) | ((0x0u << 2)) | ((0x7u << 8)) | ((((0xffu << 16) & ((1) << 16)))) | ((((0xffu << 24) & ((0) << 24))))),(((((0x1fu << 0) & (((16) - 1) << 0)))) | ((0x1u << 7)) | ((((0xfu << 8) & (((2) - 1) << 8)))) | ((0x0u << 20))));
+     SSC_ConfigureTransmitter(((Ssc *)0x40004000U),(((0x2u << 0)) | ((0x0u << 2)) | ((0x7u << 8)) | ((((0xffu << 16) & ((1) << 16)))) | ((((0xffu << 24) & ((0) << 24))))),(((((0x1fu << 0) & (((16) - 1) << 0)))) | ((0x1u << 7)) | ((((0xfu << 8) & (((1) - 1) << 8)))) | ((0x0u << 20))));
      SSC_DisableTransmitter(((Ssc *)0x40004000U));
     }

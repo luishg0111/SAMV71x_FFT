@@ -265,19 +265,13 @@ wm8904_access_slow:
 	.space	1
 	.align	2
 	.type	wm8904_access_main, %object
-	.size	wm8904_access_main, 104
+	.size	wm8904_access_main, 100
 wm8904_access_main:
-	.short	-30460
-	.byte	0
-	.space	1
 	.short	25
 	.byte	4
 	.space	1
 	.short	67
 	.byte	5
-	.space	1
-	.short	-1
-	.byte	9
 	.space	1
 	.short	3
 	.byte	12
@@ -314,6 +308,9 @@ wm8904_access_main:
 	.space	1
 	.short	0
 	.byte	47
+	.space	1
+	.short	383
+	.byte	57
 	.space	1
 	.short	173
 	.byte	58
@@ -1281,7 +1278,7 @@ WM8904_IN2R_IN1L:
 	.4byte	0x4de
 	.uleb128 0x9
 	.4byte	0xc9
-	.byte	0x19
+	.byte	0x18
 	.byte	0
 	.uleb128 0x10
 	.4byte	.LASF14121

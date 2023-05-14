@@ -26845,7 +26845,7 @@ static WM8904_PARA wm8904_access_slow[]=
 
 static WM8904_PARA wm8904_access_main[] =
 {
- { 0x8904, 0},
+
 
 
 
@@ -26854,7 +26854,7 @@ static WM8904_PARA wm8904_access_main[] =
 
 
 
- { 0xFFFF, 9},
+
 
 
  { 0x0003, 12},
@@ -26884,7 +26884,8 @@ static WM8904_PARA wm8904_access_main[] =
  { 0x0005, 45},
  { 0x0000, 46},
  { 0x0000, 47},
-# 213 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+# 212 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+ { 0x017F, 57},
  { 0x00AD, 58},
 # 222 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
  { 0x0003, 67},

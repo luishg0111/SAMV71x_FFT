@@ -401,13 +401,13 @@ xdmadCfg:
 	.space	32
 	.align	2
 AudioNextBuffer:
-	.space	8
+	.space	16
 	.align	5
 dmaWriteLinkList:
-	.space	32
+	.space	64
 	.align	5
 dmaReadLinkList:
-	.space	32
+	.space	64
 	.data
 	.type	buf_flag, %object
 	.size	buf_flag, 1
@@ -559,7 +559,7 @@ sscDmaRxClk:
 	.loc 3 49 0
 	ldr	r3, .L27+4
 	ldrb	r3, [r3]	@ zero_extendqisi2
-	cmp	r3, #2
+	cmp	r3, #4
 	bne	.L23
 	.loc 3 50 0
 	ldr	r3, .L27+4
@@ -613,65 +613,87 @@ DMA_Configure:
 	.cfi_def_cfa_offset 16
 	add	r7, sp, #0
 	.cfi_def_cfa_register 7
-	.loc 3 58 0
-	ldr	r3, .L32
+	.loc 3 59 0
+	ldr	r3, .L33
 	str	r3, [r7, #4]
-	.loc 3 61 0
+	.loc 3 62 0
 	ldr	r0, [r7, #4]
 	movs	r1, #0
 	bl	XDMAD_Initialize
-	.loc 3 63 0
+	.loc 3 65 0
 	movs	r0, #58
 	bl	NVIC_ClearPendingIRQ
-	.loc 3 64 0
+	.loc 3 66 0
 	movs	r0, #58
 	bl	NVIC_EnableIRQ
-	.loc 3 66 0
+	.loc 3 68 0
+	ldr	r0, [r7, #4]
+	movs	r1, #255
+	movs	r2, #22
+	bl	XDMAD_AllocateChannel
+	mov	r2, r0
+	ldr	r3, .L33+4
+	str	r2, [r3]
+	.loc 3 69 0
 	ldr	r0, [r7, #4]
 	movs	r1, #22
 	movs	r2, #255
 	bl	XDMAD_AllocateChannel
 	mov	r2, r0
-	ldr	r3, .L32+4
+	ldr	r3, .L33+8
 	str	r2, [r3]
-	.loc 3 67 0
-	ldr	r3, .L32+4
+	.loc 3 71 0
+	ldr	r3, .L33+8
 	ldr	r3, [r3]
 	movw	r2, #65535
 	cmp	r3, r2
-	bne	.L30
-	.loc 3 68 0
-	ldr	r0, .L32+8
-	bl	printf
-.L31:
-	.loc 3 69 0 discriminator 1
-	b	.L31
+	beq	.L30
+	.loc 3 71 0 is_stmt 0 discriminator 1
+	ldr	r3, .L33+4
+	ldr	r3, [r3]
+	movw	r2, #65535
+	cmp	r3, r2
+	bne	.L31
 .L30:
-	.loc 3 72 0
-	ldr	r3, .L32+4
+	.loc 3 72 0 is_stmt 1
+	ldr	r0, .L33+12
+	bl	printf
+.L32:
+	.loc 3 73 0 discriminator 1
+	b	.L32
+.L31:
+	.loc 3 76 0
+	ldr	r3, .L33+8
 	ldr	r3, [r3]
 	ldr	r0, [r7, #4]
 	mov	r1, r3
-	ldr	r2, .L32+12
+	ldr	r2, .L33+16
 	movs	r3, #0
 	bl	XDMAD_SetCallback
-	.loc 3 73 0
-	ldr	r3, .L32+4
+	.loc 3 77 0
+	ldr	r3, .L33+4
 	ldr	r3, [r3]
 	ldr	r0, [r7, #4]
 	mov	r1, r3
 	bl	XDMAD_PrepareChannel
-	.loc 3 74 0
+	.loc 3 78 0
+	ldr	r3, .L33+8
+	ldr	r3, [r3]
+	ldr	r0, [r7, #4]
+	mov	r1, r3
+	bl	XDMAD_PrepareChannel
+	.loc 3 79 0
 	adds	r7, r7, #8
 	.cfi_def_cfa_offset 8
 	mov	sp, r7
 	.cfi_def_cfa_register 13
 	@ sp needed
 	pop	{r7, pc}
-.L33:
+.L34:
 	.align	2
-.L32:
+.L33:
 	.word	dmad
+	.word	sscDmaTxChannel
 	.word	sscDmaRxChannel
 	.word	.LC1
 	.word	sscDmaRxClk
@@ -685,7 +707,7 @@ DMA_Configure:
 	.type	PlayRecording, %function
 PlayRecording:
 .LFB287:
-	.loc 3 78 0
+	.loc 3 83 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 16
 	@ frame_needed = 1, uses_anonymous_args = 0
@@ -697,246 +719,246 @@ PlayRecording:
 	.cfi_def_cfa_offset 32
 	add	r7, sp, #8
 	.cfi_def_cfa 7, 24
-	.loc 3 84 0
-	ldr	r3, .L43
+	.loc 3 89 0
+	ldr	r3, .L44
 	str	r3, [r7, #12]
-	.loc 3 85 0
+	.loc 3 90 0
 	movs	r3, #0
 	strb	r3, [r7, #11]
-	b	.L35
-.L38:
-	.loc 3 86 0
-	ldrb	r3, [r7, #11]	@ zero_extendqisi2
-	ldr	r2, .L43+4
-	lsls	r3, r3, #4
-	add	r3, r3, r2
-	ldr	r2, .L43+8
-	str	r2, [r3, #4]
-	.loc 3 90 0
-	ldrb	r3, [r7, #11]	@ zero_extendqisi2
-	ldr	r2, .L43+4
-	lsls	r3, r3, #4
-	add	r3, r3, r2
-	adds	r3, r3, #8
-	ldr	r2, .L43+12
-	str	r2, [r3]
+	b	.L36
+.L39:
 	.loc 3 91 0
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
+	ldr	r2, .L44+4
+	lsls	r3, r3, #4
+	add	r3, r3, r2
+	ldr	r2, .L44+8
+	str	r2, [r3, #4]
+	.loc 3 95 0
+	ldrb	r3, [r7, #11]	@ zero_extendqisi2
+	ldr	r2, .L44+4
+	lsls	r3, r3, #4
+	add	r3, r3, r2
+	adds	r3, r3, #8
+	ldr	r2, .L44+12
+	str	r2, [r3]
+	.loc 3 96 0
+	ldrb	r3, [r7, #11]	@ zero_extendqisi2
 	ldr	r2, [r7, #12]
-	ldr	r1, .L43+4
+	ldr	r1, .L44+4
 	lsls	r3, r3, #4
 	add	r3, r3, r1
 	adds	r3, r3, #8
 	str	r2, [r3, #4]
-	.loc 3 92 0
+	.loc 3 97 0
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
-	cmp	r3, #1
-	bne	.L36
-	.loc 3 93 0
+	cmp	r3, #3
+	bne	.L37
+	.loc 3 98 0
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
-	ldr	r2, .L43+4
-	ldr	r1, .L43+4
+	ldr	r2, .L44+4
+	ldr	r1, .L44+4
 	lsls	r3, r3, #4
 	add	r3, r3, r1
 	str	r2, [r3]
-	b	.L37
-.L36:
-	.loc 3 95 0
+	b	.L38
+.L37:
+	.loc 3 100 0
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
 	ldrb	r2, [r7, #11]	@ zero_extendqisi2
 	adds	r2, r2, #1
 	lsls	r2, r2, #4
-	ldr	r1, .L43+4
+	ldr	r1, .L44+4
 	add	r2, r2, r1
 	mov	r1, r2
-	ldr	r2, .L43+4
+	ldr	r2, .L44+4
 	lsls	r3, r3, #4
 	add	r3, r3, r2
 	str	r1, [r3]
-.L37:
-	.loc 3 96 0 discriminator 2
+.L38:
+	.loc 3 101 0 discriminator 2
 	ldr	r3, [r7, #12]
 	add	r3, r3, #8192
 	str	r3, [r7, #12]
-	.loc 3 85 0 discriminator 2
+	.loc 3 90 0 discriminator 2
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
 	adds	r3, r3, #1
 	strb	r3, [r7, #11]
-.L35:
-	.loc 3 85 0 is_stmt 0 discriminator 1
+.L36:
+	.loc 3 90 0 is_stmt 0 discriminator 1
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
-	cmp	r3, #1
-	bls	.L38
-	.loc 3 108 0 is_stmt 1
+	cmp	r3, #3
+	bls	.L39
+	.loc 3 113 0 is_stmt 1
 	movs	r0, #22
 	movs	r1, #1
 	bl	XDMAIF_Get_ChannelNumber
 	mov	r3, r0
 	lsls	r3, r3, #24
 	and	r2, r3, #2130706432
-	ldr	r3, .L43+16
+	ldr	r3, .L44+16
 	orrs	r3, r3, r2
-	.loc 3 99 0
-	ldr	r2, .L43+20
+	.loc 3 104 0
+	ldr	r2, .L44+20
 	str	r3, [r2, #12]
-	.loc 3 109 0
+	.loc 3 114 0
 	movs	r3, #15
 	str	r3, [r7, #4]
-	.loc 3 116 0
+	.loc 3 120 0
 	bl	SCB_CleanDCache
-	.loc 3 118 0
-	ldr	r3, .L43+24
+	.loc 3 123 0
+	ldr	r3, .L44+24
 	ldr	r2, [r3]
-	ldr	r3, .L43+4
+	ldr	r3, .L44+4
 	str	r3, [sp]
 	movs	r3, #1
 	str	r3, [sp, #4]
-	ldr	r0, .L43+28
+	ldr	r0, .L44+28
 	mov	r1, r2
-	ldr	r2, .L43+20
+	ldr	r2, .L44+20
 	ldr	r3, [r7, #4]
 	bl	XDMAD_ConfigureTransfer
-	.loc 3 122 0
-	ldr	r3, .L43
+	.loc 3 127 0
+	ldr	r3, .L44
 	str	r3, [r7, #12]
-	.loc 3 123 0
+	.loc 3 128 0
 	movs	r3, #0
 	strb	r3, [r7, #11]
-	b	.L39
-.L42:
-	.loc 3 124 0
-	ldrb	r3, [r7, #11]	@ zero_extendqisi2
-	ldr	r2, .L43+32
-	lsls	r3, r3, #4
-	add	r3, r3, r2
-	ldr	r2, .L43+8
-	str	r2, [r3, #4]
-	.loc 3 128 0
-	ldrb	r3, [r7, #11]	@ zero_extendqisi2
-	ldr	r2, [r7, #12]
-	ldr	r1, .L43+32
-	lsls	r3, r3, #4
-	add	r3, r3, r1
-	adds	r3, r3, #8
-	str	r2, [r3]
+	b	.L40
+.L43:
 	.loc 3 129 0
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
-	ldr	r2, .L43+32
+	ldr	r2, .L44+32
+	lsls	r3, r3, #4
+	add	r3, r3, r2
+	ldr	r2, .L44+8
+	str	r2, [r3, #4]
+	.loc 3 133 0
+	ldrb	r3, [r7, #11]	@ zero_extendqisi2
+	ldr	r2, [r7, #12]
+	ldr	r1, .L44+32
+	lsls	r3, r3, #4
+	add	r3, r3, r1
+	adds	r3, r3, #8
+	str	r2, [r3]
+	.loc 3 134 0
+	ldrb	r3, [r7, #11]	@ zero_extendqisi2
+	ldr	r2, .L44+32
 	lsls	r3, r3, #4
 	add	r3, r3, r2
 	adds	r3, r3, #8
-	ldr	r2, .L43+36
+	ldr	r2, .L44+36
 	str	r2, [r3, #4]
-	.loc 3 130 0
+	.loc 3 135 0
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
-	cmp	r3, #1
-	bne	.L40
-	.loc 3 131 0
+	cmp	r3, #3
+	bne	.L41
+	.loc 3 136 0
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
-	ldr	r2, .L43+32
-	ldr	r1, .L43+32
+	ldr	r2, .L44+32
+	ldr	r1, .L44+32
 	lsls	r3, r3, #4
 	add	r3, r3, r1
 	str	r2, [r3]
-	b	.L41
-.L40:
-	.loc 3 133 0
+	b	.L42
+.L41:
+	.loc 3 138 0
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
 	ldrb	r2, [r7, #11]	@ zero_extendqisi2
 	adds	r2, r2, #1
 	lsls	r2, r2, #4
-	ldr	r1, .L43+32
+	ldr	r1, .L44+32
 	add	r2, r2, r1
 	mov	r1, r2
-	ldr	r2, .L43+32
+	ldr	r2, .L44+32
 	lsls	r3, r3, #4
 	add	r3, r3, r2
 	str	r1, [r3]
-.L41:
-	.loc 3 134 0 discriminator 2
+.L42:
+	.loc 3 139 0 discriminator 2
 	ldr	r3, [r7, #12]
 	add	r3, r3, #8192
 	str	r3, [r7, #12]
-	.loc 3 123 0 discriminator 2
+	.loc 3 128 0 discriminator 2
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
 	adds	r3, r3, #1
 	strb	r3, [r7, #11]
-.L39:
-	.loc 3 123 0 is_stmt 0 discriminator 1
+.L40:
+	.loc 3 128 0 is_stmt 0 discriminator 1
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
-	cmp	r3, #1
-	bls	.L42
-	.loc 3 146 0 is_stmt 1
+	cmp	r3, #3
+	bls	.L43
+	.loc 3 151 0 is_stmt 1
 	movs	r0, #22
 	movs	r1, #0
 	bl	XDMAIF_Get_ChannelNumber
 	mov	r3, r0
 	lsls	r3, r3, #24
 	and	r2, r3, #2130706432
-	ldr	r3, .L43+40
+	ldr	r3, .L44+40
 	orrs	r3, r3, r2
-	.loc 3 137 0
-	ldr	r2, .L43+20
+	.loc 3 142 0
+	ldr	r2, .L44+20
 	str	r3, [r2, #12]
-	.loc 3 147 0
+	.loc 3 152 0
 	movs	r3, #15
 	str	r3, [r7, #4]
-	.loc 3 152 0
+	.loc 3 157 0
 	bl	SCB_CleanDCache
-	.loc 3 154 0
-	ldr	r3, .L43+44
+	.loc 3 159 0
+	ldr	r3, .L44+44
 	ldr	r2, [r3]
-	ldr	r3, .L43+32
+	ldr	r3, .L44+32
 	str	r3, [sp]
 	movs	r3, #2
 	str	r3, [sp, #4]
-	ldr	r0, .L43+28
+	ldr	r0, .L44+28
 	mov	r1, r2
-	ldr	r2, .L43+20
+	ldr	r2, .L44+20
 	ldr	r3, [r7, #4]
 	bl	XDMAD_ConfigureTransfer
-	.loc 3 159 0
+	.loc 3 164 0
 	mov	r0, #1073758208
 	bl	SSC_EnableReceiver
-	.loc 3 160 0
-	ldr	r3, .L43+24
+	.loc 3 165 0
+	ldr	r3, .L44+24
 	ldr	r3, [r3]
-	ldr	r0, .L43+28
+	ldr	r0, .L44+28
 	mov	r1, r3
 	bl	XDMAD_StartTransfer
-	.loc 3 162 0
-	mov	r0, #400
+	.loc 3 167 0
+	mov	r0, #300
 	bl	Wait
-	.loc 3 165 0
-	ldr	r3, .L43+24
+	.loc 3 170 0
+	ldr	r3, .L44+24
 	ldr	r3, [r3]
-	ldr	r0, .L43+28
+	ldr	r0, .L44+28
 	mov	r1, r3
 	bl	XDMAD_StopTransfer
-	.loc 3 167 0
-	mov	r0, #400
+	.loc 3 172 0
+	mov	r0, #300
 	bl	Wait
-	.loc 3 169 0
+	.loc 3 174 0
 	mov	r0, #1073758208
 	bl	SSC_EnableTransmitter
-	.loc 3 170 0
-	ldr	r3, .L43+44
+	.loc 3 175 0
+	ldr	r3, .L44+44
 	ldr	r3, [r3]
-	ldr	r0, .L43+28
+	ldr	r0, .L44+28
 	mov	r1, r3
 	bl	XDMAD_StartTransfer
-	.loc 3 171 0
+	.loc 3 176 0
 	bl	SCB_CleanInvalidateDCache
-	.loc 3 173 0
+	.loc 3 178 0
 	adds	r7, r7, #16
 	.cfi_def_cfa_offset 8
 	mov	sp, r7
 	.cfi_def_cfa_register 13
 	@ sp needed
 	pop	{r7, pc}
-.L44:
+.L45:
 	.align	2
-.L43:
+.L44:
 	.word	AudioBuffer
 	.word	dmaReadLinkList
 	.word	184553472
@@ -2804,7 +2826,7 @@ PlayRecording:
 	.uleb128 0x30
 	.4byte	.LASF14319
 	.byte	0x3
-	.byte	0x3a
+	.byte	0x3b
 	.4byte	0xc62
 	.uleb128 0x2
 	.byte	0x91
@@ -2813,7 +2835,7 @@ PlayRecording:
 	.uleb128 0x2f
 	.4byte	.LASF14321
 	.byte	0x3
-	.byte	0x4d
+	.byte	0x52
 	.4byte	.LFB287
 	.4byte	.LFE287-.LFB287
 	.uleb128 0x1
@@ -2822,7 +2844,7 @@ PlayRecording:
 	.uleb128 0x31
 	.ascii	"src\000"
 	.byte	0x3
-	.byte	0x4f
+	.byte	0x54
 	.4byte	0xf7e
 	.uleb128 0x2
 	.byte	0x91
@@ -2830,7 +2852,7 @@ PlayRecording:
 	.uleb128 0x31
 	.ascii	"i\000"
 	.byte	0x3
-	.byte	0x50
+	.byte	0x55
 	.4byte	0x9b
 	.uleb128 0x2
 	.byte	0x91
@@ -2838,7 +2860,7 @@ PlayRecording:
 	.uleb128 0x30
 	.4byte	.LASF14322
 	.byte	0x3
-	.byte	0x51
+	.byte	0x56
 	.4byte	0xbc
 	.uleb128 0x2
 	.byte	0x91
@@ -2905,7 +2927,7 @@ PlayRecording:
 	.4byte	.LASF14330
 	.byte	0x3
 	.byte	0x10
-	.4byte	0x690
+	.4byte	0x6aa
 	.uleb128 0x5
 	.byte	0x3
 	.4byte	AudioNextBuffer
@@ -2914,7 +2936,7 @@ PlayRecording:
 	.4byte	0x1019
 	.uleb128 0xd
 	.4byte	0x352
-	.byte	0x1
+	.byte	0x3
 	.byte	0
 	.uleb128 0x30
 	.4byte	.LASF14331
@@ -2960,7 +2982,7 @@ PlayRecording:
 	.4byte	0x107f
 	.uleb128 0xf
 	.4byte	0x352
-	.2byte	0x7ff
+	.2byte	0x7fff
 	.byte	0
 	.uleb128 0x33
 	.4byte	.LASF14336
@@ -48415,7 +48437,7 @@ PlayRecording:
 	.uleb128 0x30
 	.4byte	.LASF14062
 	.byte	0
-	.section	.debug_macro,"G",%progbits,wm4.Codec_DMA.h.7.039d56f2824e3865ac7bc1a0c44d2d6f,comdat
+	.section	.debug_macro,"G",%progbits,wm4.Codec_DMA.h.7.6ad9cc664893e41f77bca05e3e4763a4,comdat
 .Ldebug_macro183:
 	.2byte	0x4
 	.byte	0
@@ -59758,6 +59780,8 @@ PlayRecording:
 	.ascii	"PIO_LSR_P3 (0x1u << 3)\000"
 .LASF1324:
 	.ascii	"AFEC_EMR_SIGNMODE_ALL_UNSIGNED (0x2u << 28)\000"
+.LASF14064:
+	.ascii	"TOTAL_Buffers 4\000"
 .LASF2244:
 	.ascii	"GMAC_AE_AER_Pos 0\000"
 .LASF14190:
@@ -66306,8 +66330,6 @@ PlayRecording:
 	.ascii	"MCAN_CCCR_CSR_CLOCK_STOP (0x1u << 4)\000"
 .LASF11390:
 	.ascii	"REG_PIOA_IFER (*(__O uint32_t*)0x400E0E20U)\000"
-.LASF14064:
-	.ascii	"TOTAL_Buffers 2\000"
 .LASF4423:
 	.ascii	"PIO_MDDR_P4 (0x1u << 4)\000"
 .LASF5572:

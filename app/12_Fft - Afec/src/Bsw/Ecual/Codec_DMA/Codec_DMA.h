@@ -16,6 +16,7 @@
 /* Buffer Size*/
 #define FFT_BUFF_SIZE (2048)
 
+extern void XDMAC_Handler(void);
 extern void DMA_Configure(void);
 extern void PlayRecording(void);
 

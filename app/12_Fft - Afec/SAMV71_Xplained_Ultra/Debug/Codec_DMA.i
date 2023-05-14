@@ -26801,7 +26801,7 @@ extern int _write( int file, char *ptr, int len );
 # 5 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA\\Codec_DMA.h" 2
 
 
-#define TOTAL_Buffers 2
+#define TOTAL_Buffers 4
 #define AUDIO_IF SSC
 
 
@@ -26813,6 +26813,7 @@ extern int _write( int file, char *ptr, int len );
 
 #define FFT_BUFF_SIZE (2048)
 
+extern void XDMAC_Handler(void);
 extern void DMA_Configure(void);
 extern void PlayRecording(void);
 # 4 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA\\Codec_DMA.c" 2
@@ -26826,14 +26827,14 @@ static uint32_t sscDmaTxChannel;
 
 static sXdmadCfg xdmadCfg;
 
-extern uint16_t AudioBuffer[2048];
+extern uint16_t AudioBuffer[4*0x1000 * (16 / 8)];
 
-static uint32_t AudioNextBuffer[2] = { 0 };
+static uint32_t AudioNextBuffer[4] = { 0 };
 
 
-__attribute__((__aligned__(32))) static LinkedListDescriporView1 dmaWriteLinkList[2];
+__attribute__((__aligned__(32))) static LinkedListDescriporView1 dmaWriteLinkList[4];
 
-__attribute__((__aligned__(32))) static LinkedListDescriporView1 dmaReadLinkList[2];
+__attribute__((__aligned__(32))) static LinkedListDescriporView1 dmaReadLinkList[4];
 
 static uint8_t buf_flag = 1;
 static _Bool cpu_flag = 0;
@@ -26861,7 +26862,7 @@ static void sscDmaRxClk(uint32_t Channel, void* pArg)
  }
 
  buf_flag++;
- if (buf_flag == 2) {
+ if (buf_flag == 4) {
   buf_flag = 0;
 
   cpu_flag = 1;
@@ -26870,21 +26871,26 @@ static void sscDmaRxClk(uint32_t Channel, void* pArg)
 
 
 void DMA_Configure(void){
+
  sXdmad* pDmad = &dmad;
 
 
  XDMAD_Initialize(pDmad, 0);
 
+
  NVIC_ClearPendingIRQ(XDMAC_IRQn);
  NVIC_EnableIRQ(XDMAC_IRQn);
 
+ sscDmaTxChannel = XDMAD_AllocateChannel(pDmad, 0xFF, (22));
  sscDmaRxChannel = XDMAD_AllocateChannel(pDmad, (22), 0xFF);
- if (sscDmaRxChannel == 0xFFFF) {
+
+ if (sscDmaRxChannel == 0xFFFF || sscDmaTxChannel == 0xFFFF) {
   printf("xDMA channel allocation error\n\r");
   while (1);
  }
 
  XDMAD_SetCallback(pDmad, sscDmaRxChannel, sscDmaRxClk, 0);
+ XDMAD_PrepareChannel(pDmad, sscDmaTxChannel);
  XDMAD_PrepareChannel(pDmad, sscDmaRxChannel);
 }
 
@@ -26897,14 +26903,14 @@ void PlayRecording(void)
 
 
  src = &AudioBuffer[0];
- for (i = 0; i < 2; i++) {
+ for (i = 0; i < 4; i++) {
   dmaReadLinkList[i].mbr_ubc = (0x1u << 27)
    | (0x1u << 24)
    | (0x1u << 25)
    | (((0xffffffu << 0) & ((0x1000) << 0)));
-  dmaReadLinkList[i].mbr_sa = (uint32_t) & (((Ssc *)0x40004000U)->SSC_RHR);
+  dmaReadLinkList[i].mbr_sa = (uint32_t)&(((Ssc *)0x40004000U)->SSC_RHR);
   dmaReadLinkList[i].mbr_da = (uint32_t)(src);
-  if (i == (2 - 1))
+  if (i == (4 - 1))
    dmaReadLinkList[i].mbr_nda = (uint32_t)&dmaReadLinkList[0];
   else
    dmaReadLinkList[i].mbr_nda = (uint32_t)&dmaReadLinkList[i + 1];
@@ -26927,22 +26933,22 @@ void PlayRecording(void)
   | (0x1u << 2);
 
 
-
  SCB_CleanDCache();
+
 
  XDMAD_ConfigureTransfer(&dmad, sscDmaRxChannel, &xdmadCfg, xdmaCndc,
   (uint32_t)&dmaReadLinkList[0], (0x1u << 0));
 
 
-src = &AudioBuffer[0];
- for (i = 0; i < 2; i++) {
+ src = &AudioBuffer[0];
+ for (i = 0; i < 4; i++) {
   dmaWriteLinkList[i].mbr_ubc = (0x1u << 27)
    | (0x1u << 24)
    | (0x1u << 25)
    | (((0xffffffu << 0) & ((0x1000) << 0)));
   dmaWriteLinkList[i].mbr_sa = (uint32_t)(src);
   dmaWriteLinkList[i].mbr_da = (uint32_t)&(((Ssc *)0x40004000U)->SSC_THR);
-  if (i == (2 - 1))
+  if (i == (4 - 1))
    dmaWriteLinkList[i].mbr_nda = (uint32_t)&dmaWriteLinkList[0];
   else
    dmaWriteLinkList[i].mbr_nda = (uint32_t)&dmaWriteLinkList[i + 1];
@@ -26974,12 +26980,12 @@ src = &AudioBuffer[0];
  SSC_EnableReceiver(((Ssc *)0x40004000U));
  XDMAD_StartTransfer(&dmad, sscDmaRxChannel);
 
- Wait(400);
+ Wait(300);
 
 
  XDMAD_StopTransfer(&dmad, sscDmaRxChannel);
 
- Wait(400);
+ Wait(300);
 
  SSC_EnableTransmitter(((Ssc *)0x40004000U));
  XDMAD_StartTransfer( &dmad, sscDmaTxChannel);

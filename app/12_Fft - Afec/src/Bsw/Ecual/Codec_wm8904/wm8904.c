@@ -152,7 +152,7 @@ static WM8904_PARA wm8904_access_slow[]=
 
 static WM8904_PARA wm8904_access_main[] = 
 { 
-	{ 0x8904, 0}, /** R0   - SW Reset and ID */ 
+	//{ 0x8904, 0}, /** R0   - SW Reset and ID */ 
 	//{ 0x0000, 1}, /** R1   - Revision */ 
 	//{ 0x0000, 2}, /** R2 */ 
 	//{ 0x0000, 3}, /** R3 */ 
@@ -161,7 +161,7 @@ static WM8904_PARA wm8904_access_main[] =
 	//{ 0x0003, 6},   /** R6   - Mic Bias Control 0 */ 
 	//{ 0xC000, 7},   /** R7   - Mic Bias Control 1 */ 
 	//{ 0x001E, 8},   /** R8   - Analogue DAC 0 */ 
-	{ 0xFFFF, 9},   /** R9   - mic Filter Control */ 
+	//{ 0xFFFF, 9},   /** R9   - mic Filter Control */ 
 	//{ 0x0001, 10},  /** R10  - Analogue ADC 0 */ 
 	//{ 0x0000, 11},  /** R11 */ 
 	{ 0x0003, 12},  /** R12  - Power Management 0 */ 
@@ -209,7 +209,7 @@ static WM8904_PARA wm8904_access_main[] =
 	//{ 0x0000, 54},  /** R54 */ 
 	//{ 0x0000, 55},  /** R55 */ 
 	//{ 0x0000, 56},  /** R56 */ 
-	//{ 0x017F, 57},  /** R57  - Analogue OUT1 Left */ 
+	{ 0x017F, 57},  /** R57  - Analogue OUT1 Left */ 
 	{ 0x00AD, 58},  /** R58  - Analogue OUT1 Right */ 
 	//{ 0x017F, 59},  /** R59  - Analogue OUT2 Left */ 
 	//{ 0x017F, 60},  /** R60  - Analogue OUT2 Right */ 

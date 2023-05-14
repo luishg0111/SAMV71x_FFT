@@ -14,13 +14,13 @@
 /** Main group of includes for board definitions, chip definitions and type definitions */
 #include    "Std_types.h"
 /** Task scheduler definitions */
-#include    "SchM.h"
+//#include    "SchM.h"
 /** LED control definitions */ 
-#include    "Led_Ctrl.h"
+//#include    "Led_Ctrl.h"
 /** Watchdog control function prototypes definitions */
 #include    "Wdg.h"
 /** Button control operations */
-#include    "Button_Ctrl.h"
+//#include    "Button_Ctrl.h"
 /** Floating Point Unit */
 #include    "Fpu.h"
 
@@ -28,7 +28,7 @@
 #include    "Codec_DMA.h"
 /*  libreria de AudioCodec    */
 #include "wm8904.h"
-
+/*  libreria de Serial Synchronous Controller    */
 #include "SSC_Config.h"
 
 /*~~~~~~  Local definitions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
