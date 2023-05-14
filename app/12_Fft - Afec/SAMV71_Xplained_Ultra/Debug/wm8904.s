@@ -30,7 +30,7 @@ cpu_irq_prev_interrupt_state:
 	.type	WM8904_Read, %function
 WM8904_Read:
 .LFB283:
-	.file 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+	.file 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
 	.loc 1 66 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 24
@@ -262,7 +262,7 @@ wm8904_access_slow:
 	.space	1
 	.align	2
 	.type	wm8904_access_main, %object
-	.size	wm8904_access_main, 96
+	.size	wm8904_access_main, 100
 wm8904_access_main:
 	.short	25
 	.byte	4
@@ -305,6 +305,9 @@ wm8904_access_main:
 	.space	1
 	.short	0
 	.byte	47
+	.space	1
+	.short	383
+	.byte	57
 	.space	1
 	.short	173
 	.byte	58
@@ -475,7 +478,7 @@ WM8904_Init:
 	bne	.L14
 .L12:
 	.loc 1 431 0
-	movs	r0, #5
+	movs	r0, #10
 	bl	Wait
 .L14:
 	.loc 1 433 0
@@ -1272,7 +1275,7 @@ WM8904_IN2R_IN1L:
 	.4byte	0x4de
 	.uleb128 0x9
 	.4byte	0xc9
-	.byte	0x17
+	.byte	0x18
 	.byte	0
 	.uleb128 0x10
 	.4byte	.LASF14121
@@ -4416,7 +4419,7 @@ WM8904_IN2R_IN1L:
 	.byte	0x7
 	.4byte	.Ldebug_macro181
 	.byte	0x4
-	.file 212 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.h"
+	.file 212 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.h"
 	.byte	0x3
 	.uleb128 0x2a
 	.uleb128 0xd4
@@ -55460,9 +55463,6 @@ WM8904_IN2R_IN1L:
 .LASF13984:
 	.ascii	"BOARD_ISI_VSYNC {PIO_PD25D_ISI_VSYNC, PIOD, ID_PIOD"
 	.ascii	", PIO_PERIPH_D, PIO_DEFAULT}\000"
-.LASF14124:
-	.ascii	"C:\\\\SAMV71x\\\\app\\\\12_Fft_AFEC_Test\\\\src\\\\"
-	.ascii	"Bsw\\\\Ecual\\\\Codec_wm8904\000"
 .LASF7871:
 	.ascii	"TWIHS_CR_CLEAR (0x1u << 15)\000"
 .LASF3993:
@@ -60662,9 +60662,6 @@ WM8904_IN2R_IN1L:
 	.ascii	"os)\000"
 .LASF3628:
 	.ascii	"MCAN_TXBCF_CF1 (0x1u << 1)\000"
-.LASF14123:
-	.ascii	"C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual"
-	.ascii	"\\Codec_wm8904\\wm8904.c\000"
 .LASF10650:
 	.ascii	"REG_TC3_IMR2 (*(__I uint32_t*)0x400540ACU)\000"
 .LASF3786:
@@ -60946,6 +60943,9 @@ WM8904_IN2R_IN1L:
 	.ascii	"_SAMV71_TC2_INSTANCE_ \000"
 .LASF1464:
 	.ascii	"AFEC_ISR_EOC3 (0x1u << 3)\000"
+.LASF14124:
+	.ascii	"C:\\\\SAMV71x\\\\app\\\\AFEC_Test\\\\src\\\\Bsw\\\\"
+	.ascii	"Ecual\\\\Codec_wm8904\000"
 .LASF8034:
 	.ascii	"UART_MR_PAR_Pos 9\000"
 .LASF5379:
@@ -70653,6 +70653,9 @@ WM8904_IN2R_IN1L:
 	.ascii	"PIO_AIMMR_P17 (0x1u << 17)\000"
 .LASF7601:
 	.ascii	"TC_CMR_TCCLKS_TIMER_CLOCK2 (0x1u << 0)\000"
+.LASF14123:
+	.ascii	"C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec"
+	.ascii	"_wm8904\\wm8904.c\000"
 .LASF9911:
 	.ascii	"REG_TC2_RA2 (*(__IO uint32_t*)0x40014094U)\000"
 .LASF2609:

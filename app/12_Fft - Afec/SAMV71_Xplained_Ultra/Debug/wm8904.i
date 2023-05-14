@@ -1,5 +1,5 @@
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904//"
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_HOSTED__ 1
@@ -364,8 +364,8 @@
 #define ENABLE_TCM 1
 #define ARM_MATH_CM7 1
 #define __FPU_PRESENT 1
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
-# 41 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+# 41 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
 # 1 "C:\\SAMV71x\\bsp\\libboard_samv7-ek/board.h" 1
 # 77 "C:\\SAMV71x\\bsp\\libboard_samv7-ek/board.h"
 #define _BOARD_H_ 
@@ -26749,9 +26749,9 @@ extern int _write( int file, char *ptr, int len );
 
 
 #define PINS_VBUS_EN {PIO_PC16, PIOC, ID_PIOC, PIO_OUTPUT_1, PIO_DEFAULT}
-# 42 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c" 2
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.h" 1
-# 43 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c" 2
+# 42 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c" 2
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.h" 1
+# 43 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c" 2
 
 
 
@@ -26760,7 +26760,7 @@ typedef struct {
     uint16_t value;
     uint8_t address;
   }WM8904_PARA;
-# 63 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+# 63 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
 uint16_t WM8904_Read(Twid *pTwid,
   uint32_t device,
   uint32_t regAddr)
@@ -26772,7 +26772,7 @@ uint16_t WM8904_Read(Twid *pTwid,
  bitsDataRegister = (Tdata[0] << 8) | Tdata[1];
  return bitsDataRegister;
 }
-# 83 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+# 83 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
 void WM8904_Write(Twid *pTwid,
   uint32_t device,
   uint32_t regAddr,
@@ -26879,16 +26879,17 @@ static WM8904_PARA wm8904_access_main[] =
 
 
  { 0x0000, 33},
-# 199 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+# 199 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
  { 0x0005, 44},
  { 0x0005, 45},
  { 0x0000, 46},
  { 0x0000, 47},
-# 213 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+# 212 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+ { 0x017F, 57},
  { 0x00AD, 58},
-# 222 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+# 222 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
  { 0x0003, 67},
-# 245 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+# 245 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
  { 0x00FF, 90},
 
 
@@ -26904,12 +26905,12 @@ static WM8904_PARA wm8904_access_main[] =
 
 
  { 0x0005, 104},
-# 271 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+# 271 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
  { 0x0004, 116},
  { 0x0704, 117},
  { 0x8000, 118},
  { 0x1760, 119},
-# 404 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+# 404 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
  { 0x55AA, 255}
 };
 
@@ -26937,7 +26938,7 @@ uint8_t WM8904_Init(Twid *pTwid, uint32_t device, uint32_t PCK)
        &&(wm8904_access_slow[count].value==0x0005))
      ||((wm8904_access_slow[count].address==0x12)
        &&(wm8904_access_slow[count].value==0x000F))) {
-    Wait(5);
+    Wait(10);
    }
    if (((wm8904_access_slow[count].address==0x44)
        &&(wm8904_access_slow[count].value==0x00F0))

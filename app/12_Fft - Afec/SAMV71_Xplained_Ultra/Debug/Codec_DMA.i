@@ -1,5 +1,5 @@
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA\\Codec_DMA.c"
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA//"
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA\\Codec_DMA.c"
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_HOSTED__ 1
@@ -364,10 +364,10 @@
 #define ENABLE_TCM 1
 #define ARM_MATH_CM7 1
 #define __FPU_PRESENT 1
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA\\Codec_DMA.c"
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA\\Codec_DMA.c"
 
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_types.h" 1
-# 12 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_types.h"
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_types.h" 1
+# 12 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_types.h"
 #define STD_TYPES_H 
 
 
@@ -26757,21 +26757,21 @@ extern int _write( int file, char *ptr, int len );
 
 
 #define PINS_VBUS_EN {PIO_PC16, PIOC, ID_PIOC, PIO_OUTPUT_1, PIO_DEFAULT}
-# 19 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_types.h" 2
+# 19 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_types.h" 2
 
 
 
 # 1 "C:\\SAMV71x\\hal\\libchip_samv7/compiler.h" 1
-# 23 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_types.h" 2
+# 23 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_types.h" 2
 
 # 1 "C:\\SAMV71x\\hal\\libchip_samv7\\include\\cmsis\\CMSIS\\Include/core_cm7.h" 1
-# 25 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_types.h" 2
+# 25 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_types.h" 2
 
 # 1 "C:\\SAMV71x\\hal\\libchip_samv7\\include\\samv7/system_samv71.h" 1
-# 27 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_types.h" 2
+# 27 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_types.h" 2
 
 # 1 "C:\\SAMV71x\\hal\\libchip_samv7\\include\\samv7/samv71.h" 1
-# 29 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_types.h" 2
+# 29 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_types.h" 2
 
 
 
@@ -26792,13 +26792,13 @@ extern int _write( int file, char *ptr, int len );
 #define STD_IDLE 0x00
 #define STD_ON 0x01
 #define STD_OFF 0x00
-# 3 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA\\Codec_DMA.c" 2
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA\\Codec_DMA.h" 1
+# 3 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA\\Codec_DMA.c" 2
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA\\Codec_DMA.h" 1
 
 #define CODEC_DMA_H_ 
 
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_Types.h" 1
-# 5 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA\\Codec_DMA.h" 2
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_Types.h" 1
+# 5 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA\\Codec_DMA.h" 2
 
 
 #define TOTAL_Buffers 2
@@ -26813,9 +26813,10 @@ extern int _write( int file, char *ptr, int len );
 
 #define FFT_BUFF_SIZE (2048)
 
+extern void XDMAC_Handler(void);
 extern void DMA_Configure(void);
 extern void PlayRecording(void);
-# 4 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA\\Codec_DMA.c" 2
+# 4 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA\\Codec_DMA.c" 2
 
 
 static sXdmad dmad;
@@ -26830,8 +26831,11 @@ extern uint16_t AudioBuffer[2048];
 
 static uint32_t AudioNextBuffer[2] = { 0 };
 
-__attribute__((__aligned__(32))) static LinkedListDescriporView1 dmaReadLinkList[2];
+static uint8_t buf_flag = 1;
+static _Bool cpu_flag = 0;
 
+
+__attribute__((__aligned__(32))) static LinkedListDescriporView1 dmaReadLinkList[2];
 
 
 void XDMAC_Handler(void){
@@ -26840,6 +26844,29 @@ void XDMAC_Handler(void){
 
 static void dummy(){}
 
+static void sscDmaRxClk(uint32_t Channel, void* pArg)
+{
+
+ Channel = Channel;
+ pArg = pArg;
+
+ if (cpu_flag) {
+  if (AudioNextBuffer[buf_flag] == 0)
+   AudioNextBuffer[buf_flag] = (dmad.pXdmacs->XDMAC_CHID[sscDmaRxChannel].XDMAC_CNDA);
+  else {
+   { printf("-W- " "DMA is faster than CPU-%d\n\r",buf_flag); };
+   AudioNextBuffer[buf_flag] = (dmad.pXdmacs->XDMAC_CHID[sscDmaRxChannel].XDMAC_CNDA);
+  }
+ }
+
+ buf_flag++;
+ if (buf_flag == 2) {
+  buf_flag = 0;
+
+  cpu_flag = 1;
+ }
+}
+
 
 void DMA_Configure(void){
  sXdmad* pDmad = &dmad;
@@ -26847,16 +26874,19 @@ void DMA_Configure(void){
 
  XDMAD_Initialize(pDmad, 0);
 
+
  NVIC_ClearPendingIRQ(XDMAC_IRQn);
  NVIC_EnableIRQ(XDMAC_IRQn);
 
+
  sscDmaRxChannel = XDMAD_AllocateChannel(pDmad, (22), 0xFF);
+
  if (sscDmaRxChannel == 0xFFFF) {
   printf("xDMA channel allocation error\n\r");
   while (1);
  }
 
- XDMAD_SetCallback(pDmad, sscDmaRxChannel, dummy, 0);
+ XDMAD_SetCallback(pDmad, sscDmaRxChannel, sscDmaRxClk, 0);
  XDMAD_PrepareChannel(pDmad, sscDmaRxChannel);
 }
 
@@ -26866,6 +26896,7 @@ void PlayRecording(void)
  uint16_t* src;
  uint8_t i;
  uint32_t xdmaCndc;
+
 
  src = &AudioBuffer[0];
  for (i = 0; i < 2; i++) {
@@ -26897,8 +26928,8 @@ void PlayRecording(void)
   | (0x1u << 1)
   | (0x1u << 2);
 
-
  SCB_CleanInvalidateDCache();
+
 
  XDMAD_ConfigureTransfer(&dmad, sscDmaRxChannel, &xdmadCfg, xdmaCndc,
   (uint32_t)&dmaReadLinkList[0], (0x1u << 0));
@@ -26907,9 +26938,11 @@ void PlayRecording(void)
  SSC_EnableReceiver(((Ssc *)0x40004000U));
  XDMAD_StartTransfer(&dmad, sscDmaRxChannel);
 
+
  Wait(1000);
 
+
  XDMAD_StopTransfer(&dmad, sscDmaRxChannel);
-  SCB_CleanInvalidateDCache();
+   SCB_CleanInvalidateDCache();
 
 }

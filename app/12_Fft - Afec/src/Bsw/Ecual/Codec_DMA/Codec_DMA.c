@@ -14,9 +14,12 @@ static sXdmadCfg xdmadCfg;
 extern uint16_t AudioBuffer[2048];
 
 static uint32_t AudioNextBuffer[TOTAL_Buffers] = { 0 };
-                                                                                        
-COMPILER_ALIGNED(32) static LinkedListDescriporView1 dmaReadLinkList[TOTAL_Buffers];
 
+static uint8_t buf_flag = 1;
+static bool cpu_flag = false;
+
+ /*    Alineacion de la linklist de lectura de DMA    */                                                                                       
+COMPILER_ALIGNED(32) static LinkedListDescriporView1 dmaReadLinkList[TOTAL_Buffers];
 
 /*  Interrupcion por DMA  */
 void XDMAC_Handler(void){
@@ -25,23 +28,49 @@ void XDMAC_Handler(void){
 
 static void dummy(){}
 
+static void sscDmaRxClk(uint32_t Channel, void* pArg)
+{
+	
+	Channel = Channel;
+	pArg = pArg;
+
+	if (cpu_flag) {
+		if (AudioNextBuffer[buf_flag] == 0)
+			AudioNextBuffer[buf_flag] = (dmad.pXdmacs->XDMAC_CHID[sscDmaRxChannel].XDMAC_CNDA);
+		else {
+			TRACE_WARNING("DMA is faster than CPU-%d\n\r",buf_flag);
+			AudioNextBuffer[buf_flag] = (dmad.pXdmacs->XDMAC_CHID[sscDmaRxChannel].XDMAC_CNDA);
+		}
+	}
+
+	buf_flag++;
+	if (buf_flag == TOTAL_Buffers) {
+		buf_flag = 0;
+		/*CPU starts to handle AudioNextBuffer, the first data are abandoned*/
+		cpu_flag = true;
+	}
+}
+
 /*      DMA configuracion   */
 void DMA_Configure(void){
 	sXdmad* pDmad = &dmad;
 
 	/* Driver initialize */
 	XDMAD_Initialize(pDmad, 0);
+
 	/* Configure TWI interrupts */
 	NVIC_ClearPendingIRQ(XDMAC_IRQn);
 	NVIC_EnableIRQ(XDMAC_IRQn);
+
 	/* Allocate DMA channels for SSC */
 	sscDmaRxChannel = XDMAD_AllocateChannel(pDmad, ID_SSC, XDMAD_TRANSFER_MEMORY);
+	
 	if (sscDmaRxChannel == XDMAD_ALLOC_FAILED) {
 		printf("xDMA channel allocation error\n\r");
 		while (1);
 	}
 
-	XDMAD_SetCallback(pDmad, sscDmaRxChannel, dummy, 0);
+	XDMAD_SetCallback(pDmad, sscDmaRxChannel, sscDmaRxClk, 0);
 	XDMAD_PrepareChannel(pDmad, sscDmaRxChannel);
 }
 
@@ -52,6 +81,7 @@ void PlayRecording(void)
 	uint8_t i;
 	uint32_t xdmaCndc;
 
+/*Canal de RX  DMA Trancri*/
 	src = &AudioBuffer[0];
 	for (i = 0; i < TOTAL_Buffers; i++) {
 		dmaReadLinkList[i].mbr_ubc = XDMA_UBC_NVIEW_NDV1
@@ -82,8 +112,8 @@ void PlayRecording(void)
 		| XDMAC_CNDC_NDSUP_SRC_PARAMS_UPDATED
 		| XDMAC_CNDC_NDDUP_DST_PARAMS_UPDATED;
 
-	
 	SCB_CleanInvalidateDCache();
+
 	/*XDMAC_CIE_BIE make interrupts can be generated on per block basis*/
 	XDMAD_ConfigureTransfer(&dmad, sscDmaRxChannel, &xdmadCfg, xdmaCndc,
 		(uint32_t)&dmaReadLinkList[0], XDMAC_CIE_BIE);
@@ -91,11 +121,13 @@ void PlayRecording(void)
 	/*Start recording*/    	
 	SSC_EnableReceiver(AUDIO_IF);
 	XDMAD_StartTransfer(&dmad, sscDmaRxChannel);
+
 	/*Wait for DMA to collect data*/
 	Wait(1000);
+
 	/*stop recording so that data is not overide*/
 	XDMAD_StopTransfer(&dmad, sscDmaRxChannel);
-  SCB_CleanInvalidateDCache();
+  	SCB_CleanInvalidateDCache();
 
 }
 

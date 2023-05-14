@@ -13,14 +13,8 @@
 
 /** Main group of includes for board definitions, chip definitions and type definitions */
 #include    "Std_types.h"
-/** Task scheduler definitions */
-#include    "SchM.h"
-/** LED control definitions */ 
-#include    "Led_Ctrl.h"
 /** Watchdog control function prototypes definitions */
 #include    "Wdg.h"
-/** Button control operations */
-#include    "Button_Ctrl.h"
 /** Floating Point Unit */
 #include    "Fpu.h"
 
@@ -28,7 +22,7 @@
 #include    "Codec_DMA.h"
 /*  libreria de AudioCodec    */
 #include "wm8904.h"
-
+/*  libreria de Serial Synchronous Controller    */
 #include "SSC_Config.h"
 
 /*~~~~~~  Local definitions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -93,18 +87,12 @@ extern int main( void )
 	/* Disable watchdog */
 	Wdg_Disable();
 
-	/* Configure LEDs */
-	LedCtrl_Configure();
-
-  /* Configure Button */  
-  ButtonCtrl_ConfigureSW0Button();
-
   /* Enable I and D cache */
 	SCB_EnableICache();
 	SCB_EnableDCache(); 
 
   /* Enable Floating Point Unit */
-  Fpu_Enable();
+  	Fpu_Enable();
     
 	printf( "\n\r-- Scheduler Project %s --\n\r", SOFTPACK_VERSION ) ;
 	printf( "-- %s\n\r", BOARD_NAME ) ;
@@ -118,7 +106,6 @@ extern int main( void )
 	PIO_Configure(SscTwiPins, PIO_LISTSIZE(SscTwiPins));
 
 	/* Configure SSC */
-	//configureSSC();
 	SSC_Config();
 
 	/* Configuracion del DMA */
@@ -158,11 +145,6 @@ extern int main( void )
 	//Nothing else to do
 	while (1);
 	
-//	/* Should never reach this code */
-//for(;;)
-//   {
-//		printf( "-- Unexpected Error at Scheduler Initialization --\n\r" ) ;
-//	}
 }
 
 void fft_process(void)

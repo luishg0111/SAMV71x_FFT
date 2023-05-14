@@ -1,5 +1,5 @@
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\Main.c"
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw//"
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Asw\\Main.c"
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Asw//"
 # 1 "<built-in>"
 #define __STDC__ 1
 #define __STDC_HOSTED__ 1
@@ -364,10 +364,10 @@
 #define ENABLE_TCM 1
 #define ARM_MATH_CM7 1
 #define __FPU_PRESENT 1
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\Main.c"
-# 15 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\Main.c"
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_types.h" 1
-# 12 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_types.h"
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Asw\\Main.c"
+# 15 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Asw\\Main.c"
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_types.h" 1
+# 12 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_types.h"
 #define STD_TYPES_H 
 
 
@@ -26757,21 +26757,21 @@ extern int _write( int file, char *ptr, int len );
 
 
 #define PINS_VBUS_EN {PIO_PC16, PIOC, ID_PIOC, PIO_OUTPUT_1, PIO_DEFAULT}
-# 19 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_types.h" 2
+# 19 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_types.h" 2
 
 
 
 # 1 "C:\\SAMV71x\\hal\\libchip_samv7/compiler.h" 1
-# 23 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_types.h" 2
+# 23 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_types.h" 2
 
 # 1 "C:\\SAMV71x\\hal\\libchip_samv7\\include\\cmsis\\CMSIS\\Include/core_cm7.h" 1
-# 25 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_types.h" 2
+# 25 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_types.h" 2
 
 # 1 "C:\\SAMV71x\\hal\\libchip_samv7\\include\\samv7/system_samv71.h" 1
-# 27 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_types.h" 2
+# 27 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_types.h" 2
 
 # 1 "C:\\SAMV71x\\hal\\libchip_samv7\\include\\samv7/samv71.h" 1
-# 29 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_types.h" 2
+# 29 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_types.h" 2
 
 
 
@@ -26792,88 +26792,22 @@ extern int _write( int file, char *ptr, int len );
 #define STD_IDLE 0x00
 #define STD_ON 0x01
 #define STD_OFF 0x00
-# 16 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\Main.c" 2
+# 16 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Asw\\Main.c" 2
 
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Services\\SchM/SchM.h" 1
-# 18 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Services\\SchM/SchM.h"
-#define SCHM_H 
-
-
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Commons/Std_Types.h" 1
-# 22 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Services\\SchM/SchM.h" 2
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Services\\SchM/SchM_Cfg.h" 1
-# 12 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Services\\SchM/SchM_Cfg.h"
-#define _SCHM_CFG_H 
-
-
-
- typedef void ( * SchMCallbackType )( void );
-
-
- typedef enum
- {
-  TASK_1MS,
-  TASK_2MSA,
-  TASK_2MSB,
-  TASK_10MS,
-  TASK_50MS,
-  TASK_100MS,
-        TASK_SW0,
-  TASK_BKG,
- }SchMTaskIdType;
-
- typedef struct
- {
-  uint8_t TaskPriority;
-  SchMTaskIdType TaskId;
-  SchMCallbackType TaskFcnPtr;
- }SchMTaskType;
-
- typedef struct
- {
-  uint8_t NoOfTasks;
-  SchMTaskType * TaskCfg;
- }SchMCfgType;
-
-    extern SchMCfgType ScheduleConfig[];
-# 23 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Services\\SchM/SchM.h" 2
-
-
- void SchM_Init(SchMCfgType *SchMCfg);
-
-
- void SchM_Start(void);
-
-
- void SchM_Stop(void);
-
-
- void SchM_SchedulePoint(void);
-
-
- void SchM_ActivateTask(SchMTaskIdType TaskId);
-
-
- void SchM_Scheduler(void);
-# 18 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\Main.c" 2
-
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\LedCtrl/Led_Ctrl.h" 1
-# 13 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\LedCtrl/Led_Ctrl.h"
-#define __LED_CTRL_H 
-# 38 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\LedCtrl/Led_Ctrl.h"
-void LedCtrl_Configure( void );
-
-
-void LedCtrl_BlinkingPattern(void);
-
-
-void LedCtrl_ToogleBlinkingPattern(void);
-# 20 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\Main.c" 2
-
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Mcal\\MicroController\\Wdg/Wdg.h" 1
-# 11 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Mcal\\MicroController\\Wdg/Wdg.h"
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Mcal\\MicroController\\Wdg/Wdg.h" 1
+# 11 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Mcal\\MicroController\\Wdg/Wdg.h"
 #define WDG_H 
-# 22 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Mcal\\MicroController\\Wdg/Wdg.h"
+
+
+
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Commons/Std_Types.h" 1
+# 16 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Mcal\\MicroController\\Wdg/Wdg.h" 2
+
+
+
+
+
+
 #define WDG_PERIOD 250
 
 
@@ -26884,24 +26818,17 @@ void Wdg_Init(uint32_t Wdg_Period);
 void Wdg_Restart( void );
 
 void Wdg_Disable( void );
-# 22 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\Main.c" 2
+# 18 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Asw\\Main.c" 2
 
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\ButtonCtrl/Button_Ctrl.h" 1
-# 12 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\ButtonCtrl/Button_Ctrl.h"
-#define __BUTTON_CTRL_H 
-# 37 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\ButtonCtrl/Button_Ctrl.h"
-extern void ButtonCtrl_ConfigureSW0Button( void );
-# 24 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\Main.c" 2
-
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Mcal\\MicroController\\Fpu/Fpu.h" 1
-# 13 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Mcal\\MicroController\\Fpu/Fpu.h"
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Mcal\\MicroController\\Fpu/Fpu.h" 1
+# 13 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Mcal\\MicroController\\Fpu/Fpu.h"
 #define __FPU_H 
-# 37 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Mcal\\MicroController\\Fpu/Fpu.h"
+# 37 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Mcal\\MicroController\\Fpu/Fpu.h"
 void Fpu_Enable(void);
-# 26 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\Main.c" 2
+# 20 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Asw\\Main.c" 2
 
 
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA/Codec_DMA.h" 1
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA/Codec_DMA.h" 1
 
 #define CODEC_DMA_H_ 
 
@@ -26920,14 +26847,15 @@ void Fpu_Enable(void);
 
 #define FFT_BUFF_SIZE (2048)
 
+extern void XDMAC_Handler(void);
 extern void DMA_Configure(void);
 extern void PlayRecording(void);
-# 29 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\Main.c" 2
+# 23 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Asw\\Main.c" 2
 
 # 1 "C:\\SAMV71x\\bsp\\libboard_samv7-ek\\include/wm8904.h" 1
-# 31 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\Main.c" 2
+# 25 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Asw\\Main.c" 2
 
-# 1 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\SSC_Config/SSC_Config.h" 1
+# 1 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Bsw\\Ecual\\SSC_Config/SSC_Config.h" 1
 
 #define _SSC_Config_H_ 
 
@@ -26935,7 +26863,7 @@ extern void PlayRecording(void);
 
 
 extern void SSC_Config(void);
-# 33 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\Main.c" 2
+# 27 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Asw\\Main.c" 2
 
 
 
@@ -26983,7 +26911,7 @@ static void Codec_To_InputFFT(void){
   fft_inputData[u16i] = (float)AudioBuffer[u16i];
  }
 }
-# 89 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Asw\\Main.c"
+# 83 "C:\\SAMV71x\\app\\AFEC_Test\\src\\Asw\\Main.c"
 extern int main( void )
 {
   uint16_t data = 0;
@@ -26992,21 +26920,15 @@ extern int main( void )
  Wdg_Disable();
 
 
- LedCtrl_Configure();
-
-
-  ButtonCtrl_ConfigureSW0Button();
-
-
  SCB_EnableICache();
  SCB_EnableDCache();
 
 
-  Fpu_Enable();
+   Fpu_Enable();
 
  printf( "\n\r-- Scheduler Project %s --\n\r", "1.3" ) ;
  printf( "-- %s\n\r", "SAM V71 Xplained Ultra" ) ;
- printf( "-- Compiled: %s %s With %s --\n\r", "May 14 2023", "00:15:51" , "GCC");
+ printf( "-- Compiled: %s %s With %s --\n\r", "May 14 2023", "14:51:56" , "GCC");
 
   printf("Configuracion del SystemSystick a 1ms.\n\r");
   if (TimeTick_Configure())
@@ -27014,7 +26936,6 @@ extern int main( void )
 
 
  PIO_Configure(SscTwiPins, (sizeof(SscTwiPins) / sizeof(Pin)));
-
 
 
  SSC_Config();
@@ -27055,11 +26976,6 @@ extern int main( void )
  fft_process();
 
  while (1);
-
-
-
-
-
 
 }
 

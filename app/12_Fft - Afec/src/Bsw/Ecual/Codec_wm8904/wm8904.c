@@ -209,7 +209,7 @@ static WM8904_PARA wm8904_access_main[] =
 	//{ 0x0000, 54},  /** R54 */ 
 	//{ 0x0000, 55},  /** R55 */ 
 	//{ 0x0000, 56},  /** R56 */ 
-	//{ 0x017F, 57},  /** R57  - Analogue OUT1 Left */ 
+	{ 0x017F, 57},  /** R57  - Analogue OUT1 Left */ 
 	{ 0x00AD, 58},  /** R58  - Analogue OUT1 Right */ 
 	//{ 0x017F, 59},  /** R59  - Analogue OUT2 Left */ 
 	//{ 0x017F, 60},  /** R60  - Analogue OUT2 Right */ 
@@ -428,7 +428,7 @@ uint8_t WM8904_Init(Twid *pTwid, uint32_t device,  uint32_t PCK)
 							&&(wm8904_access_slow[count].value==0x0005))
 					||((wm8904_access_slow[count].address==0x12)
 							&&(wm8904_access_slow[count].value==0x000F))) {
-				Wait(5);
+				Wait(10);
 			}
 			if (((wm8904_access_slow[count].address==0x44)
 							&&(wm8904_access_slow[count].value==0x00F0))
