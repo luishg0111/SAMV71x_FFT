@@ -53,7 +53,7 @@ float       fft_maxPower;
 uint16_t AudioBuffer[2048];     
 float fft_signalPower[FFT_BUFF_SIZE / 2];  
 
-/*    Configuracion de los pines de TWI   */
+/** configuracion de los pines de TWI0, pinesde trasmision de data, clock, frame, RD, RK, RF . */
 static const Pin SscTwiPins[] = { PIN_TWI_TWD0, PIN_TWI_TWCK0, PIN_SSC_TD, PIN_SSC_TK, PIN_SSC_TF, PIN_SSC_RD,  PIN_SSC_RK, PIN_SSC_RF, PIN_PCK2 };
 
 /*    TWI instancia    */
@@ -93,12 +93,6 @@ extern int main( void )
 	/* Disable watchdog */
 	Wdg_Disable();
 
-	/* Configure LEDs */
-	LedCtrl_Configure();
-
-  /* Configure Button */  
-  ButtonCtrl_ConfigureSW0Button();
-
   /* Enable I and D cache */
 	SCB_EnableICache();
 	SCB_EnableDCache(); 
@@ -118,7 +112,6 @@ extern int main( void )
 	PIO_Configure(SscTwiPins, PIO_LISTSIZE(SscTwiPins));
 
 	/* Configure SSC */
-	//configureSSC();
 	SSC_Config();
 
 	/* Configuracion del DMA */
@@ -143,7 +136,6 @@ extern int main( void )
 
 	/* Initialize the audio DAC */
 	WM8904_Init(&twid, WM8904_SLAVE_ADDRESS, PMC_MCKR_CSS_SLOW_CLK);
-
 	/* Enable the DAC master clock */
 	PMC_ConfigurePCK2(PMC_MCKR_CSS_SLOW_CLK, PMC_MCKR_PRES_CLK_1); 
 

@@ -147,7 +147,7 @@ WM8904_Write:
 	.data
 	.align	2
 	.type	wm8904_access_slow, %object
-	.size	wm8904_access_slow, 148
+	.size	wm8904_access_slow, 152
 wm8904_access_slow:
 	.short	0
 	.byte	0
@@ -210,6 +210,9 @@ wm8904_access_slow:
 	.byte	22
 	.space	1
 	.short	66
+	.byte	24
+	.space	1
+	.short	66
 	.byte	25
 	.space	1
 	.short	232
@@ -262,13 +265,19 @@ wm8904_access_slow:
 	.space	1
 	.align	2
 	.type	wm8904_access_main, %object
-	.size	wm8904_access_main, 96
+	.size	wm8904_access_main, 104
 wm8904_access_main:
+	.short	-30460
+	.byte	0
+	.space	1
 	.short	25
 	.byte	4
 	.space	1
 	.short	67
 	.byte	5
+	.space	1
+	.short	-1
+	.byte	9
 	.space	1
 	.short	3
 	.byte	12
@@ -408,7 +417,7 @@ WM8904_Init:
 	cmp	r3, #0
 	bne	.L9
 	.loc 1 421 0
-	movs	r3, #38
+	movs	r3, #39
 	strb	r3, [r7, #19]
 	.loc 1 422 0
 	movs	r3, #0
@@ -1257,7 +1266,7 @@ WM8904_IN2R_IN1L:
 	.4byte	0x4bd
 	.uleb128 0x9
 	.4byte	0xc9
-	.byte	0x24
+	.byte	0x25
 	.byte	0
 	.uleb128 0x10
 	.4byte	.LASF14120
@@ -1272,7 +1281,7 @@ WM8904_IN2R_IN1L:
 	.4byte	0x4de
 	.uleb128 0x9
 	.4byte	0xc9
-	.byte	0x17
+	.byte	0x19
 	.byte	0
 	.uleb128 0x10
 	.4byte	.LASF14121

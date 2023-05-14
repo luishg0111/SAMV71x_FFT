@@ -26822,7 +26822,7 @@ static sXdmad dmad;
 
 static uint32_t sscDmaRxChannel;
 
-
+static uint32_t sscDmaTxChannel;
 
 static sXdmadCfg xdmadCfg;
 
@@ -26830,8 +26830,13 @@ extern uint16_t AudioBuffer[2048];
 
 static uint32_t AudioNextBuffer[2] = { 0 };
 
+
+__attribute__((__aligned__(32))) static LinkedListDescriporView1 dmaWriteLinkList[2];
+
 __attribute__((__aligned__(32))) static LinkedListDescriporView1 dmaReadLinkList[2];
 
+static uint8_t buf_flag = 1;
+static _Bool cpu_flag = 0;
 
 
 void XDMAC_Handler(void){
@@ -26839,6 +26844,29 @@ void XDMAC_Handler(void){
 }
 
 static void dummy(){}
+
+static void sscDmaRxClk(uint32_t Channel, void* pArg)
+{
+
+ Channel = Channel;
+ pArg = pArg;
+
+ if (cpu_flag) {
+  if (AudioNextBuffer[buf_flag] == 0)
+   AudioNextBuffer[buf_flag] = (dmad.pXdmacs->XDMAC_CHID[sscDmaRxChannel].XDMAC_CNDA);
+  else {
+   { printf("-W- " "DMA is faster than CPU-%d\n\r",buf_flag); };
+   AudioNextBuffer[buf_flag] = (dmad.pXdmacs->XDMAC_CHID[sscDmaRxChannel].XDMAC_CNDA);
+  }
+ }
+
+ buf_flag++;
+ if (buf_flag == 2) {
+  buf_flag = 0;
+
+  cpu_flag = 1;
+ }
+}
 
 
 void DMA_Configure(void){
@@ -26856,7 +26884,7 @@ void DMA_Configure(void){
   while (1);
  }
 
- XDMAD_SetCallback(pDmad, sscDmaRxChannel, dummy, 0);
+ XDMAD_SetCallback(pDmad, sscDmaRxChannel, sscDmaRxClk, 0);
  XDMAD_PrepareChannel(pDmad, sscDmaRxChannel);
 }
 
@@ -26866,6 +26894,7 @@ void PlayRecording(void)
  uint16_t* src;
  uint8_t i;
  uint32_t xdmaCndc;
+
 
  src = &AudioBuffer[0];
  for (i = 0; i < 2; i++) {
@@ -26898,18 +26927,62 @@ void PlayRecording(void)
   | (0x1u << 2);
 
 
- SCB_CleanInvalidateDCache();
+
+ SCB_CleanDCache();
 
  XDMAD_ConfigureTransfer(&dmad, sscDmaRxChannel, &xdmadCfg, xdmaCndc,
   (uint32_t)&dmaReadLinkList[0], (0x1u << 0));
 
 
+src = &AudioBuffer[0];
+ for (i = 0; i < 2; i++) {
+  dmaWriteLinkList[i].mbr_ubc = (0x1u << 27)
+   | (0x1u << 24)
+   | (0x1u << 25)
+   | (((0xffffffu << 0) & ((0x1000) << 0)));
+  dmaWriteLinkList[i].mbr_sa = (uint32_t)(src);
+  dmaWriteLinkList[i].mbr_da = (uint32_t)&(((Ssc *)0x40004000U)->SSC_THR);
+  if (i == (2 - 1))
+   dmaWriteLinkList[i].mbr_nda = (uint32_t)&dmaWriteLinkList[0];
+  else
+   dmaWriteLinkList[i].mbr_nda = (uint32_t)&dmaWriteLinkList[i + 1];
+  src += 0x1000;
+ }
+
+ xdmadCfg.mbr_cfg = (0x1u << 0)
+  | (0x0u << 1)
+  | (0x1u << 4)
+  | (0x0u << 8)
+  | (0x1u << 11)
+  | (0x1u << 13)
+  | (0x1u << 14)
+  | (0x1u << 16)
+  | (0x0u << 18)
+  | (((0x7fu << 24) & ((XDMAIF_Get_ChannelNumber((22), 0)) << 24)));
+ xdmaCndc = (0x1u << 3)
+  | (0x1u << 0)
+  | (0x1u << 1)
+  | (0x1u << 2);
+
+ SCB_CleanDCache();
+
+ XDMAD_ConfigureTransfer( &dmad, sscDmaTxChannel, &xdmadCfg, xdmaCndc,
+   (uint32_t)&dmaWriteLinkList[0], (0x1u << 1));
+
+
+
  SSC_EnableReceiver(((Ssc *)0x40004000U));
  XDMAD_StartTransfer(&dmad, sscDmaRxChannel);
 
- Wait(1000);
+ Wait(400);
+
 
  XDMAD_StopTransfer(&dmad, sscDmaRxChannel);
+
+ Wait(400);
+
+ SSC_EnableTransmitter(((Ssc *)0x40004000U));
+ XDMAD_StartTransfer( &dmad, sscDmaTxChannel);
   SCB_CleanInvalidateDCache();
 
 }

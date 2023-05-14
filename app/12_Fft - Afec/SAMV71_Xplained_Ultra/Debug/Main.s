@@ -535,7 +535,7 @@ Codec_To_InputFFT:
 	.ascii	"May 14 2023\000"
 	.align	2
 .LC6:
-	.ascii	"00:15:51\000"
+	.ascii	"13:10:17\000"
 	.align	2
 .LC7:
 	.ascii	"GCC\000"
@@ -574,109 +574,105 @@ main:
 	.loc 3 94 0
 	bl	Wdg_Disable
 	.loc 3 97 0
-	bl	LedCtrl_Configure
-	.loc 3 100 0
-	bl	ButtonCtrl_ConfigureSW0Button
-	.loc 3 103 0
 	bl	SCB_EnableICache
-	.loc 3 104 0
+	.loc 3 98 0
 	bl	SCB_EnableDCache
-	.loc 3 107 0
+	.loc 3 101 0
 	bl	Fpu_Enable
-	.loc 3 109 0
+	.loc 3 103 0
 	ldr	r0, .L29
 	ldr	r1, .L29+4
 	bl	printf
-	.loc 3 110 0
+	.loc 3 104 0
 	ldr	r0, .L29+8
 	ldr	r1, .L29+12
 	bl	printf
-	.loc 3 111 0
+	.loc 3 105 0
 	ldr	r0, .L29+16
 	ldr	r1, .L29+20
 	ldr	r2, .L29+24
 	ldr	r3, .L29+28
 	bl	printf
-	.loc 3 113 0
+	.loc 3 107 0
 	ldr	r0, .L29+32
 	bl	printf
-	.loc 3 114 0
+	.loc 3 108 0
 	bl	TimeTick_Configure
 	mov	r3, r0
 	cmp	r3, #0
 	beq	.L25
-	.loc 3 115 0
+	.loc 3 109 0
 	ldr	r0, .L29+36
 	bl	printf
 .L25:
-	.loc 3 118 0
+	.loc 3 112 0
 	ldr	r0, .L29+40
 	movs	r1, #9
 	bl	PIO_Configure
-	.loc 3 122 0
+	.loc 3 115 0
 	bl	SSC_Config
-	.loc 3 125 0
+	.loc 3 118 0
 	bl	DMA_Configure
-	.loc 3 128 0
+	.loc 3 121 0
 	movs	r0, #19
 	bl	PMC_EnablePeripheral
-	.loc 3 129 0
+	.loc 3 122 0
 	ldr	r0, .L29+44
 	ldr	r1, .L29+48
 	ldr	r2, .L29+52
 	bl	TWI_ConfigureMaster
-	.loc 3 130 0
+	.loc 3 123 0
 	ldr	r0, .L29+56
 	ldr	r1, .L29+44
 	bl	TWID_Initialize
-	.loc 3 133 0
+	.loc 3 126 0
 	movs	r0, #19
 	bl	NVIC_ClearPendingIRQ
-	.loc 3 134 0
+	.loc 3 127 0
 	movs	r0, #19
 	bl	NVIC_EnableIRQ
-	.loc 3 137 0
+	.loc 3 130 0
 	ldr	r0, .L29+56
 	movs	r1, #26
 	movs	r2, #22
 	movs	r3, #0
 	bl	WM8904_Write
-	.loc 3 138 0
+	.loc 3 131 0
 	ldr	r0, .L29+56
 	movs	r1, #26
 	movs	r2, #0
 	bl	WM8904_Read
 	mov	r3, r0
 	strh	r3, [r7, #6]	@ movhi
-	.loc 3 139 0
+	.loc 3 132 0
 	ldrh	r3, [r7, #6]
 	movw	r2, #35076
 	cmp	r3, r2
 	beq	.L26
-	.loc 3 140 0
+	.loc 3 133 0
 	ldr	r0, .L29+60
 	bl	printf
 .L27:
-	.loc 3 141 0 discriminator 1
+	.loc 3 134 0 discriminator 1
 	b	.L27
 .L26:
-	.loc 3 145 0
+	.loc 3 138 0
 	ldr	r0, .L29+56
 	movs	r1, #26
 	movs	r2, #0
 	bl	WM8904_Init
-	.loc 3 148 0
+	.loc 3 140 0
 	movs	r0, #0
 	movs	r1, #0
 	bl	PMC_ConfigurePCK2
-	.loc 3 151 0
+	.loc 3 143 0
 	bl	PlayRecording
-	.loc 3 154 0
+	.loc 3 146 0
 	bl	Codec_To_InputFFT
-	.loc 3 157 0
+	.loc 3 149 0
 	bl	fft_process
 .L28:
-	.loc 3 159 0 discriminator 2
+	.loc 3 151 0 discriminator 2
 	b	.L28
 .L30:
 	.align	2
@@ -713,7 +709,7 @@ main:
 	.type	fft_process, %function
 fft_process:
 .LFB286:
-	.loc 3 169 0
+	.loc 3 161 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 1, uses_anonymous_args = 0
@@ -726,7 +722,7 @@ fft_process:
 	.cfi_def_cfa_offset 24
 	add	r7, sp, #8
 	.cfi_def_cfa 7, 16
-	.loc 3 171 0
+	.loc 3 163 0
 	ldr	r3, .L32
 	str	r3, [sp]
 	ldr	r0, .L32+4
@@ -734,7 +730,7 @@ fft_process:
 	mov	r2, #1024
 	ldr	r3, .L32+12
 	bl	fft
-	.loc 3 174 0
+	.loc 3 166 0
 	ldr	r3, .L32+12
 	ldr	r4, [r3]
 	ldr	r3, .L32
@@ -746,7 +742,7 @@ fft_process:
 	ldr	r0, .L32+16
 	mov	r1, r4
 	bl	printf
-	.loc 3 175 0
+	.loc 3 167 0
 	adds	r7, r7, #4
 	.cfi_def_cfa_offset 12
 	mov	sp, r7
@@ -2721,7 +2717,7 @@ fft_process:
 	.uleb128 0x2f
 	.4byte	.LASF14372
 	.byte	0x3
-	.byte	0xa8
+	.byte	0xa0
 	.4byte	.LFB286
 	.4byte	.LFE286-.LFB286
 	.uleb128 0x1
@@ -2730,7 +2726,7 @@ fft_process:
 	.uleb128 0x30
 	.ascii	"fft\000"
 	.byte	0x3
-	.byte	0xab
+	.byte	0xa3
 	.4byte	0x8d
 	.uleb128 0x1c
 	.byte	0

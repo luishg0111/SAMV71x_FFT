@@ -124,7 +124,7 @@ static WM8904_PARA wm8904_access_slow[]=
 	//WM8904 IIS master
 	//BCLK=12.288MHz/8=1.536MHz
 	//LRCK=1.536MHz/32=48KHz
-	//{ 0x0042, 0x18},    /** R24  - Audio Interface 0 */ 
+	{ 0x0042, 0x18},    /** R24  - Audio Interface 0 */ 
 	{ 0x0042, 0x19},      /** R25  - Audio Interface 1 */ 
 	{ 0x00E8, 0x1A},      /** R26  - Audio Interface 2 */ 
 	{ 0x0820, 0x1B},      /** R27  - Audio Interface 3 */ 
@@ -152,7 +152,7 @@ static WM8904_PARA wm8904_access_slow[]=
 
 static WM8904_PARA wm8904_access_main[] = 
 { 
-	//{ 0x8904, 0}, /** R0   - SW Reset and ID */ 
+	{ 0x8904, 0}, /** R0   - SW Reset and ID */ 
 	//{ 0x0000, 1}, /** R1   - Revision */ 
 	//{ 0x0000, 2}, /** R2 */ 
 	//{ 0x0000, 3}, /** R3 */ 
@@ -161,7 +161,7 @@ static WM8904_PARA wm8904_access_main[] =
 	//{ 0x0003, 6},   /** R6   - Mic Bias Control 0 */ 
 	//{ 0xC000, 7},   /** R7   - Mic Bias Control 1 */ 
 	//{ 0x001E, 8},   /** R8   - Analogue DAC 0 */ 
-	//{ 0xFFFF, 9},   /** R9   - mic Filter Control */ 
+	{ 0xFFFF, 9},   /** R9   - mic Filter Control */ 
 	//{ 0x0001, 10},  /** R10  - Analogue ADC 0 */ 
 	//{ 0x0000, 11},  /** R11 */ 
 	{ 0x0003, 12},  /** R12  - Power Management 0 */ 

@@ -113,6 +113,142 @@ NVIC_ClearPendingIRQ:
 	.align	2
 	.thumb
 	.thumb_func
+	.type	SCB_CleanDCache, %function
+SCB_CleanDCache:
+.LFB118:
+	.loc 1 2022 0
+	.cfi_startproc
+	@ args = 0, pretend = 0, frame = 40
+	@ frame_needed = 1, uses_anonymous_args = 0
+	@ link register save eliminated.
+	push	{r7}
+	.cfi_def_cfa_offset 4
+	.cfi_offset 7, -4
+	sub	sp, sp, #44
+	.cfi_def_cfa_offset 48
+	add	r7, sp, #0
+	.cfi_def_cfa_register 7
+	.loc 1 2027 0
+	ldr	r3, .L11
+	ldr	r3, [r3, #128]
+	str	r3, [r7, #28]
+	.loc 1 2028 0
+	ldr	r2, [r7, #28]
+	ldr	r3, .L11+4
+	ands	r3, r3, r2
+	lsrs	r3, r3, #13
+	str	r3, [r7, #36]
+	.loc 1 2029 0
+	ldr	r3, [r7, #28]
+	and	r3, r3, #7
+	adds	r3, r3, #4
+	str	r3, [r7, #24]
+	.loc 1 2030 0
+	ldr	r2, [r7, #28]
+	movw	r3, #8184
+	ands	r3, r3, r2
+	lsrs	r3, r3, #3
+	str	r3, [r7, #20]
+	ldr	r3, [r7, #20]
+	str	r3, [r7, #8]
+.LBB20:
+.LBB21:
+	.file 2 "C:\\SAMV71x\\hal\\libchip_samv7\\include\\cmsis\\CMSIS\\Include/core_cmInstr.h"
+	.loc 2 596 0
+	ldr	r3, [r7, #8]
+@ 596 "C:\SAMV71x\hal\libchip_samv7\include\cmsis\CMSIS\Include/core_cmInstr.h" 1
+	clz r3, r3
+@ 0 "" 2
+	.thumb
+	strb	r3, [r7, #7]
+	.loc 2 597 0
+	ldrb	r3, [r7, #7]	@ zero_extendqisi2
+.LBE21:
+.LBE20:
+	.loc 1 2031 0
+	and	r3, r3, #31
+	str	r3, [r7, #16]
+.LBB22:
+.LBB23:
+	.loc 2 343 0
+@ 343 "C:\SAMV71x\hal\libchip_samv7\include\cmsis\CMSIS\Include/core_cmInstr.h" 1
+	dsb
+@ 0 "" 2
+	.thumb
+.L10:
+.LBE23:
+.LBE22:
+.LBB24:
+	.loc 1 2036 0
+	ldr	r3, [r7, #20]
+	str	r3, [r7, #32]
+.L9:
+	.loc 1 2038 0 discriminator 1
+	ldr	r3, [r7, #16]
+	ldr	r2, [r7, #32]
+	lsl	r3, r2, r3
+	mov	r1, r3
+	ldr	r3, [r7, #24]
+	ldr	r2, [r7, #36]
+	lsl	r3, r2, r3
+	orrs	r3, r3, r1
+	str	r3, [r7, #12]
+	.loc 1 2039 0 discriminator 1
+	ldr	r2, .L11
+	ldr	r3, [r7, #12]
+	str	r3, [r2, #620]
+	.loc 1 2040 0 discriminator 1
+	ldr	r3, [r7, #32]
+	subs	r2, r3, #1
+	str	r2, [r7, #32]
+	cmp	r3, #0
+	bne	.L9
+.LBE24:
+	.loc 1 2041 0
+	ldr	r3, [r7, #36]
+	subs	r2, r3, #1
+	str	r2, [r7, #36]
+	cmp	r3, #0
+	bne	.L10
+.LBB25:
+.LBB26:
+	.loc 2 343 0
+@ 343 "C:\SAMV71x\hal\libchip_samv7\include\cmsis\CMSIS\Include/core_cmInstr.h" 1
+	dsb
+@ 0 "" 2
+	.thumb
+.LBE26:
+.LBE25:
+.LBB27:
+.LBB28:
+	.loc 2 332 0
+@ 332 "C:\SAMV71x\hal\libchip_samv7\include\cmsis\CMSIS\Include/core_cmInstr.h" 1
+	isb
+@ 0 "" 2
+	.thumb
+.LBE28:
+.LBE27:
+	.loc 1 2046 0
+	adds	r7, r7, #44
+	.cfi_def_cfa_offset 4
+	mov	sp, r7
+	.cfi_def_cfa_register 13
+	@ sp needed
+	ldr	r7, [sp], #4
+	.cfi_restore 7
+	.cfi_def_cfa_offset 0
+	bx	lr
+.L12:
+	.align	2
+.L11:
+	.word	-536810240
+	.word	268427264
+	.cfi_endproc
+.LFE118:
+	.size	SCB_CleanDCache, .-SCB_CleanDCache
+	.align	2
+	.thumb
+	.thumb_func
 	.type	SCB_CleanInvalidateDCache, %function
 SCB_CleanInvalidateDCache:
 .LFB119:
@@ -129,12 +265,12 @@ SCB_CleanInvalidateDCache:
 	add	r7, sp, #0
 	.cfi_def_cfa_register 7
 	.loc 1 2059 0
-	ldr	r3, .L11
+	ldr	r3, .L17
 	ldr	r3, [r3, #128]
 	str	r3, [r7, #28]
 	.loc 1 2060 0
 	ldr	r2, [r7, #28]
-	ldr	r3, .L11+4
+	ldr	r3, .L17+4
 	ands	r3, r3, r2
 	lsrs	r3, r3, #13
 	str	r3, [r7, #36]
@@ -151,9 +287,8 @@ SCB_CleanInvalidateDCache:
 	str	r3, [r7, #20]
 	ldr	r3, [r7, #20]
 	str	r3, [r7, #8]
-.LBB11:
-.LBB12:
-	.file 2 "C:\\SAMV71x\\hal\\libchip_samv7\\include\\cmsis\\CMSIS\\Include/core_cmInstr.h"
+.LBB29:
+.LBB30:
 	.loc 2 596 0
 	ldr	r3, [r7, #8]
 @ 596 "C:\SAMV71x\hal\libchip_samv7\include\cmsis\CMSIS\Include/core_cmInstr.h" 1
@@ -163,26 +298,26 @@ SCB_CleanInvalidateDCache:
 	strb	r3, [r7, #7]
 	.loc 2 597 0
 	ldrb	r3, [r7, #7]	@ zero_extendqisi2
-.LBE12:
-.LBE11:
+.LBE30:
+.LBE29:
 	.loc 1 2063 0
 	and	r3, r3, #31
 	str	r3, [r7, #16]
-.LBB13:
-.LBB14:
+.LBB31:
+.LBB32:
 	.loc 2 343 0
 @ 343 "C:\SAMV71x\hal\libchip_samv7\include\cmsis\CMSIS\Include/core_cmInstr.h" 1
 	dsb
 @ 0 "" 2
 	.thumb
-.L10:
-.LBE14:
-.LBE13:
-.LBB15:
+.L16:
+.LBE32:
+.LBE31:
+.LBB33:
 	.loc 1 2068 0
 	ldr	r3, [r7, #20]
 	str	r3, [r7, #32]
-.L9:
+.L15:
 	.loc 1 2070 0 discriminator 1
 	ldr	r3, [r7, #16]
 	ldr	r2, [r7, #32]
@@ -194,7 +329,7 @@ SCB_CleanInvalidateDCache:
 	orrs	r3, r3, r1
 	str	r3, [r7, #12]
 	.loc 1 2071 0 discriminator 1
-	ldr	r2, .L11
+	ldr	r2, .L17
 	ldr	r3, [r7, #12]
 	str	r3, [r2, #628]
 	.loc 1 2072 0 discriminator 1
@@ -202,32 +337,32 @@ SCB_CleanInvalidateDCache:
 	subs	r2, r3, #1
 	str	r2, [r7, #32]
 	cmp	r3, #0
-	bne	.L9
-.LBE15:
+	bne	.L15
+.LBE33:
 	.loc 1 2073 0
 	ldr	r3, [r7, #36]
 	subs	r2, r3, #1
 	str	r2, [r7, #36]
 	cmp	r3, #0
-	bne	.L10
-.LBB16:
-.LBB17:
+	bne	.L16
+.LBB34:
+.LBB35:
 	.loc 2 343 0
 @ 343 "C:\SAMV71x\hal\libchip_samv7\include\cmsis\CMSIS\Include/core_cmInstr.h" 1
 	dsb
 @ 0 "" 2
 	.thumb
-.LBE17:
-.LBE16:
-.LBB18:
-.LBB19:
+.LBE35:
+.LBE34:
+.LBB36:
+.LBB37:
 	.loc 2 332 0
 @ 332 "C:\SAMV71x\hal\libchip_samv7\include\cmsis\CMSIS\Include/core_cmInstr.h" 1
 	isb
 @ 0 "" 2
 	.thumb
-.LBE19:
-.LBE18:
+.LBE37:
+.LBE36:
 	.loc 1 2078 0
 	adds	r7, r7, #44
 	.cfi_def_cfa_offset 4
@@ -238,9 +373,9 @@ SCB_CleanInvalidateDCache:
 	.cfi_restore 7
 	.cfi_def_cfa_offset 0
 	bx	lr
-.L12:
+.L18:
 	.align	2
-.L11:
+.L17:
 	.word	-536810240
 	.word	268427264
 	.cfi_endproc
@@ -259,14 +394,28 @@ dmad:
 sscDmaRxChannel:
 	.space	4
 	.align	2
+sscDmaTxChannel:
+	.space	4
+	.align	2
 xdmadCfg:
 	.space	32
 	.align	2
 AudioNextBuffer:
 	.space	8
 	.align	5
+dmaWriteLinkList:
+	.space	32
+	.align	5
 dmaReadLinkList:
 	.space	32
+	.data
+	.type	buf_flag, %object
+	.size	buf_flag, 1
+buf_flag:
+	.byte	1
+	.bss
+cpu_flag:
+	.space	1
 	.text
 	.align	2
 	.global	XDMAC_Handler
@@ -276,7 +425,7 @@ dmaReadLinkList:
 XDMAC_Handler:
 .LFB283:
 	.file 3 "C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual\\Codec_DMA\\Codec_DMA.c"
-	.loc 3 22 0
+	.loc 3 27 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 1, uses_anonymous_args = 0
@@ -286,14 +435,14 @@ XDMAC_Handler:
 	.cfi_offset 14, -4
 	add	r7, sp, #0
 	.cfi_def_cfa_register 7
-	.loc 3 23 0
-	ldr	r0, .L14
+	.loc 3 28 0
+	ldr	r0, .L20
 	bl	XDMAD_Handler
-	.loc 3 24 0
+	.loc 3 29 0
 	pop	{r7, pc}
-.L15:
+.L21:
 	.align	2
-.L14:
+.L20:
 	.word	dmad
 	.cfi_endproc
 .LFE283:
@@ -304,7 +453,7 @@ XDMAC_Handler:
 	.type	dummy, %function
 dummy:
 .LFB284:
-	.loc 3 26 0
+	.loc 3 31 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 1, uses_anonymous_args = 0
@@ -314,7 +463,7 @@ dummy:
 	.cfi_offset 7, -4
 	add	r7, sp, #0
 	.cfi_def_cfa_register 7
-	.loc 3 26 0
+	.loc 3 31 0
 	mov	sp, r7
 	.cfi_def_cfa_register 13
 	@ sp needed
@@ -328,16 +477,15 @@ dummy:
 	.section	.rodata
 	.align	2
 .LC0:
-	.ascii	"xDMA channel allocation error\012\015\000"
+	.ascii	"-W- DMA is faster than CPU-%d\012\015\000"
 	.text
 	.align	2
-	.global	DMA_Configure
 	.thumb
 	.thumb_func
-	.type	DMA_Configure, %function
-DMA_Configure:
+	.type	sscDmaRxClk, %function
+sscDmaRxClk:
 .LFB285:
-	.loc 3 29 0
+	.loc 3 34 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 8
 	@ frame_needed = 1, uses_anonymous_args = 0
@@ -349,70 +497,186 @@ DMA_Configure:
 	.cfi_def_cfa_offset 16
 	add	r7, sp, #0
 	.cfi_def_cfa_register 7
-	.loc 3 30 0
-	ldr	r3, .L20
-	str	r3, [r7, #4]
-	.loc 3 33 0
-	ldr	r0, [r7, #4]
-	movs	r1, #0
-	bl	XDMAD_Initialize
-	.loc 3 35 0
-	movs	r0, #58
-	bl	NVIC_ClearPendingIRQ
-	.loc 3 36 0
-	movs	r0, #58
-	bl	NVIC_EnableIRQ
-	.loc 3 38 0
-	ldr	r0, [r7, #4]
-	movs	r1, #22
-	movs	r2, #255
-	bl	XDMAD_AllocateChannel
-	mov	r2, r0
-	ldr	r3, .L20+4
-	str	r2, [r3]
+	str	r0, [r7, #4]
+	str	r1, [r7]
 	.loc 3 39 0
-	ldr	r3, .L20+4
-	ldr	r3, [r3]
-	movw	r2, #65535
-	cmp	r3, r2
-	bne	.L18
+	ldr	r3, .L27
+	ldrb	r3, [r3]	@ zero_extendqisi2
+	cmp	r3, #0
+	beq	.L24
 	.loc 3 40 0
-	ldr	r0, .L20+8
+	ldr	r3, .L27+4
+	ldrb	r3, [r3]	@ zero_extendqisi2
+	mov	r2, r3
+	ldr	r3, .L27+8
+	ldr	r3, [r3, r2, lsl #2]
+	cmp	r3, #0
+	bne	.L25
+	.loc 3 41 0
+	ldr	r3, .L27+4
+	ldrb	r3, [r3]	@ zero_extendqisi2
+	mov	r1, r3
+	ldr	r3, .L27+12
+	ldr	r2, [r3]
+	ldr	r3, .L27+16
+	ldr	r3, [r3]
+	lsls	r3, r3, #6
+	add	r3, r3, r2
+	adds	r3, r3, #104
+	ldr	r3, [r3]
+	ldr	r2, .L27+8
+	str	r3, [r2, r1, lsl #2]
+	b	.L24
+.L25:
+	.loc 3 43 0
+	ldr	r3, .L27+4
+	ldrb	r3, [r3]	@ zero_extendqisi2
+	ldr	r0, .L27+20
+	mov	r1, r3
 	bl	printf
-.L19:
-	.loc 3 41 0 discriminator 1
-	b	.L19
-.L18:
 	.loc 3 44 0
-	ldr	r3, .L20+4
-	ldr	r3, [r3]
-	ldr	r0, [r7, #4]
+	ldr	r3, .L27+4
+	ldrb	r3, [r3]	@ zero_extendqisi2
 	mov	r1, r3
-	ldr	r2, .L20+12
-	movs	r3, #0
-	bl	XDMAD_SetCallback
-	.loc 3 45 0
-	ldr	r3, .L20+4
+	ldr	r3, .L27+12
+	ldr	r2, [r3]
+	ldr	r3, .L27+16
 	ldr	r3, [r3]
-	ldr	r0, [r7, #4]
-	mov	r1, r3
-	bl	XDMAD_PrepareChannel
-	.loc 3 46 0
+	lsls	r3, r3, #6
+	add	r3, r3, r2
+	adds	r3, r3, #104
+	ldr	r3, [r3]
+	ldr	r2, .L27+8
+	str	r3, [r2, r1, lsl #2]
+.L24:
+	.loc 3 48 0
+	ldr	r3, .L27+4
+	ldrb	r3, [r3]	@ zero_extendqisi2
+	adds	r3, r3, #1
+	uxtb	r2, r3
+	ldr	r3, .L27+4
+	strb	r2, [r3]
+	.loc 3 49 0
+	ldr	r3, .L27+4
+	ldrb	r3, [r3]	@ zero_extendqisi2
+	cmp	r3, #2
+	bne	.L23
+	.loc 3 50 0
+	ldr	r3, .L27+4
+	movs	r2, #0
+	strb	r2, [r3]
+	.loc 3 52 0
+	ldr	r3, .L27
+	movs	r2, #1
+	strb	r2, [r3]
+.L23:
+	.loc 3 54 0
 	adds	r7, r7, #8
 	.cfi_def_cfa_offset 8
 	mov	sp, r7
 	.cfi_def_cfa_register 13
 	@ sp needed
 	pop	{r7, pc}
-.L21:
+.L28:
 	.align	2
-.L20:
+.L27:
+	.word	cpu_flag
+	.word	buf_flag
+	.word	AudioNextBuffer
 	.word	dmad
 	.word	sscDmaRxChannel
 	.word	.LC0
-	.word	dummy
 	.cfi_endproc
 .LFE285:
+	.size	sscDmaRxClk, .-sscDmaRxClk
+	.section	.rodata
+	.align	2
+.LC1:
+	.ascii	"xDMA channel allocation error\012\015\000"
+	.text
+	.align	2
+	.global	DMA_Configure
+	.thumb
+	.thumb_func
+	.type	DMA_Configure, %function
+DMA_Configure:
+.LFB286:
+	.loc 3 57 0
+	.cfi_startproc
+	@ args = 0, pretend = 0, frame = 8
+	@ frame_needed = 1, uses_anonymous_args = 0
+	push	{r7, lr}
+	.cfi_def_cfa_offset 8
+	.cfi_offset 7, -8
+	.cfi_offset 14, -4
+	sub	sp, sp, #8
+	.cfi_def_cfa_offset 16
+	add	r7, sp, #0
+	.cfi_def_cfa_register 7
+	.loc 3 58 0
+	ldr	r3, .L32
+	str	r3, [r7, #4]
+	.loc 3 61 0
+	ldr	r0, [r7, #4]
+	movs	r1, #0
+	bl	XDMAD_Initialize
+	.loc 3 63 0
+	movs	r0, #58
+	bl	NVIC_ClearPendingIRQ
+	.loc 3 64 0
+	movs	r0, #58
+	bl	NVIC_EnableIRQ
+	.loc 3 66 0
+	ldr	r0, [r7, #4]
+	movs	r1, #22
+	movs	r2, #255
+	bl	XDMAD_AllocateChannel
+	mov	r2, r0
+	ldr	r3, .L32+4
+	str	r2, [r3]
+	.loc 3 67 0
+	ldr	r3, .L32+4
+	ldr	r3, [r3]
+	movw	r2, #65535
+	cmp	r3, r2
+	bne	.L30
+	.loc 3 68 0
+	ldr	r0, .L32+8
+	bl	printf
+.L31:
+	.loc 3 69 0 discriminator 1
+	b	.L31
+.L30:
+	.loc 3 72 0
+	ldr	r3, .L32+4
+	ldr	r3, [r3]
+	ldr	r0, [r7, #4]
+	mov	r1, r3
+	ldr	r2, .L32+12
+	movs	r3, #0
+	bl	XDMAD_SetCallback
+	.loc 3 73 0
+	ldr	r3, .L32+4
+	ldr	r3, [r3]
+	ldr	r0, [r7, #4]
+	mov	r1, r3
+	bl	XDMAD_PrepareChannel
+	.loc 3 74 0
+	adds	r7, r7, #8
+	.cfi_def_cfa_offset 8
+	mov	sp, r7
+	.cfi_def_cfa_register 13
+	@ sp needed
+	pop	{r7, pc}
+.L33:
+	.align	2
+.L32:
+	.word	dmad
+	.word	sscDmaRxChannel
+	.word	.LC1
+	.word	sscDmaRxClk
+	.cfi_endproc
+.LFE286:
 	.size	DMA_Configure, .-DMA_Configure
 	.align	2
 	.global	PlayRecording
@@ -420,8 +684,8 @@ DMA_Configure:
 	.thumb_func
 	.type	PlayRecording, %function
 PlayRecording:
-.LFB286:
-	.loc 3 50 0
+.LFB287:
+	.loc 3 78 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 16
 	@ frame_needed = 1, uses_anonymous_args = 0
@@ -433,135 +697,246 @@ PlayRecording:
 	.cfi_def_cfa_offset 32
 	add	r7, sp, #8
 	.cfi_def_cfa 7, 24
-	.loc 3 55 0
-	ldr	r3, .L27
+	.loc 3 84 0
+	ldr	r3, .L43
 	str	r3, [r7, #12]
-	.loc 3 56 0
+	.loc 3 85 0
 	movs	r3, #0
 	strb	r3, [r7, #11]
-	b	.L23
-.L26:
-	.loc 3 57 0
+	b	.L35
+.L38:
+	.loc 3 86 0
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
-	ldr	r2, .L27+4
+	ldr	r2, .L43+4
 	lsls	r3, r3, #4
 	add	r3, r3, r2
-	ldr	r2, .L27+8
+	ldr	r2, .L43+8
 	str	r2, [r3, #4]
-	.loc 3 61 0
+	.loc 3 90 0
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
-	ldr	r2, .L27+4
+	ldr	r2, .L43+4
 	lsls	r3, r3, #4
 	add	r3, r3, r2
 	adds	r3, r3, #8
-	ldr	r2, .L27+12
+	ldr	r2, .L43+12
 	str	r2, [r3]
-	.loc 3 62 0
+	.loc 3 91 0
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
 	ldr	r2, [r7, #12]
-	ldr	r1, .L27+4
+	ldr	r1, .L43+4
 	lsls	r3, r3, #4
 	add	r3, r3, r1
 	adds	r3, r3, #8
 	str	r2, [r3, #4]
-	.loc 3 63 0
+	.loc 3 92 0
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
 	cmp	r3, #1
-	bne	.L24
-	.loc 3 64 0
+	bne	.L36
+	.loc 3 93 0
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
-	ldr	r2, .L27+4
-	ldr	r1, .L27+4
+	ldr	r2, .L43+4
+	ldr	r1, .L43+4
 	lsls	r3, r3, #4
 	add	r3, r3, r1
 	str	r2, [r3]
-	b	.L25
-.L24:
-	.loc 3 66 0
+	b	.L37
+.L36:
+	.loc 3 95 0
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
 	ldrb	r2, [r7, #11]	@ zero_extendqisi2
 	adds	r2, r2, #1
 	lsls	r2, r2, #4
-	ldr	r1, .L27+4
+	ldr	r1, .L43+4
 	add	r2, r2, r1
 	mov	r1, r2
-	ldr	r2, .L27+4
+	ldr	r2, .L43+4
 	lsls	r3, r3, #4
 	add	r3, r3, r2
 	str	r1, [r3]
-.L25:
-	.loc 3 67 0 discriminator 2
+.L37:
+	.loc 3 96 0 discriminator 2
 	ldr	r3, [r7, #12]
 	add	r3, r3, #8192
 	str	r3, [r7, #12]
-	.loc 3 56 0 discriminator 2
+	.loc 3 85 0 discriminator 2
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
 	adds	r3, r3, #1
 	strb	r3, [r7, #11]
-.L23:
-	.loc 3 56 0 is_stmt 0 discriminator 1
+.L35:
+	.loc 3 85 0 is_stmt 0 discriminator 1
 	ldrb	r3, [r7, #11]	@ zero_extendqisi2
 	cmp	r3, #1
-	bls	.L26
-	.loc 3 79 0 is_stmt 1
+	bls	.L38
+	.loc 3 108 0 is_stmt 1
 	movs	r0, #22
 	movs	r1, #1
 	bl	XDMAIF_Get_ChannelNumber
 	mov	r3, r0
 	lsls	r3, r3, #24
 	and	r2, r3, #2130706432
-	ldr	r3, .L27+16
+	ldr	r3, .L43+16
 	orrs	r3, r3, r2
-	.loc 3 70 0
-	ldr	r2, .L27+20
+	.loc 3 99 0
+	ldr	r2, .L43+20
 	str	r3, [r2, #12]
-	.loc 3 80 0
+	.loc 3 109 0
 	movs	r3, #15
 	str	r3, [r7, #4]
-	.loc 3 86 0
-	bl	SCB_CleanInvalidateDCache
-	.loc 3 88 0
-	ldr	r3, .L27+24
+	.loc 3 116 0
+	bl	SCB_CleanDCache
+	.loc 3 118 0
+	ldr	r3, .L43+24
 	ldr	r2, [r3]
-	ldr	r3, .L27+4
+	ldr	r3, .L43+4
 	str	r3, [sp]
 	movs	r3, #1
 	str	r3, [sp, #4]
-	ldr	r0, .L27+28
+	ldr	r0, .L43+28
 	mov	r1, r2
-	ldr	r2, .L27+20
+	ldr	r2, .L43+20
 	ldr	r3, [r7, #4]
 	bl	XDMAD_ConfigureTransfer
-	.loc 3 92 0
+	.loc 3 122 0
+	ldr	r3, .L43
+	str	r3, [r7, #12]
+	.loc 3 123 0
+	movs	r3, #0
+	strb	r3, [r7, #11]
+	b	.L39
+.L42:
+	.loc 3 124 0
+	ldrb	r3, [r7, #11]	@ zero_extendqisi2
+	ldr	r2, .L43+32
+	lsls	r3, r3, #4
+	add	r3, r3, r2
+	ldr	r2, .L43+8
+	str	r2, [r3, #4]
+	.loc 3 128 0
+	ldrb	r3, [r7, #11]	@ zero_extendqisi2
+	ldr	r2, [r7, #12]
+	ldr	r1, .L43+32
+	lsls	r3, r3, #4
+	add	r3, r3, r1
+	adds	r3, r3, #8
+	str	r2, [r3]
+	.loc 3 129 0
+	ldrb	r3, [r7, #11]	@ zero_extendqisi2
+	ldr	r2, .L43+32
+	lsls	r3, r3, #4
+	add	r3, r3, r2
+	adds	r3, r3, #8
+	ldr	r2, .L43+36
+	str	r2, [r3, #4]
+	.loc 3 130 0
+	ldrb	r3, [r7, #11]	@ zero_extendqisi2
+	cmp	r3, #1
+	bne	.L40
+	.loc 3 131 0
+	ldrb	r3, [r7, #11]	@ zero_extendqisi2
+	ldr	r2, .L43+32
+	ldr	r1, .L43+32
+	lsls	r3, r3, #4
+	add	r3, r3, r1
+	str	r2, [r3]
+	b	.L41
+.L40:
+	.loc 3 133 0
+	ldrb	r3, [r7, #11]	@ zero_extendqisi2
+	ldrb	r2, [r7, #11]	@ zero_extendqisi2
+	adds	r2, r2, #1
+	lsls	r2, r2, #4
+	ldr	r1, .L43+32
+	add	r2, r2, r1
+	mov	r1, r2
+	ldr	r2, .L43+32
+	lsls	r3, r3, #4
+	add	r3, r3, r2
+	str	r1, [r3]
+.L41:
+	.loc 3 134 0 discriminator 2
+	ldr	r3, [r7, #12]
+	add	r3, r3, #8192
+	str	r3, [r7, #12]
+	.loc 3 123 0 discriminator 2
+	ldrb	r3, [r7, #11]	@ zero_extendqisi2
+	adds	r3, r3, #1
+	strb	r3, [r7, #11]
+.L39:
+	.loc 3 123 0 is_stmt 0 discriminator 1
+	ldrb	r3, [r7, #11]	@ zero_extendqisi2
+	cmp	r3, #1
+	bls	.L42
+	.loc 3 146 0 is_stmt 1
+	movs	r0, #22
+	movs	r1, #0
+	bl	XDMAIF_Get_ChannelNumber
+	mov	r3, r0
+	lsls	r3, r3, #24
+	and	r2, r3, #2130706432
+	ldr	r3, .L43+40
+	orrs	r3, r3, r2
+	.loc 3 137 0
+	ldr	r2, .L43+20
+	str	r3, [r2, #12]
+	.loc 3 147 0
+	movs	r3, #15
+	str	r3, [r7, #4]
+	.loc 3 152 0
+	bl	SCB_CleanDCache
+	.loc 3 154 0
+	ldr	r3, .L43+44
+	ldr	r2, [r3]
+	ldr	r3, .L43+32
+	str	r3, [sp]
+	movs	r3, #2
+	str	r3, [sp, #4]
+	ldr	r0, .L43+28
+	mov	r1, r2
+	ldr	r2, .L43+20
+	ldr	r3, [r7, #4]
+	bl	XDMAD_ConfigureTransfer
+	.loc 3 159 0
 	mov	r0, #1073758208
 	bl	SSC_EnableReceiver
-	.loc 3 93 0
-	ldr	r3, .L27+24
+	.loc 3 160 0
+	ldr	r3, .L43+24
 	ldr	r3, [r3]
-	ldr	r0, .L27+28
+	ldr	r0, .L43+28
 	mov	r1, r3
 	bl	XDMAD_StartTransfer
-	.loc 3 95 0
-	mov	r0, #1000
+	.loc 3 162 0
+	mov	r0, #400
 	bl	Wait
-	.loc 3 97 0
-	ldr	r3, .L27+24
+	.loc 3 165 0
+	ldr	r3, .L43+24
 	ldr	r3, [r3]
-	ldr	r0, .L27+28
+	ldr	r0, .L43+28
 	mov	r1, r3
 	bl	XDMAD_StopTransfer
-	.loc 3 98 0
+	.loc 3 167 0
+	mov	r0, #400
+	bl	Wait
+	.loc 3 169 0
+	mov	r0, #1073758208
+	bl	SSC_EnableTransmitter
+	.loc 3 170 0
+	ldr	r3, .L43+44
+	ldr	r3, [r3]
+	ldr	r0, .L43+28
+	mov	r1, r3
+	bl	XDMAD_StartTransfer
+	.loc 3 171 0
 	bl	SCB_CleanInvalidateDCache
-	.loc 3 100 0
+	.loc 3 173 0
 	adds	r7, r7, #16
 	.cfi_def_cfa_offset 8
 	mov	sp, r7
 	.cfi_def_cfa_register 13
 	@ sp needed
 	pop	{r7, pc}
-.L28:
+.L44:
 	.align	2
-.L27:
+.L43:
 	.word	AudioBuffer
 	.word	dmaReadLinkList
 	.word	184553472
@@ -570,8 +945,12 @@ PlayRecording:
 	.word	xdmadCfg
 	.word	sscDmaRxChannel
 	.word	dmad
+	.word	dmaWriteLinkList
+	.word	1073758244
+	.word	92177
+	.word	sscDmaTxChannel
 	.cfi_endproc
-.LFE286:
+.LFE287:
 	.size	PlayRecording, .-PlayRecording
 .Letext0:
 	.file 4 "c:\\isystem\\winidea9\\gcc\\arm\\arm-none-eabi\\include\\machine\\_default_types.h"
@@ -583,15 +962,15 @@ PlayRecording:
 	.file 10 "C:\\SAMV71x\\hal\\libchip_samv7/compiler.h"
 	.section	.debug_info,"",%progbits
 .Ldebug_info0:
-	.4byte	0xf25
+	.4byte	0x1087
 	.2byte	0x4
 	.4byte	.Ldebug_abbrev0
 	.byte	0x4
 	.uleb128 0x1
-	.4byte	.LASF14330
+	.4byte	.LASF14337
 	.byte	0x1
-	.4byte	.LASF14331
-	.4byte	.LASF14332
+	.4byte	.LASF14338
+	.4byte	.LASF14339
 	.4byte	.Ltext0
 	.4byte	.Letext0-.Ltext0
 	.4byte	.Ldebug_line0
@@ -2086,19 +2465,19 @@ PlayRecording:
 	.byte	0x4
 	.4byte	0xb97
 	.uleb128 0x1d
-	.4byte	.LASF14333
+	.4byte	.LASF14340
 	.byte	0x2
 	.2byte	0x250
 	.4byte	0x9b
 	.byte	0x3
 	.4byte	0xc92
 	.uleb128 0x1e
-	.4byte	.LASF14334
+	.4byte	.LASF14341
 	.byte	0x2
 	.2byte	0x250
 	.4byte	0xbc
 	.uleb128 0x1f
-	.4byte	.LASF14335
+	.4byte	.LASF14342
 	.byte	0x2
 	.2byte	0x252
 	.4byte	0x9b
@@ -2152,12 +2531,123 @@ PlayRecording:
 	.uleb128 0x21
 	.4byte	.LASF14309
 	.byte	0x1
+	.2byte	0x7e5
+	.4byte	.LFB118
+	.4byte	.LFE118-.LFB118
+	.uleb128 0x1
+	.byte	0x9c
+	.4byte	0xddc
+	.uleb128 0x23
+	.4byte	.LASF14310
+	.byte	0x1
+	.2byte	0x7e8
+	.4byte	0xbc
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -20
+	.uleb128 0x23
+	.4byte	.LASF14311
+	.byte	0x1
+	.2byte	0x7e8
+	.4byte	0xbc
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -24
+	.uleb128 0x23
+	.4byte	.LASF14312
+	.byte	0x1
+	.2byte	0x7e8
+	.4byte	0xbc
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -32
+	.uleb128 0x24
+	.ascii	"sw\000"
+	.byte	0x1
+	.2byte	0x7e8
+	.4byte	0xbc
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -36
+	.uleb128 0x23
+	.4byte	.LASF14313
+	.byte	0x1
+	.2byte	0x7e9
+	.4byte	0xbc
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -12
+	.uleb128 0x23
+	.4byte	.LASF14314
+	.byte	0x1
+	.2byte	0x7e9
+	.4byte	0xbc
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -28
+	.uleb128 0x25
+	.4byte	0xc68
+	.4byte	.LBB20
+	.4byte	.LBE20-.LBB20
+	.byte	0x1
+	.2byte	0x7ef
+	.4byte	0xd8e
+	.uleb128 0x26
+	.4byte	0xc79
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -40
+	.uleb128 0x27
+	.4byte	.LBB21
+	.4byte	.LBE21-.LBB21
+	.uleb128 0x28
+	.4byte	0xc85
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -41
+	.byte	0
+	.byte	0
+	.uleb128 0x29
+	.4byte	0xc92
+	.4byte	.LBB22
+	.4byte	.LBE22-.LBB22
+	.byte	0x1
+	.2byte	0x7f1
+	.uleb128 0x2a
+	.4byte	.LBB24
+	.4byte	.LBE24-.LBB24
+	.4byte	0xdbb
+	.uleb128 0x23
+	.4byte	.LASF14315
+	.byte	0x1
+	.2byte	0x7f4
+	.4byte	0xb1
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -16
+	.byte	0
+	.uleb128 0x29
+	.4byte	0xc92
+	.4byte	.LBB25
+	.4byte	.LBE25-.LBB25
+	.byte	0x1
+	.2byte	0x7fb
+	.uleb128 0x29
+	.4byte	0xc9b
+	.4byte	.LBB27
+	.4byte	.LBE27-.LBB27
+	.byte	0x1
+	.2byte	0x7fc
+	.byte	0
+	.uleb128 0x21
+	.4byte	.LASF14316
+	.byte	0x1
 	.2byte	0x805
 	.4byte	.LFB119
 	.4byte	.LFE119-.LFB119
 	.uleb128 0x1
 	.byte	0x9c
-	.4byte	0xddc
+	.4byte	0xec8
 	.uleb128 0x23
 	.4byte	.LASF14310
 	.byte	0x1
@@ -2208,19 +2698,19 @@ PlayRecording:
 	.sleb128 -28
 	.uleb128 0x25
 	.4byte	0xc68
-	.4byte	.LBB11
-	.4byte	.LBE11-.LBB11
+	.4byte	.LBB29
+	.4byte	.LBE29-.LBB29
 	.byte	0x1
 	.2byte	0x80f
-	.4byte	0xd8e
+	.4byte	0xe7a
 	.uleb128 0x26
 	.4byte	0xc79
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -40
 	.uleb128 0x27
-	.4byte	.LBB12
-	.4byte	.LBE12-.LBB12
+	.4byte	.LBB30
+	.4byte	.LBE30-.LBB30
 	.uleb128 0x28
 	.4byte	0xc85
 	.uleb128 0x2
@@ -2230,14 +2720,14 @@ PlayRecording:
 	.byte	0
 	.uleb128 0x29
 	.4byte	0xc92
-	.4byte	.LBB13
-	.4byte	.LBE13-.LBB13
+	.4byte	.LBB31
+	.4byte	.LBE31-.LBB31
 	.byte	0x1
 	.2byte	0x811
 	.uleb128 0x2a
-	.4byte	.LBB15
-	.4byte	.LBE15-.LBB15
-	.4byte	0xdbb
+	.4byte	.LBB33
+	.4byte	.LBE33-.LBB33
+	.4byte	0xea7
 	.uleb128 0x23
 	.4byte	.LASF14315
 	.byte	0x1
@@ -2249,29 +2739,29 @@ PlayRecording:
 	.byte	0
 	.uleb128 0x29
 	.4byte	0xc92
-	.4byte	.LBB16
-	.4byte	.LBE16-.LBB16
+	.4byte	.LBB34
+	.4byte	.LBE34-.LBB34
 	.byte	0x1
 	.2byte	0x81b
 	.uleb128 0x29
 	.4byte	0xc9b
-	.4byte	.LBB18
-	.4byte	.LBE18-.LBB18
+	.4byte	.LBB36
+	.4byte	.LBE36-.LBB36
 	.byte	0x1
 	.2byte	0x81c
 	.byte	0
 	.uleb128 0x2b
-	.4byte	.LASF14336
+	.4byte	.LASF14343
 	.byte	0x3
-	.byte	0x16
+	.byte	0x1b
 	.4byte	.LFB283
 	.4byte	.LFE283-.LFB283
 	.uleb128 0x1
 	.byte	0x9c
 	.uleb128 0x2c
-	.4byte	.LASF14337
+	.4byte	.LASF14344
 	.byte	0x3
-	.byte	0x1a
+	.byte	0x1f
 	.4byte	.LFB284
 	.4byte	.LFE284-.LFB284
 	.uleb128 0x1
@@ -2279,50 +2769,76 @@ PlayRecording:
 	.uleb128 0x2d
 	.4byte	.LASF14317
 	.byte	0x3
-	.byte	0x1d
+	.byte	0x21
 	.4byte	.LFB285
 	.4byte	.LFE285-.LFB285
 	.uleb128 0x1
 	.byte	0x9c
-	.4byte	0xe22
+	.4byte	0xf1c
 	.uleb128 0x2e
-	.4byte	.LASF14316
+	.4byte	.LASF14318
 	.byte	0x3
-	.byte	0x1e
+	.byte	0x21
+	.4byte	0xbc
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -12
+	.uleb128 0x2e
+	.4byte	.LASF14271
+	.byte	0x3
+	.byte	0x21
+	.4byte	0x284
+	.uleb128 0x2
+	.byte	0x91
+	.sleb128 -16
+	.byte	0
+	.uleb128 0x2f
+	.4byte	.LASF14320
+	.byte	0x3
+	.byte	0x39
+	.4byte	.LFB286
+	.4byte	.LFE286-.LFB286
+	.uleb128 0x1
+	.byte	0x9c
+	.4byte	0xf40
+	.uleb128 0x30
+	.4byte	.LASF14319
+	.byte	0x3
+	.byte	0x3a
 	.4byte	0xc62
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -12
 	.byte	0
-	.uleb128 0x2d
-	.4byte	.LASF14318
+	.uleb128 0x2f
+	.4byte	.LASF14321
 	.byte	0x3
-	.byte	0x31
-	.4byte	.LFB286
-	.4byte	.LFE286-.LFB286
+	.byte	0x4d
+	.4byte	.LFB287
+	.4byte	.LFE287-.LFB287
 	.uleb128 0x1
 	.byte	0x9c
-	.4byte	0xe60
-	.uleb128 0x2f
+	.4byte	0xf7e
+	.uleb128 0x31
 	.ascii	"src\000"
 	.byte	0x3
-	.byte	0x33
-	.4byte	0xe60
+	.byte	0x4f
+	.4byte	0xf7e
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -12
-	.uleb128 0x2f
+	.uleb128 0x31
 	.ascii	"i\000"
 	.byte	0x3
-	.byte	0x34
+	.byte	0x50
 	.4byte	0x9b
 	.uleb128 0x2
 	.byte	0x91
 	.sleb128 -13
-	.uleb128 0x2e
-	.4byte	.LASF14319
+	.uleb128 0x30
+	.4byte	.LASF14322
 	.byte	0x3
-	.byte	0x35
+	.byte	0x51
 	.4byte	0xbc
 	.uleb128 0x2
 	.byte	0x91
@@ -2332,7 +2848,7 @@ PlayRecording:
 	.byte	0x4
 	.4byte	0xa6
 	.uleb128 0x23
-	.4byte	.LASF14320
+	.4byte	.LASF14323
 	.byte	0xa
 	.2byte	0x151
 	.4byte	0x3b8
@@ -2340,45 +2856,53 @@ PlayRecording:
 	.byte	0x3
 	.4byte	cpu_irq_critical_section_counter
 	.uleb128 0x23
-	.4byte	.LASF14321
+	.4byte	.LASF14324
 	.byte	0xa
 	.2byte	0x152
-	.4byte	0xe8a
+	.4byte	0xfa8
 	.uleb128 0x5
 	.byte	0x3
 	.4byte	cpu_irq_prev_interrupt_state
 	.uleb128 0xe
-	.4byte	0xe8f
+	.4byte	0xfad
 	.uleb128 0x2
 	.byte	0x1
 	.byte	0x2
-	.4byte	.LASF14322
-	.uleb128 0x2e
-	.4byte	.LASF14323
+	.4byte	.LASF14325
+	.uleb128 0x30
+	.4byte	.LASF14326
 	.byte	0x3
 	.byte	0x6
 	.4byte	0xb97
 	.uleb128 0x5
 	.byte	0x3
 	.4byte	dmad
-	.uleb128 0x2e
-	.4byte	.LASF14324
+	.uleb128 0x30
+	.4byte	.LASF14327
 	.byte	0x3
 	.byte	0x8
 	.4byte	0xbc
 	.uleb128 0x5
 	.byte	0x3
 	.4byte	sscDmaRxChannel
-	.uleb128 0x2e
-	.4byte	.LASF14325
+	.uleb128 0x30
+	.4byte	.LASF14328
+	.byte	0x3
+	.byte	0xa
+	.4byte	0xbc
+	.uleb128 0x5
+	.byte	0x3
+	.4byte	sscDmaTxChannel
+	.uleb128 0x30
+	.4byte	.LASF14329
 	.byte	0x3
 	.byte	0xc
 	.4byte	0xc0f
 	.uleb128 0x5
 	.byte	0x3
 	.4byte	xdmadCfg
-	.uleb128 0x2e
-	.4byte	.LASF14326
+	.uleb128 0x30
+	.4byte	.LASF14330
 	.byte	0x3
 	.byte	0x10
 	.4byte	0x690
@@ -2387,38 +2911,62 @@ PlayRecording:
 	.4byte	AudioNextBuffer
 	.uleb128 0xc
 	.4byte	0xc57
-	.4byte	0xeea
+	.4byte	0x1019
 	.uleb128 0xd
 	.4byte	0x352
 	.byte	0x1
 	.byte	0
-	.uleb128 0x2e
-	.4byte	.LASF14327
+	.uleb128 0x30
+	.4byte	.LASF14331
 	.byte	0x3
-	.byte	0x12
-	.4byte	0xeda
+	.byte	0x13
+	.4byte	0x1009
+	.uleb128 0x5
+	.byte	0x3
+	.4byte	dmaWriteLinkList
+	.uleb128 0x30
+	.4byte	.LASF14332
+	.byte	0x3
+	.byte	0x15
+	.4byte	0x1009
 	.uleb128 0x5
 	.byte	0x3
 	.4byte	dmaReadLinkList
 	.uleb128 0x30
-	.4byte	.LASF14328
+	.4byte	.LASF14333
+	.byte	0x3
+	.byte	0x17
+	.4byte	0x9b
+	.uleb128 0x5
+	.byte	0x3
+	.4byte	buf_flag
+	.uleb128 0x30
+	.4byte	.LASF14334
+	.byte	0x3
+	.byte	0x18
+	.4byte	0xfad
+	.uleb128 0x5
+	.byte	0x3
+	.4byte	cpu_flag
+	.uleb128 0x32
+	.4byte	.LASF14335
 	.byte	0x1
 	.2byte	0x857
-	.4byte	0xf07
+	.4byte	0x1069
 	.uleb128 0xe
 	.4byte	0xb1
 	.uleb128 0xc
 	.4byte	0xa6
-	.4byte	0xf1d
+	.4byte	0x107f
 	.uleb128 0xf
 	.4byte	0x352
 	.2byte	0x7ff
 	.byte	0
-	.uleb128 0x31
-	.4byte	.LASF14329
+	.uleb128 0x33
+	.4byte	.LASF14336
 	.byte	0x3
 	.byte	0xe
-	.4byte	0xf0c
+	.4byte	0x106e
 	.byte	0
 	.section	.debug_abbrev,"",%progbits
 .Ldebug_abbrev0:
@@ -3003,6 +3551,44 @@ PlayRecording:
 	.uleb128 0x2d
 	.uleb128 0x2e
 	.byte	0x1
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x27
+	.uleb128 0x19
+	.uleb128 0x11
+	.uleb128 0x1
+	.uleb128 0x12
+	.uleb128 0x6
+	.uleb128 0x40
+	.uleb128 0x18
+	.uleb128 0x2116
+	.uleb128 0x19
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x2e
+	.uleb128 0x5
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x18
+	.byte	0
+	.byte	0
+	.uleb128 0x2f
+	.uleb128 0x2e
+	.byte	0x1
 	.uleb128 0x3f
 	.uleb128 0x19
 	.uleb128 0x3
@@ -3025,7 +3611,7 @@ PlayRecording:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x2e
+	.uleb128 0x30
 	.uleb128 0x34
 	.byte	0
 	.uleb128 0x3
@@ -3040,7 +3626,7 @@ PlayRecording:
 	.uleb128 0x18
 	.byte	0
 	.byte	0
-	.uleb128 0x2f
+	.uleb128 0x31
 	.uleb128 0x34
 	.byte	0
 	.uleb128 0x3
@@ -3055,7 +3641,7 @@ PlayRecording:
 	.uleb128 0x18
 	.byte	0
 	.byte	0
-	.uleb128 0x30
+	.uleb128 0x32
 	.uleb128 0x34
 	.byte	0
 	.uleb128 0x3
@@ -3072,7 +3658,7 @@ PlayRecording:
 	.uleb128 0x19
 	.byte	0
 	.byte	0
-	.uleb128 0x31
+	.uleb128 0x33
 	.uleb128 0x34
 	.byte	0
 	.uleb128 0x3
@@ -48190,8 +48776,8 @@ PlayRecording:
 	.ascii	"REG_XDMAC_CSA3 (*(__IO uint32_t*)0x40078120U)\000"
 .LASF5954:
 	.ascii	"PMC_SLPWK_ER1_PID59 (0x1u << 27)\000"
-.LASF13724:
-	.ascii	"CS2100_REG_CFG 0x05\000"
+.LASF12269:
+	.ascii	"PIO_PA31A_SPI0_NPCS1 (1u << 31)\000"
 .LASF5374:
 	.ascii	"PIO_KSR_KPR (0x1u << 0)\000"
 .LASF9128:
@@ -48292,7 +48878,7 @@ PlayRecording:
 	.ascii	"REG_MCAN0_BTP (*(__IO uint32_t*)0x4003001CU)\000"
 .LASF6270:
 	.ascii	"PWM_FMR_FFIL_Pos 16\000"
-.LASF14319:
+.LASF14322:
 	.ascii	"xdmaCndc\000"
 .LASF13899:
 	.ascii	"BOARD_MCK 150000000\000"
@@ -48474,7 +49060,7 @@ PlayRecording:
 .LASF6888:
 	.ascii	"RTT_MR_RTPRES(value) ((RTT_MR_RTPRES_Msk & ((value)"
 	.ascii	" << RTT_MR_RTPRES_Pos)))\000"
-.LASF14328:
+.LASF14335:
 	.ascii	"ITM_RxBuffer\000"
 .LASF3933:
 	.ascii	"PIO_PSR_P26 (0x1u << 26)\000"
@@ -48973,7 +49559,7 @@ PlayRecording:
 	.ascii	"mbr_sus\000"
 .LASF7674:
 	.ascii	"TC_CMR_WAVSEL_UPDOWN_RC (0x3u << 13)\000"
-.LASF14332:
+.LASF14339:
 	.ascii	"C:\\\\SAMV71x\\\\app\\\\12_Fft_AFEC_Test\\\\src\\\\"
 	.ascii	"Bsw\\\\Ecual\\\\Codec_DMA\000"
 .LASF2058:
@@ -49525,8 +50111,8 @@ PlayRecording:
 	.ascii	"EPT_VIRTUAL_SIZE 16384\000"
 .LASF13725:
 	.ascii	"CS2100_REG_32_BIT_RATIO_1 0x06\000"
-.LASF12001:
-	.ascii	"PIO_PE4 (1u << 4)\000"
+.LASF7960:
+	.ascii	"TWIHS_IDR_TOUT (0x1u << 18)\000"
 .LASF11139:
 	.ascii	"REG_XDMAC_CUBC17 (*(__IO uint32_t*)0x400784B0U)\000"
 .LASF5682:
@@ -49685,7 +50271,7 @@ PlayRecording:
 	.ascii	"PIO_PC10 (1u << 10)\000"
 .LASF11077:
 	.ascii	"REG_XDMAC_CIM13 (*(__O uint32_t*)0x40078398U)\000"
-.LASF14337:
+.LASF14344:
 	.ascii	"dummy\000"
 .LASF11581:
 	.ascii	"REG_PIOD_IFSR (*(__I uint32_t*)0x400E1428U)\000"
@@ -49776,7 +50362,7 @@ PlayRecording:
 	.ascii	"RASR_B_Pos ))\000"
 .LASF10108:
 	.ascii	"REG_USART1_IMR (*(__I uint32_t*)0x40028010U)\000"
-.LASF14317:
+.LASF14320:
 	.ascii	"DMA_Configure\000"
 .LASF7990:
 	.ascii	"TWIHS_SMBTR_TLOWS(value) ((TWIHS_SMBTR_TLOWS_Msk & "
@@ -50085,7 +50671,7 @@ PlayRecording:
 	.ascii	"PIO_OWDR_P8 (0x1u << 8)\000"
 .LASF5423:
 	.ascii	"PIO_PCIER_OVRE (0x1u << 1)\000"
-.LASF14323:
+.LASF14326:
 	.ascii	"dmad\000"
 .LASF4183:
 	.ascii	"PIO_CODR_P20 (0x1u << 20)\000"
@@ -50374,14 +50960,14 @@ PlayRecording:
 	.ascii	"MCAN_TXBCIE_CFIE14 (0x1u << 14)\000"
 .LASF7962:
 	.ascii	"TWIHS_IDR_SMBDAM (0x1u << 20)\000"
-.LASF14326:
+.LASF14330:
 	.ascii	"AudioNextBuffer\000"
 .LASF2668:
 	.ascii	"ICM_CTRL_RMDIS_Pos 8\000"
 .LASF12165:
 	.ascii	"PIO_PA3X1_PIODC0 (1u << 3)\000"
-.LASF12269:
-	.ascii	"PIO_PA31A_SPI0_NPCS1 (1u << 31)\000"
+.LASF713:
+	.ascii	"SCB_ABFSR_AHBP_Pos 2\000"
 .LASF4:
 	.ascii	"__GNUC_PATCHLEVEL__ 3\000"
 .LASF7131:
@@ -50703,8 +51289,8 @@ PlayRecording:
 	.ascii	"ISI_SR_P_OVR (0x1u << 24)\000"
 .LASF9902:
 	.ascii	"REG_TC2_SR1 (*(__I uint32_t*)0x40014060U)\000"
-.LASF713:
-	.ascii	"SCB_ABFSR_AHBP_Pos 2\000"
+.LASF11817:
+	.ascii	"ID_UART4 (46)\000"
 .LASF2784:
 	.ascii	"ISI_CFG2_IM_VSIZE_Pos 0\000"
 .LASF1120:
@@ -51109,6 +51695,8 @@ PlayRecording:
 	.ascii	"REG_PWM1_DMAR (*(__O uint32_t*)0x4005C024U)\000"
 .LASF1969:
 	.ascii	"GMAC_ISR_PFNZ (0x1u << 12)\000"
+.LASF14331:
+	.ascii	"dmaWriteLinkList\000"
 .LASF5516:
 	.ascii	"PMC_PCSR0_PID10 (0x1u << 10)\000"
 .LASF12359:
@@ -51502,7 +52090,7 @@ PlayRecording:
 	.ascii	"OV_2640 0x00\000"
 .LASF10963:
 	.ascii	"REG_XDMAC_CIE5 (*(__O uint32_t*)0x40078190U)\000"
-.LASF14309:
+.LASF14316:
 	.ascii	"SCB_CleanInvalidateDCache\000"
 .LASF3973:
 	.ascii	"PIO_ODR_P2 (0x1u << 2)\000"
@@ -52395,7 +52983,7 @@ PlayRecording:
 	.ascii	"value) << MATRIX_PRAS_M1PR_Pos)))\000"
 .LASF2433:
 	.ascii	"HSMCI_SDCR_SDCBUS_1 (0x0u << 6)\000"
-.LASF14327:
+.LASF14332:
 	.ascii	"dmaReadLinkList\000"
 .LASF5411:
 	.ascii	"PIO_KKRR_KEY3COL_Msk (0x7u << PIO_KKRR_KEY3COL_Pos)"
@@ -54001,6 +54589,8 @@ PlayRecording:
 	.ascii	"REG_TC0_QISR (*(__I uint32_t*)0x4000C0D4U)\000"
 .LASF9942:
 	.ascii	"REG_TWIHS0_SWMR (*(__IO uint32_t*)0x4001804CU)\000"
+.LASF14317:
+	.ascii	"sscDmaRxClk\000"
 .LASF3993:
 	.ascii	"PIO_ODR_P22 (0x1u << 22)\000"
 .LASF8889:
@@ -55610,8 +56200,8 @@ PlayRecording:
 	.ascii	"XDMAD_TRANSFER_MEMORY 0xFF\000"
 .LASF8747:
 	.ascii	"USBHS_DEVEPTIDR_MDATEC (0x1u << 8)\000"
-.LASF7399:
-	.ascii	"SUPC_MR_KEY_Msk (0xffu << SUPC_MR_KEY_Pos)\000"
+.LASF4967:
+	.ascii	"PIO_AIMMR_P1 (0x1u << 1)\000"
 .LASF7109:
 	.ascii	"SPI_IER_RDRF (0x1u << 0)\000"
 .LASF3520:
@@ -56970,9 +57560,6 @@ PlayRecording:
 	.ascii	"1}\000"
 .LASF13605:
 	.ascii	"ILI9488_CMD_SPI_READ_SETTINGS 0xFB\000"
-.LASF2848:
-	.ascii	"ISI_R2Y_SET1_C3(value) ((ISI_R2Y_SET1_C3_Msk & ((va"
-	.ascii	"lue) << ISI_R2Y_SET1_C3_Pos)))\000"
 .LASF6994:
 	.ascii	"SDRAMC_OCMS_KEY1_KEY1_Pos 0\000"
 .LASF7361:
@@ -57178,8 +57765,8 @@ PlayRecording:
 	.ascii	"PMC_SLPWK_ASR0_PID21 (0x1u << 21)\000"
 .LASF8715:
 	.ascii	"USBHS_DEVEPTIER_SHORTPACKETES (0x1u << 7)\000"
-.LASF11817:
-	.ascii	"ID_UART4 (46)\000"
+.LASF12096:
+	.ascii	"PIO_PD18A_NCS1 (1u << 18)\000"
 .LASF14272:
 	.ascii	"bIrqOwner\000"
 .LASF864:
@@ -57472,6 +58059,8 @@ PlayRecording:
 .LASF13672:
 	.ascii	"BGR_16_TO_18BITRGB(RGB) BGR_TO_RGB_18BIT(RGB_16_TO_"
 	.ascii	"18BIT(RGB))\000"
+.LASF14328:
+	.ascii	"sscDmaTxChannel\000"
 .LASF7373:
 	.ascii	"SUPC_SMMR_SMSMPL(value) ((SUPC_SMMR_SMSMPL_Msk & (("
 	.ascii	"value) << SUPC_SMMR_SMSMPL_Pos)))\000"
@@ -57733,8 +58322,8 @@ PlayRecording:
 	.ascii	"PMC_PCER0_PID30 (0x1u << 30)\000"
 .LASF7163:
 	.ascii	"_SAMV71_SSC_COMPONENT_ \000"
-.LASF12181:
-	.ascii	"PIO_PB12D_PCK0 (1u << 12)\000"
+.LASF12003:
+	.ascii	"PIO_PD30X1_AFE0_AD0 (1u << 30)\000"
 .LASF7479:
 	.ascii	"SUPC_WUIR_WKUPEN13 (0x1u << 13)\000"
 .LASF83:
@@ -58017,6 +58606,8 @@ PlayRecording:
 	.ascii	"lue) << SSC_RCMR_STTDLY_Pos)))\000"
 .LASF8786:
 	.ascii	"USBHS_HSTISR_DDISCI (0x1u << 1)\000"
+.LASF5356:
+	.ascii	"PIO_DRIVER_LINE31_LOW_DRIVE (0x0u << 31)\000"
 .LASF12592:
 	.ascii	"_FSEEK_OPTIMIZATION 1\000"
 .LASF225:
@@ -58763,7 +59354,7 @@ PlayRecording:
 	.ascii	"REG_USART1_CSR (*(__I uint32_t*)0x40028014U)\000"
 .LASF6303:
 	.ascii	"PWM_ELMR_CSEL3 (0x1u << 3)\000"
-.LASF14322:
+.LASF14325:
 	.ascii	"_Bool\000"
 .LASF1674:
 	.ascii	"CHIPID_CIDR_NVPTYP_ROM (0x0u << 28)\000"
@@ -60971,8 +61562,8 @@ PlayRecording:
 	.ascii	"__signed signed\000"
 .LASF5259:
 	.ascii	"PIO_SCHMITT_SCHMITT29 (0x1u << 29)\000"
-.LASF12003:
-	.ascii	"PIO_PD30X1_AFE0_AD0 (1u << 30)\000"
+.LASF4446:
+	.ascii	"PIO_MDDR_P27 (0x1u << 27)\000"
 .LASF3356:
 	.ascii	"MCAN_NDAT2_ND32 (0x1u << 0)\000"
 .LASF8836:
@@ -61106,7 +61697,7 @@ PlayRecording:
 .LASF5391:
 	.ascii	"PIO_KKPR_KEY2COL_Msk (0x7u << PIO_KKPR_KEY2COL_Pos)"
 	.ascii	"\000"
-.LASF14336:
+.LASF14343:
 	.ascii	"XDMAC_Handler\000"
 .LASF5342:
 	.ascii	"PIO_DRIVER_LINE26_HIGH_DRIVE (0x1u << 26)\000"
@@ -61594,8 +62185,6 @@ PlayRecording:
 	.ascii	"TWIHS_IER_MCACK (0x1u << 16)\000"
 .LASF4128:
 	.ascii	"PIO_IFSR_P29 (0x1u << 29)\000"
-.LASF7960:
-	.ascii	"TWIHS_IDR_TOUT (0x1u << 18)\000"
 .LASF8896:
 	.ascii	"USBHS_HSTIER_PEP_5 (0x1u << 13)\000"
 .LASF3319:
@@ -62018,7 +62607,7 @@ PlayRecording:
 	.ascii	"PIO_PUDR_P0 (0x1u << 0)\000"
 .LASF4256:
 	.ascii	"PIO_PDSR_P29 (0x1u << 29)\000"
-.LASF14321:
+.LASF14324:
 	.ascii	"cpu_irq_prev_interrupt_state\000"
 .LASF2388:
 	.ascii	"GMAC_ST2COM1_OFFSET_TYPE_Pos 7\000"
@@ -63308,6 +63897,8 @@ PlayRecording:
 	.ascii	"__FRACT_MAX__ 0X7FFFP-15R\000"
 .LASF1447:
 	.ascii	"AFEC_IMR_EOC1 (0x1u << 1)\000"
+.LASF7399:
+	.ascii	"SUPC_MR_KEY_Msk (0xffu << SUPC_MR_KEY_Pos)\000"
 .LASF5398:
 	.ascii	"PIO_KKRR_KEY0COL_Pos 4\000"
 .LASF2979:
@@ -63605,7 +64196,7 @@ PlayRecording:
 	.ascii	"PMC_IER_MCKRDY (0x1u << 3)\000"
 .LASF1279:
 	.ascii	"AFEC_MR_STARTUP_SUT640 (0xAu << 16)\000"
-.LASF14335:
+.LASF14342:
 	.ascii	"result\000"
 .LASF667:
 	.ascii	"SCB_CCSIDR_LINESIZE_Pos 0\000"
@@ -65348,7 +65939,7 @@ PlayRecording:
 .LASF6391:
 	.ascii	"PWM_CMPMUPD_CUPRUPD(value) ((PWM_CMPMUPD_CUPRUPD_Ms"
 	.ascii	"k & ((value) << PWM_CMPMUPD_CUPRUPD_Pos)))\000"
-.LASF14331:
+.LASF14338:
 	.ascii	"C:\\SAMV71x\\app\\12_Fft_AFEC_Test\\src\\Bsw\\Ecual"
 	.ascii	"\\Codec_DMA\\Codec_DMA.c\000"
 .LASF2739:
@@ -65784,7 +66375,7 @@ PlayRecording:
 	.ascii	"__sfileno(p) ((p)->_file)\000"
 .LASF13368:
 	.ascii	"MCI_INITIAL_SPEED 400000\000"
-.LASF14333:
+.LASF14340:
 	.ascii	"__CLZ\000"
 .LASF3037:
 	.ascii	"MATRIX_WPSR_WPVS (0x1u << 0)\000"
@@ -66399,7 +66990,7 @@ PlayRecording:
 	.ascii	"((value) << ISI_CFG2_YCC_SWAP_Pos)))\000"
 .LASF12719:
 	.ascii	"__ptrvalue \000"
-.LASF14318:
+.LASF14321:
 	.ascii	"PlayRecording\000"
 .LASF6152:
 	.ascii	"PWM_IER2_CMPM6 (0x1u << 14)\000"
@@ -66893,8 +67484,6 @@ PlayRecording:
 	.ascii	"DISABLED 0\000"
 .LASF5619:
 	.ascii	"PMC_PCK_PRES_Msk (0xffu << PMC_PCK_PRES_Pos)\000"
-.LASF12096:
-	.ascii	"PIO_PD18A_NCS1 (1u << 18)\000"
 .LASF9979:
 	.ascii	"REG_PWM0_ISR2 (*(__I uint32_t*)0x40020040U)\000"
 .LASF7279:
@@ -67313,7 +67902,7 @@ PlayRecording:
 .LASF6388:
 	.ascii	"PWM_CMPMUPD_CPRUPD(value) ((PWM_CMPMUPD_CPRUPD_Msk "
 	.ascii	"& ((value) << PWM_CMPMUPD_CPRUPD_Pos)))\000"
-.LASF14329:
+.LASF14336:
 	.ascii	"AudioBuffer\000"
 .LASF13754:
 	.ascii	"STATUS_SWP_PROTALL (3 << 2)\000"
@@ -67784,6 +68373,8 @@ PlayRecording:
 	.ascii	"PIO_MDSR_P17 (0x1u << 17)\000"
 .LASF11242:
 	.ascii	"REG_QSPI_SMR (*(__IO uint32_t*)0x4007C040U)\000"
+.LASF14333:
+	.ascii	"buf_flag\000"
 .LASF5549:
 	.ascii	"CKGR_MOR_MOSCRCF_4_MHz (0x0u << 4)\000"
 .LASF1523:
@@ -67798,8 +68389,6 @@ PlayRecording:
 	.ascii	"AFEC_MR_STARTUP_SUT8 (0x1u << 16)\000"
 .LASF3013:
 	.ascii	"MATRIX_MRCR_RCB9 (0x1u << 9)\000"
-.LASF3720:
-	.ascii	"MCAN_TXBCIE_CFIE28 (0x1u << 28)\000"
 .LASF5615:
 	.ascii	"PMC_PCK_CSS_PLLA_CLK (0x2u << 0)\000"
 .LASF13228:
@@ -67832,8 +68421,9 @@ PlayRecording:
 	.ascii	"USBHS_HSTPIPISR_NBUSYBK_0_BUSY (0x0u << 12)\000"
 .LASF4216:
 	.ascii	"PIO_ODSR_P21 (0x1u << 21)\000"
-.LASF4967:
-	.ascii	"PIO_AIMMR_P1 (0x1u << 1)\000"
+.LASF2848:
+	.ascii	"ISI_R2Y_SET1_C3(value) ((ISI_R2Y_SET1_C3_Msk & ((va"
+	.ascii	"lue) << ISI_R2Y_SET1_C3_Pos)))\000"
 .LASF4842:
 	.ascii	"PIO_OWDR_P4 (0x1u << 4)\000"
 .LASF12092:
@@ -67845,6 +68435,8 @@ PlayRecording:
 	.ascii	"RD_PULSE_Pos)\000"
 .LASF3207:
 	.ascii	"MCAN_IR_MRAF (0x1u << 17)\000"
+.LASF14309:
+	.ascii	"SCB_CleanDCache\000"
 .LASF11193:
 	.ascii	"REG_XDMAC_CNDA21 (*(__IO uint32_t*)0x400785A8U)\000"
 .LASF9762:
@@ -67893,6 +68485,8 @@ PlayRecording:
 	.ascii	"PIO_PD20 (1u << 20)\000"
 .LASF9796:
 	.ascii	"REG_TC0_IMR0 (*(__I uint32_t*)0x4000C02CU)\000"
+.LASF13724:
+	.ascii	"CS2100_REG_CFG 0x05\000"
 .LASF98:
 	.ascii	"__INT_LEAST64_MAX__ 9223372036854775807LL\000"
 .LASF10374:
@@ -69140,7 +69734,7 @@ PlayRecording:
 	.ascii	"REG_XDMAC_CNDC8 (*(__IO uint32_t*)0x4007826CU)\000"
 .LASF64:
 	.ascii	"__has_include(STR) __has_include__(STR)\000"
-.LASF14320:
+.LASF14323:
 	.ascii	"cpu_irq_critical_section_counter\000"
 .LASF10206:
 	.ascii	"_SAMV71_MCAN1_INSTANCE_ \000"
@@ -70368,6 +70962,8 @@ PlayRecording:
 	.ascii	"CHIPID_CIDR_SRAMSIZ_96K (0xEu << 16)\000"
 .LASF4465:
 	.ascii	"PIO_MDSR_P14 (0x1u << 14)\000"
+.LASF14318:
+	.ascii	"Channel\000"
 .LASF8785:
 	.ascii	"USBHS_HSTISR_DCONNI (0x1u << 0)\000"
 .LASF9642:
@@ -70455,6 +71051,8 @@ PlayRecording:
 	.ascii	"REG_XDMAC_CSUS9 (*(__IO uint32_t*)0x400782C0U)\000"
 .LASF9797:
 	.ascii	"REG_TC0_EMR0 (*(__IO uint32_t*)0x4000C030U)\000"
+.LASF14334:
+	.ascii	"cpu_flag\000"
 .LASF13459:
 	.ascii	"GMII_LSB_MASK 0x0U\000"
 .LASF2989:
@@ -70715,7 +71313,7 @@ PlayRecording:
 	.ascii	"__has_feature(x) 0\000"
 .LASF11367:
 	.ascii	"REG_UART1_IER (*(__O uint32_t*)0x400E0A08U)\000"
-.LASF14330:
+.LASF14337:
 	.ascii	"GNU C 4.9.3 20150529 (release) [ARM/embedded-4_9-br"
 	.ascii	"anch revision 227977] -mcpu=cortex-m7 -mthumb -mflo"
 	.ascii	"at-abi=softfp -mfpu=fpv5-sp-d16 -g3 -fno-builtin-fa"
@@ -71066,7 +71664,7 @@ PlayRecording:
 	.ascii	"s)\000"
 .LASF6711:
 	.ascii	"_SAMV71_RSWDT_COMPONENT_ \000"
-.LASF14324:
+.LASF14327:
 	.ascii	"sscDmaRxChannel\000"
 .LASF10985:
 	.ascii	"REG_XDMAC_CUBC6 (*(__IO uint32_t*)0x400781F0U)\000"
@@ -74242,7 +74840,7 @@ PlayRecording:
 	.ascii	"GMAC_TIDM3_ENID3 (0x1u << 31)\000"
 .LASF4067:
 	.ascii	"PIO_IFDR_P0 (0x1u << 0)\000"
-.LASF14316:
+.LASF14319:
 	.ascii	"pDmad\000"
 .LASF10730:
 	.ascii	"REG_PWM1_CMPVUPD5 (*(__O uint32_t*)0x4005C184U)\000"
@@ -74435,8 +75033,6 @@ PlayRecording:
 .LASF8387:
 	.ascii	"US_LONL2HDR_BLI(value) ((US_LONL2HDR_BLI_Msk & ((va"
 	.ascii	"lue) << US_LONL2HDR_BLI_Pos)))\000"
-.LASF4446:
-	.ascii	"PIO_MDDR_P27 (0x1u << 27)\000"
 .LASF7875:
 	.ascii	"TWIHS_MMR_IADRSZ(value) ((TWIHS_MMR_IADRSZ_Msk & (("
 	.ascii	"value) << TWIHS_MMR_IADRSZ_Pos)))\000"
@@ -74575,7 +75171,7 @@ PlayRecording:
 .LASF1739:
 	.ascii	"DACC_TRIGR_OSR1(value) ((DACC_TRIGR_OSR1_Msk & ((va"
 	.ascii	"lue) << DACC_TRIGR_OSR1_Pos)))\000"
-.LASF14325:
+.LASF14329:
 	.ascii	"xdmadCfg\000"
 .LASF3290:
 	.ascii	"MCAN_GFC_ANFE(value) ((MCAN_GFC_ANFE_Msk & ((value)"
@@ -75136,8 +75732,8 @@ PlayRecording:
 	.ascii	"SSC_IMR_CP1 (0x1u << 9)\000"
 .LASF10648:
 	.ascii	"REG_TC3_SR2 (*(__I uint32_t*)0x400540A0U)\000"
-.LASF5356:
-	.ascii	"PIO_DRIVER_LINE31_LOW_DRIVE (0x0u << 31)\000"
+.LASF3720:
+	.ascii	"MCAN_TXBCIE_CFIE28 (0x1u << 28)\000"
 .LASF12243:
 	.ascii	"PIO_PA28D_PWMC1_PWMFI2 (1u << 28)\000"
 .LASF9093:
@@ -75817,6 +76413,8 @@ PlayRecording:
 	.ascii	"SUPC_SR_WKUPS_NO (0x0u << 1)\000"
 .LASF4214:
 	.ascii	"PIO_ODSR_P19 (0x1u << 19)\000"
+.LASF12001:
+	.ascii	"PIO_PE4 (1u << 4)\000"
 .LASF3932:
 	.ascii	"PIO_PSR_P25 (0x1u << 25)\000"
 .LASF6077:
@@ -75958,6 +76556,8 @@ PlayRecording:
 	.ascii	"MCAN_TXBTO_TO24 (0x1u << 24)\000"
 .LASF12104:
 	.ascii	"PIO_PC8A_NWE (1u << 8)\000"
+.LASF12181:
+	.ascii	"PIO_PB12D_PCK0 (1u << 12)\000"
 .LASF13534:
 	.ascii	"ILI9488_CMD_DISPLAY_ON 0x29\000"
 .LASF6160:
@@ -77674,7 +78274,7 @@ PlayRecording:
 	.ascii	"PIO_PD8B_PWMC0_PWMFI1 (1u << 8)\000"
 .LASF3705:
 	.ascii	"MCAN_TXBCIE_CFIE13 (0x1u << 13)\000"
-.LASF14334:
+.LASF14341:
 	.ascii	"value\000"
 .LASF6935:
 	.ascii	"SDRAMC_CR_CAS_LATENCY2 (0x1u << 5)\000"

@@ -26817,7 +26817,7 @@ static WM8904_PARA wm8904_access_slow[]=
 
 
 
-
+ { 0x0042, 0x18},
  { 0x0042, 0x19},
  { 0x00E8, 0x1A},
  { 0x0820, 0x1B},
@@ -26845,7 +26845,7 @@ static WM8904_PARA wm8904_access_slow[]=
 
 static WM8904_PARA wm8904_access_main[] =
 {
-
+ { 0x8904, 0},
 
 
 
@@ -26854,7 +26854,7 @@ static WM8904_PARA wm8904_access_main[] =
 
 
 
-
+ { 0xFFFF, 9},
 
 
  { 0x0003, 12},

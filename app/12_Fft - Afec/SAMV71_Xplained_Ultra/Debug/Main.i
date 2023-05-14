@@ -26992,12 +26992,6 @@ extern int main( void )
  Wdg_Disable();
 
 
- LedCtrl_Configure();
-
-
-  ButtonCtrl_ConfigureSW0Button();
-
-
  SCB_EnableICache();
  SCB_EnableDCache();
 
@@ -27006,7 +27000,7 @@ extern int main( void )
 
  printf( "\n\r-- Scheduler Project %s --\n\r", "1.3" ) ;
  printf( "-- %s\n\r", "SAM V71 Xplained Ultra" ) ;
- printf( "-- Compiled: %s %s With %s --\n\r", "May 14 2023", "00:15:51" , "GCC");
+ printf( "-- Compiled: %s %s With %s --\n\r", "May 14 2023", "13:10:17" , "GCC");
 
   printf("Configuracion del SystemSystick a 1ms.\n\r");
   if (TimeTick_Configure())
@@ -27014,7 +27008,6 @@ extern int main( void )
 
 
  PIO_Configure(SscTwiPins, (sizeof(SscTwiPins) / sizeof(Pin)));
-
 
 
  SSC_Config();
@@ -27041,7 +27034,6 @@ extern int main( void )
 
 
  WM8904_Init(&twid, 0x1a | (0x0 << 0), (0x0u << 0));
-
 
  PMC_ConfigurePCK2((0x0u << 0), (0x0u << 4));
 

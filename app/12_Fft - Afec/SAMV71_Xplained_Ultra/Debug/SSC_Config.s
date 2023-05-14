@@ -49,7 +49,7 @@ SSC_Config:
 	.loc 1 44 0
 	mov	r0, #1073758208
 	ldr	r1, .L2+4
-	movs	r2, #143
+	movw	r2, #399
 	bl	SSC_ConfigureReceiver
 	.loc 1 45 0
 	mov	r0, #1073758208
@@ -57,7 +57,7 @@ SSC_Config:
 	.loc 1 46 0
 	mov	r0, #1073758208
 	ldr	r1, .L2+8
-	movs	r2, #143
+	movw	r2, #399
 	bl	SSC_ConfigureTransmitter
 	.loc 1 47 0
 	mov	r0, #1073758208
@@ -68159,8 +68159,6 @@ SSC_Config:
 	.ascii	"MCAN_TEST_TX_Msk (0x3u << MCAN_TEST_TX_Pos)\000"
 .LASF1300:
 	.ascii	"AFEC_EMR_CMPMODE_OUT (0x3u << 0)\000"
-.LASF14065:
-	.ascii	"SLOT_BY_FRAME (1)\000"
 .LASF10004:
 	.ascii	"REG_PWM0_CMPMUPD1 (*(__O uint32_t*)0x4002014CU)\000"
 .LASF13995:
@@ -68220,6 +68218,8 @@ SSC_Config:
 	.ascii	"PWM_CLK_PREA_CLK_DIV128 (0x7u << 8)\000"
 .LASF10582:
 	.ascii	"REG_GMAC_ST2CW09 (*(__IO uint32_t*)0x40050748U)\000"
+.LASF14065:
+	.ascii	"SLOT_BY_FRAME (2)\000"
 .LASF6414:
 	.ascii	"PWM_CMR_DTHI (0x1u << 17)\000"
 .LASF5570:
