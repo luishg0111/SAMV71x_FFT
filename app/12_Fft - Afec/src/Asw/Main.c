@@ -23,21 +23,19 @@
 #include    "Button_Ctrl.h"
 /** Floating Point Unit */
 #include    "Fpu.h"
-
-/*  libreria del DMA    */
-#include    "Codec_DMA.h"
-/*  libreria de AudioCodec    */
+/*  DMA library    */
+#include    "DMA_Codec.h"
+/*  AudioCodec wm8904 library    */
 #include "wm8904.h"
-
-#include "SSC_Config.h"
+/*  SSC_Codec library    */
+#include "SSC_Codec.h"
 
 /*~~~~~~  Local definitions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-  #define SAMP_PER  (50)
-  #define BUFF_SIZE (2048)
-
-    /** TWI High Speed clock */
-	#define TWI_CLOCK		  400000
+#define SAMP_PER  (50)
+#define BUFF_SIZE (2048)
+/** TWI High Speed clock */
+#define TWI_CLOCK		  400000
 
 /*~~~~~~  Global variables ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
@@ -54,7 +52,15 @@ uint16_t AudioBuffer[2048];
 float fft_signalPower[FFT_BUFF_SIZE / 2];  
 
 /** configuracion de los pines de TWI0, pinesde trasmision de data, clock, frame, RD, RK, RF . */
-static const Pin SscTwiPins[] = { PIN_TWI_TWD0, PIN_TWI_TWCK0, PIN_SSC_TD, PIN_SSC_TK, PIN_SSC_TF, PIN_SSC_RD,  PIN_SSC_RK, PIN_SSC_RF, PIN_PCK2 };
+static const Pin SscTwiPins[] = { PIN_TWI_TWD0,
+                                  PIN_TWI_TWCK0,
+                                  PIN_SSC_TD,
+                                  PIN_SSC_TK,
+                                  PIN_SSC_TF,
+                                  PIN_SSC_RD,
+                                  PIN_SSC_RK,
+                                  PIN_SSC_RF,
+                                  PIN_PCK2 };
 
 /*    TWI instancia    */
 static Twid twid;
@@ -66,12 +72,14 @@ void fft_process(void);
 pfun pFFT = &fft_process;
 
 /*    Interrupcion de TWI    */
-void TWIHS0_Handler(void){
+void TWIHS0_Handler(void)
+{
 	TWID_Handler(&twid);
 }
 
 /*      Transferir el buffer del Codec al de enrtrada de FFT  */
-static void Codec_To_InputFFT(void){
+static void Codec_To_InputFFT(void)
+{
   __uint16_t u16i = 0;
 	for (u16i = 0; u16i < FFT_BUFF_SIZE; u16i ++) {
 		fft_inputData[u16i] = (float)AudioBuffer[u16i];
@@ -140,7 +148,7 @@ extern int main( void )
 	PMC_ConfigurePCK2(PMC_MCKR_CSS_SLOW_CLK, PMC_MCKR_PRES_CLK_1); 
 
 	// Record data from codec using SSC
-	PlayRecording();
+	DMA_PlayRecording();
 
 	//Cast DMA uint16 data array to float for usage with the FFT function
 	Codec_To_InputFFT();

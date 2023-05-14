@@ -1,6 +1,6 @@
 /** Main group of includes for board definitions, chip definitions and type definitions */
 #include    "Std_types.h"
-#include    "Codec_DMA.h"
+#include    "DMA_Codec.h"
 
 /** Global DMA driver for all transfer */
 static sXdmad dmad;
@@ -23,8 +23,11 @@ COMPILER_ALIGNED(32) static LinkedListDescriporView1 dmaReadLinkList[TOTAL_Buffe
 static uint8_t buf_flag = 1;
 static bool cpu_flag = false;
 
-/*  Interrupcion por DMA  */
-void XDMAC_Handler(void){
+/**
+ * ISR for DMA interrupt
+ */
+void XDMAC_Handler(void)
+{
 	XDMAD_Handler(&dmad);
 }
 
@@ -74,7 +77,7 @@ void DMA_Configure(void){
 }
 
 /*     Graba el audio  y transferir    */
-void PlayRecording(void)
+void DMA_PlayRecording(void)
 {
 	uint16_t* src;
 	uint8_t i;
@@ -112,8 +115,7 @@ void PlayRecording(void)
 		| XDMAC_CNDC_NDDUP_DST_PARAMS_UPDATED;
 
 	
-	//SCB_CleanInvalidateDCache();
-	SCB_CleanDCache();
+	SCB_CleanInvalidateDCache();
 	/*XDMAC_CIE_BIE make interrupts can be generated on per block basis*/
 	XDMAD_ConfigureTransfer(&dmad, sscDmaRxChannel, &xdmadCfg, xdmaCndc,
 		(uint32_t)&dmaReadLinkList[0], XDMAC_CIE_BIE);
@@ -168,7 +170,7 @@ src = &AudioBuffer[0];
 		/* Enable playback(SSC TX) */
 	SSC_EnableTransmitter(AUDIO_IF);
 	XDMAD_StartTransfer( &dmad, sscDmaTxChannel);
-  SCB_CleanInvalidateDCache();
+  	SCB_CleanInvalidateDCache();
 
 }
 

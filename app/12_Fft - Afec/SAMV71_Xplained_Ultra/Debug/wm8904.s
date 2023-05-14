@@ -30,7 +30,7 @@ cpu_irq_prev_interrupt_state:
 	.type	WM8904_Read, %function
 WM8904_Read:
 .LFB283:
-	.file 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.c"
+	.file 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\wm8904_Codec\\wm8904.c"
 	.loc 1 66 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 24
@@ -147,7 +147,7 @@ WM8904_Write:
 	.data
 	.align	2
 	.type	wm8904_access_slow, %object
-	.size	wm8904_access_slow, 152
+	.size	wm8904_access_slow, 148
 wm8904_access_slow:
 	.short	0
 	.byte	0
@@ -210,9 +210,6 @@ wm8904_access_slow:
 	.byte	22
 	.space	1
 	.short	66
-	.byte	24
-	.space	1
-	.short	66
 	.byte	25
 	.space	1
 	.short	232
@@ -265,16 +262,13 @@ wm8904_access_slow:
 	.space	1
 	.align	2
 	.type	wm8904_access_main, %object
-	.size	wm8904_access_main, 100
+	.size	wm8904_access_main, 96
 wm8904_access_main:
 	.short	25
 	.byte	4
 	.space	1
 	.short	67
 	.byte	5
-	.space	1
-	.short	-1
-	.byte	9
 	.space	1
 	.short	3
 	.byte	12
@@ -414,7 +408,7 @@ WM8904_Init:
 	cmp	r3, #0
 	bne	.L9
 	.loc 1 421 0
-	movs	r3, #39
+	movs	r3, #38
 	strb	r3, [r7, #19]
 	.loc 1 422 0
 	movs	r3, #0
@@ -1263,7 +1257,7 @@ WM8904_IN2R_IN1L:
 	.4byte	0x4bd
 	.uleb128 0x9
 	.4byte	0xc9
-	.byte	0x25
+	.byte	0x24
 	.byte	0
 	.uleb128 0x10
 	.4byte	.LASF14120
@@ -1278,7 +1272,7 @@ WM8904_IN2R_IN1L:
 	.4byte	0x4de
 	.uleb128 0x9
 	.4byte	0xc9
-	.byte	0x18
+	.byte	0x17
 	.byte	0
 	.uleb128 0x10
 	.4byte	.LASF14121
@@ -4422,7 +4416,7 @@ WM8904_IN2R_IN1L:
 	.byte	0x7
 	.4byte	.Ldebug_macro181
 	.byte	0x4
-	.file 212 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_wm8904\\wm8904.h"
+	.file 212 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\wm8904_Codec\\wm8904.h"
 	.byte	0x3
 	.uleb128 0x2a
 	.uleb128 0xd4
@@ -53319,8 +53313,6 @@ WM8904_IN2R_IN1L:
 	.ascii	"REG_SDRAMC_CR (*(__IO uint32_t*)0x40084008U)\000"
 .LASF4730:
 	.ascii	"PIO_PPDDR_P21 (0x1u << 21)\000"
-.LASF7840:
-	.ascii	"TC_WPMR_WPKEY_Msk (0xffffffu << TC_WPMR_WPKEY_Pos)\000"
 .LASF10694:
 	.ascii	"REG_PWM1_OSSUPD (*(__O uint32_t*)0x4005C054U)\000"
 .LASF10190:
@@ -53772,6 +53764,9 @@ WM8904_IN2R_IN1L:
 .LASF7256:
 	.ascii	"SSC_TCMR_START(value) ((SSC_TCMR_START_Msk & ((valu"
 	.ascii	"e) << SSC_TCMR_START_Pos)))\000"
+.LASF14123:
+	.ascii	"D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecua"
+	.ascii	"l\\wm8904_Codec\\wm8904.c\000"
 .LASF5339:
 	.ascii	"PIO_DRIVER_LINE26 (0x1u << 26)\000"
 .LASF9631:
@@ -55920,6 +55915,8 @@ WM8904_IN2R_IN1L:
 	.ascii	"RTC_MR_OUT1_FREQ32HZ (0x2u << 20)\000"
 .LASF3762:
 	.ascii	"MLB_MLBC0_FCNT_16_FRAMES (0x4u << 15)\000"
+.LASF13593:
+	.ascii	"ILI9488_CMD_ADJUST_CONTROL_1 0xD7\000"
 .LASF13299:
 	.ascii	"L_cuserid 9\000"
 .LASF13739:
@@ -57481,8 +57478,8 @@ WM8904_IN2R_IN1L:
 	.ascii	"AES_MR_PROCDLY_Msk (0xfu << AES_MR_PROCDLY_Pos)\000"
 .LASF11575:
 	.ascii	"REG_PIOD_OER (*(__O uint32_t*)0x400E1410U)\000"
-.LASF10404:
-	.ascii	"REG_ACC_ACR (*(__IO uint32_t*)0x40044094U)\000"
+.LASF7840:
+	.ascii	"TC_WPMR_WPKEY_Msk (0xffffffu << TC_WPMR_WPKEY_Pos)\000"
 .LASF11724:
 	.ascii	"REG_RTC_SR (*(__I uint32_t*)0x400E1878U)\000"
 .LASF12219:
@@ -61853,9 +61850,8 @@ WM8904_IN2R_IN1L:
 	.ascii	"PIO_LOCKSR_P3 (0x1u << 3)\000"
 .LASF9908:
 	.ascii	"REG_TC2_SMMR2 (*(__IO uint32_t*)0x40014088U)\000"
-.LASF2327:
-	.ascii	"GMAC_ST1RPQ_UDPM_Msk (0xffffu << GMAC_ST1RPQ_UDPM_P"
-	.ascii	"os)\000"
+.LASF143:
+	.ascii	"__DBL_MAX_10_EXP__ 308\000"
 .LASF12173:
 	.ascii	"PIO_PA9X1_WKUP6 (1u << 9)\000"
 .LASF5622:
@@ -63563,6 +63559,9 @@ WM8904_IN2R_IN1L:
 	.ascii	"TPI_SPPR_TXMODE_Msk (0x3UL << TPI_SPPR_TXMODE_Pos)\000"
 .LASF4822:
 	.ascii	"PIO_OWER_P17 (0x1u << 17)\000"
+.LASF14124:
+	.ascii	"D:\\\\SAMV71x_FFT\\\\app\\\\12_Fft - Afec\\\\src\\\\"
+	.ascii	"Bsw\\\\Ecual\\\\wm8904_Codec\000"
 .LASF13598:
 	.ascii	"ILI9488_CMD_DIGITAL_GAMMA_CONTROL_2 0xE3\000"
 .LASF11395:
@@ -67467,8 +67466,8 @@ WM8904_IN2R_IN1L:
 	.ascii	"SOFT_RESET_ENABLE 0x66\000"
 .LASF13180:
 	.ascii	"US_SPI_BPMODE_0 (US_SPI_CPOL_0|US_SPI_CPHA_1)\000"
-.LASF13593:
-	.ascii	"ILI9488_CMD_ADJUST_CONTROL_1 0xD7\000"
+.LASF10404:
+	.ascii	"REG_ACC_ACR (*(__IO uint32_t*)0x40044094U)\000"
 .LASF3338:
 	.ascii	"MCAN_NDAT1_ND15 (0x1u << 15)\000"
 .LASF2014:
@@ -68835,8 +68834,9 @@ WM8904_IN2R_IN1L:
 	.ascii	"REG_DACC_CHER (*(__O uint32_t*)0x40040010U)\000"
 .LASF10874:
 	.ascii	"_SAMV71_XDMAC_INSTANCE_ \000"
-.LASF10741:
-	.ascii	"REG_PWM1_CDTY0 (*(__IO uint32_t*)0x4005C204U)\000"
+.LASF2327:
+	.ascii	"GMAC_ST1RPQ_UDPM_Msk (0xffffu << GMAC_ST1RPQ_UDPM_P"
+	.ascii	"os)\000"
 .LASF8185:
 	.ascii	"US_IER_RXBRK (0x1u << 2)\000"
 .LASF4499:
@@ -69509,8 +69509,6 @@ WM8904_IN2R_IN1L:
 	.ascii	"TWIHS_IMR_UNRE (0x1u << 7)\000"
 .LASF11929:
 	.ascii	"PIO_PB9 (1u << 9)\000"
-.LASF143:
-	.ascii	"__DBL_MAX_10_EXP__ 308\000"
 .LASF8689:
 	.ascii	"USBHS_DEVEPTIMR_NAKINE (0x1u << 4)\000"
 .LASF1379:
@@ -72007,6 +72005,8 @@ WM8904_IN2R_IN1L:
 .LASF1503:
 	.ascii	"AFEC_CGR_GAIN2(value) ((AFEC_CGR_GAIN2_Msk & ((valu"
 	.ascii	"e) << AFEC_CGR_GAIN2_Pos)))\000"
+.LASF10741:
+	.ascii	"REG_PWM1_CDTY0 (*(__IO uint32_t*)0x4005C204U)\000"
 .LASF8070:
 	.ascii	"UART_IMR_PARE (0x1u << 7)\000"
 .LASF7725:
@@ -73040,9 +73040,6 @@ WM8904_IN2R_IN1L:
 	.ascii	"PIO_PA23 (1u << 23)\000"
 .LASF1693:
 	.ascii	"DACC_MR_REFRESH_Msk (0xffu << DACC_MR_REFRESH_Pos)\000"
-.LASF14124:
-	.ascii	"D:\\\\SAMV71x_FFT\\\\app\\\\12_Fft - Afec\\\\src\\\\"
-	.ascii	"Bsw\\\\Ecual\\\\Codec_wm8904\000"
 .LASF7320:
 	.ascii	"SSC_SR_TXSYN (0x1u << 10)\000"
 .LASF9016:
@@ -75424,9 +75421,6 @@ WM8904_IN2R_IN1L:
 	.ascii	"REG_TC0_RB0 (*(__IO uint32_t*)0x4000C018U)\000"
 .LASF2452:
 	.ascii	"HSMCI_CMDR_SPCMD_INIT (0x1u << 8)\000"
-.LASF14123:
-	.ascii	"D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecua"
-	.ascii	"l\\Codec_wm8904\\wm8904.c\000"
 .LASF5061:
 	.ascii	"PIO_ELSR_P0 (0x1u << 0)\000"
 .LASF13096:

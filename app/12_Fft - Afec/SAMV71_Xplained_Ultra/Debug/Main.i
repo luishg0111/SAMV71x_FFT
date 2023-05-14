@@ -26900,10 +26900,9 @@ extern void ButtonCtrl_ConfigureSW0Button( void );
 void Fpu_Enable(void);
 # 26 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
 
+# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\Io\\DMA_Codec/DMA_Codec.h" 1
 
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\Codec_DMA/Codec_DMA.h" 1
-
-#define CODEC_DMA_H_ 
+#define DMA_CODEC_H_ 
 
 
 
@@ -26921,27 +26920,51 @@ void Fpu_Enable(void);
 #define FFT_BUFF_SIZE (2048)
 
 extern void DMA_Configure(void);
-extern void PlayRecording(void);
-# 29 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
+extern void DMA_PlayRecording(void);
+# 28 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
 
-# 1 "D:\\SAMV71x_FFT\\bsp\\libboard_samv7-ek\\include/wm8904.h" 1
-# 31 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
+# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\wm8904_Codec/wm8904.h" 1
+# 30 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
 
-# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\SSC_Config/SSC_Config.h" 1
+# 1 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Mcal\\Com\\SSC/SSC_Codec.h" 1
 
-#define _SSC_Config_H_ 
+#define _SSC_Codec_H_ 
+
+
+
+
+
+#define I2S_SLAVE_TX_SETTING ((SSC_TCMR_CKS_TK) | (SSC_TCMR_CKO_NONE) | (SSC_TCMR_START_TF_EDGE) | (SSC_TCMR_STTDLY(1)) | (SSC_TCMR_PERIOD(0)))
+
+
+
+
+
+#define I2S_SLAVE_RX_SETTING ((SSC_RCMR_CKS_TK) | (SSC_RCMR_CKO_NONE) | (SSC_RCMR_CKI) | (SSC_RCMR_START_RF_EDGE) | (SSC_RCMR_STTDLY(1)) | (SSC_RCMR_PERIOD(0)))
+
+
+
+
+
+
+#define I2S_SLAVE_TX_FRM_SETTING ((SSC_TFMR_DATLEN(BITS_BY_SLOT - 1)) | (SSC_TFMR_MSBF) | (SSC_TFMR_DATNB(SLOT_BY_FRAME - 1)) | (SSC_TFMR_FSOS_NONE))
+
+
+
+
+#define I2S_SLAVE_RX_FRM_SETTING ((SSC_RFMR_DATLEN(BITS_BY_SLOT - 1)) | (SSC_RFMR_MSBF) | (SSC_RFMR_DATNB(SLOT_BY_FRAME - 1)) | (SSC_RFMR_FSOS_NONE))
+
 
 
 
 
 extern void SSC_Config(void);
-# 33 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
+# 32 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c" 2
 
 
 
 #define SAMP_PER (50)
 #define BUFF_SIZE (2048)
-
 
 #define TWI_CLOCK 400000
 
@@ -26960,7 +26983,15 @@ uint16_t AudioBuffer[2048];
 float fft_signalPower[(2048) / 2];
 
 
-static const Pin SscTwiPins[] = { {(1u << 3), ((Pio *)0x400E0E00U), (10), 0, (0 << 0)}, {(1u << 4), ((Pio *)0x400E0E00U), (10), 0, (0 << 0)}, {(1u << 26), ((Pio *)0x400E1400U), (16), 1, (0 << 0)}, {(1u << 1), ((Pio *)0x400E1000U), (11), 3, (0 << 0)}, {(1u << 0), ((Pio *)0x400E1000U), (11), 3, (0 << 0)}, {(1u << 10), ((Pio *)0x400E0E00U), (10), 2, (0 << 0)}, {(1u << 22), ((Pio *)0x400E0E00U), (10), 0, (0 << 0)}, {(1u << 24), ((Pio *)0x400E1400U), (16), 1, (0 << 0)}, {(1u << 18), ((Pio *)0x400E0E00U), (10), 1, (0 << 0)} };
+static const Pin SscTwiPins[] = { {(1u << 3), ((Pio *)0x400E0E00U), (10), 0, (0 << 0)},
+                                  {(1u << 4), ((Pio *)0x400E0E00U), (10), 0, (0 << 0)},
+                                  {(1u << 26), ((Pio *)0x400E1400U), (16), 1, (0 << 0)},
+                                  {(1u << 1), ((Pio *)0x400E1000U), (11), 3, (0 << 0)},
+                                  {(1u << 0), ((Pio *)0x400E1000U), (11), 3, (0 << 0)},
+                                  {(1u << 10), ((Pio *)0x400E0E00U), (10), 2, (0 << 0)},
+                                  {(1u << 22), ((Pio *)0x400E0E00U), (10), 0, (0 << 0)},
+                                  {(1u << 24), ((Pio *)0x400E1400U), (16), 1, (0 << 0)},
+                                  {(1u << 18), ((Pio *)0x400E0E00U), (10), 1, (0 << 0)} };
 
 
 static Twid twid;
@@ -26972,18 +27003,20 @@ void fft_process(void);
 pfun pFFT = &fft_process;
 
 
-void TWIHS0_Handler(void){
+void TWIHS0_Handler(void)
+{
  TWID_Handler(&twid);
 }
 
 
-static void Codec_To_InputFFT(void){
+static void Codec_To_InputFFT(void)
+{
   __uint16_t u16i = 0;
  for (u16i = 0; u16i < (2048); u16i ++) {
   fft_inputData[u16i] = (float)AudioBuffer[u16i];
  }
 }
-# 89 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
+# 97 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
 extern int main( void )
 {
   uint16_t data = 0;
@@ -27000,7 +27033,7 @@ extern int main( void )
 
  printf( "\n\r-- Scheduler Project %s --\n\r", "1.3" ) ;
  printf( "-- %s\n\r", "SAM V71 Xplained Ultra" ) ;
- printf( "-- Compiled: %s %s With %s --\n\r", "May 14 2023", "13:55:27" , "GCC");
+ printf( "-- Compiled: %s %s With %s --\n\r", "May 14 2023", "15:09:27" , "GCC");
 
   printf("Configuracion del SystemSystick a 1ms.\n\r");
   if (TimeTick_Configure())
@@ -27038,7 +27071,7 @@ extern int main( void )
  PMC_ConfigurePCK2((0x0u << 0), (0x0u << 4));
 
 
- PlayRecording();
+ DMA_PlayRecording();
 
 
  Codec_To_InputFFT();

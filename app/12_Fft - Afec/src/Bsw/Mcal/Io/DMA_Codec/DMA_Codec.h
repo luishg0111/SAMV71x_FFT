@@ -1,10 +1,10 @@
-#ifndef CODEC_DMA_H_
-#define CODEC_DMA_H_
+#ifndef DMA_CODEC_H_
+#define DMA_CODEC_H_
 
 #include "Std_Types.h"
 
 /** DMA Descriptor */
-#define TOTAL_Buffers            4
+#define TOTAL_Buffers           4
 #define AUDIO_IF                SSC
 
 /** MAX size of the recorded sound */
@@ -17,6 +17,6 @@
 #define FFT_BUFF_SIZE (2048)
 
 extern void DMA_Configure(void);
-extern void PlayRecording(void);
+extern void DMA_PlayRecording(void);
 
 #endif

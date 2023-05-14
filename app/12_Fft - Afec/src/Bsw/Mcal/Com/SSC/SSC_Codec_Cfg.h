@@ -8,7 +8,7 @@
 #define SAMPLE_RATE             (8000)
 #define SLOT_BY_FRAME           (1)
 #define BITS_BY_SLOT            (16)
-#define AUDIO_IF                SSC
+#define SSC_IF                  SSC
 #define SSC_MCK                 BOARD_MCK
 
 #endif
