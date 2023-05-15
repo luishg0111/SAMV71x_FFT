@@ -39,13 +39,13 @@
 /*~~~~~~  Global variables ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 /** Auxiliary input buffer to accomodate data as FFT function expects it */
-float       fft_inputData[BUFF_SIZE];
+float       fft_inputData[BUFF_SIZE] = {0.0};
 /** Output magnitude data */
-float       fft_signalPower[BUFF_SIZE/2];
+float       fft_signalPower[BUFF_SIZE/2] = {0.0};
 /** Auxiliary output variable that holds the frequency bin with the highest level of signal power */
-uint32_t    u32fft_maxPowerIndex;
+uint32_t    u32fft_maxPowerIndex = 0;
 /** Auxiliary output variable that holds the maximum level of signal power */
-float       fft_maxPower;
+float       fft_maxPower = 0.0;
 
 uint16_t AudioBuffer[2048];     
 float fft_signalPower[FFT_BUFF_SIZE / 2];  
@@ -79,9 +79,9 @@ void TWIHS0_Handler(void)
 /*      Transferir el buffer del Codec al de enrtrada de FFT  */
 static void Codec_To_InputFFT(void)
 {
-  __uint16_t u16i = 0;
-	for (u16i = 0; u16i < FFT_BUFF_SIZE; u16i ++) {
-		fft_inputData[u16i] = (float)AudioBuffer[u16i];
+  int i = 0;
+	for (i = 0; i < FFT_BUFF_SIZE; i ++) {
+		fft_inputData[i] = (float)AudioBuffer[i];
 	}
 }
 

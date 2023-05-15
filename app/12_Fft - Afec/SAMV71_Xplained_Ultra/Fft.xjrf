@@ -49,54 +49,57 @@
       </History>
       <PI.0>
        <Bookmarks_num_>0</Bookmarks_num_>
-       <P>..\src\Bsw\Services\SchM\SchM_Cfg.c</P>
+       <L>342</L>
+       <P>..\..\..\toolset\gcc\startup_sam.c</P>
+       <VL>330</VL>
       </PI.0>
       <PI.1>
        <Bookmarks_num_>0</Bookmarks_num_>
-       <P>..\src\Bsw\Mcal\Com\SSC\SSC_Codec.c</P>
+       <L>65</L>
+       <P>..\..\..\hal\libchip_samv7\source\timetick.c</P>
       </PI.1>
       <PI.10>
+       <Bookmarks_num_>0</Bookmarks_num_>
+       <L>157</L>
+       <P>..\src\Asw\Main.c</P>
+       <VL>134</VL>
+      </PI.10>
+      <PI.11>
        <Bookmarks_num_>0</Bookmarks_num_>
        <C>1</C>
        <L>154</L>
        <P>..\src\Bsw\Ecual\Codec_wm8904\wm8904.c</P>
        <VL>136</VL>
-      </PI.10>
-      <PI.11>
+      </PI.11>
+      <PI.12>
        <Bookmarks_num_>0</Bookmarks_num_>
        <C>269</C>
        <L>40</L>
        <P>..\src\Bsw\Ecual\SSC_Config\SSC_Config.c</P>
        <VL>20</VL>
        <VP>1710</VP>
-      </PI.11>
-      <PI.12>
-       <Bookmarks_num_>0</Bookmarks_num_>
-       <P>..\readme.txt</P>
       </PI.12>
       <PI.13>
+       <Bookmarks_num_>0</Bookmarks_num_>
+       <P>..\readme.txt</P>
+      </PI.13>
+      <PI.14>
        <Bookmarks_num_>0</Bookmarks_num_>
        <C>18</C>
        <L>8</L>
        <P>..\src\Objects\SchM.o</P>
-      </PI.13>
-      <PI.14>
+      </PI.14>
+      <PI.15>
        <Bookmarks_num_>0</Bookmarks_num_>
        <L>448</L>
        <P>..\..\..\hal\libchip_samv7\source\twid.c</P>
        <VL>430</VL>
-      </PI.14>
-      <PI.15>
+      </PI.15>
+      <PI.16>
        <Bookmarks_num_>0</Bookmarks_num_>
        <L>353</L>
        <P>..\..\..\hal\libchip_samv7\include\cmsis\CMSIS\Include\core_cmInstr.h</P>
        <VL>322</VL>
-      </PI.15>
-      <PI.16>
-       <Bookmarks_num_>0</Bookmarks_num_>
-       <L>582</L>
-       <P>..\src\Lib\arm_cfft_f32.c</P>
-       <VL>558</VL>
       </PI.16>
       <PI.17>
        <Bookmarks_num_>0</Bookmarks_num_>
@@ -119,9 +122,10 @@
       </PI.19>
       <PI.2>
        <Bookmarks_num_>0</Bookmarks_num_>
-       <L>196</L>
+       <C>16</C>
+       <L>188</L>
        <P>..\..\..\hal\libchip_samv7\source\exceptions.c</P>
-       <VL>172</VL>
+       <VL>163</VL>
       </PI.2>
       <PI.20>
        <Bookmarks_num_>0</Bookmarks_num_>
@@ -192,9 +196,10 @@
       </PI.29>
       <PI.3>
        <Bookmarks_num_>0</Bookmarks_num_>
-       <L>342</L>
-       <P>..\..\..\toolset\gcc\startup_sam.c</P>
-       <VL>336</VL>
+       <C>30</C>
+       <L>153</L>
+       <P>..\..\..\bsp\libboard_samv7-ek\include\wm8904.h</P>
+       <VL>132</VL>
       </PI.3>
       <PI.30>
        <Bookmarks_num_>0</Bookmarks_num_>
@@ -258,8 +263,9 @@
       </PI.39>
       <PI.4>
        <Bookmarks_num_>0</Bookmarks_num_>
-       <L>65</L>
-       <P>..\..\..\hal\libchip_samv7\source\timetick.c</P>
+       <L>34</L>
+       <P>..\src\Lib\fft_float.c</P>
+       <VL>13</VL>
       </PI.4>
       <PI.40>
        <Bookmarks_num_>0</Bookmarks_num_>
@@ -327,37 +333,30 @@
       </PI.49>
       <PI.5>
        <Bookmarks_num_>0</Bookmarks_num_>
-       <C>30</C>
-       <L>153</L>
-       <P>..\..\..\bsp\libboard_samv7-ek\include\wm8904.h</P>
-       <VL>132</VL>
+       <L>386</L>
+       <P>..\src\Lib\arm_cfft_f32.c</P>
+       <VL>354</VL>
       </PI.5>
       <PI.6>
        <Bookmarks_num_>0</Bookmarks_num_>
-       <L>18</L>
-       <P>..\src\Lib\fft_float.c</P>
-       <VL>18</VL>
+       <P>..\src\Bsw\Services\SchM\SchM_Cfg.c</P>
       </PI.6>
       <PI.7>
        <Bookmarks_num_>0</Bookmarks_num_>
-       <C>2</C>
-       <L>89</L>
+       <C>45</C>
+       <L>15</L>
        <P>..\src\Bsw\Mcal\Io\DMA_Codec\DMA_Codec.c</P>
-       <VL>54</VL>
       </PI.7>
       <PI.8>
+       <Bookmarks_num_>0</Bookmarks_num_>
+       <P>..\src\Bsw\Mcal\Com\SSC\SSC_Codec.c</P>
+      </PI.8>
+      <PI.9>
        <Bookmarks_num_>0</Bookmarks_num_>
        <C>26</C>
        <L>67</L>
        <P>..\src\Asw\SchMTasks\SchM_Tasks.c</P>
        <VL>30</VL>
-      </PI.8>
-      <PI.9>
-       <Bookmarks_num_>0</Bookmarks_num_>
-       <C>13</C>
-       <L>45</L>
-       <P>..\src\Asw\Main.c</P>
-       <VL>33</VL>
       </PI.9>
      </REG_ROOT>
     </EditorOptions>
@@ -832,7 +831,7 @@
        <RelativeFileName>..\src\Asw\Main.c</RelativeFileName>
       </ActiveDocument>
       <Editor.0>
-       <FileBarIndex>4</FileBarIndex>
+       <FileBarIndex>1</FileBarIndex>
        <RectPosBottom>690</RectPosBottom>
        <RectPosLeft>208</RectPosLeft>
        <RectPosRight>830</RectPosRight>
@@ -840,15 +839,23 @@
        <RelativeFileName>..\src\Asw\Main.c</RelativeFileName>
       </Editor.0>
       <Editor.1>
-       <FileBarIndex>5</FileBarIndex>
+       <FileBarIndex>4</FileBarIndex>
        <RectPosBottom>496</RectPosBottom>
        <RectPosLeft>26</RectPosLeft>
        <RectPosRight>672</RectPosRight>
        <RectPosTop>26</RectPosTop>
        <RelativeFileName>..\src\Asw\SchMTasks\SchM_Tasks.c</RelativeFileName>
       </Editor.1>
+      <Editor.10>
+       <FileBarIndex>8</FileBarIndex>
+       <RectPosBottom>548</RectPosBottom>
+       <RectPosLeft>78</RectPosLeft>
+       <RectPosRight>724</RectPosRight>
+       <RectPosTop>78</RectPosTop>
+       <RelativeFileName>..\..\..\toolset\gcc\startup_sam.c</RelativeFileName>
+      </Editor.10>
       <Editor.2>
-       <FileBarIndex>1</FileBarIndex>
+       <FileBarIndex>5</FileBarIndex>
        <RectPosBottom>678</RectPosBottom>
        <RectPosLeft>208</RectPosLeft>
        <RectPosRight>783</RectPosRight>
@@ -856,7 +863,7 @@
        <RelativeFileName>..\src\Bsw\Mcal\Com\SSC\SSC_Codec.c</RelativeFileName>
       </Editor.2>
       <Editor.3>
-       <FileBarIndex>6</FileBarIndex>
+       <FileBarIndex>7</FileBarIndex>
        <RectPosBottom>626</RectPosBottom>
        <RectPosLeft>156</RectPosLeft>
        <RectPosRight>802</RectPosRight>
@@ -864,7 +871,7 @@
        <RelativeFileName>..\src\Bsw\Mcal\Io\DMA_Codec\DMA_Codec.c</RelativeFileName>
       </Editor.3>
       <Editor.4>
-       <FileBarIndex>0</FileBarIndex>
+       <FileBarIndex>2</FileBarIndex>
        <RectPosBottom>496</RectPosBottom>
        <RectPosLeft>26</RectPosLeft>
        <RectPosRight>601</RectPosRight>
@@ -872,44 +879,44 @@
        <RelativeFileName>..\src\Bsw\Services\SchM\SchM_Cfg.c</RelativeFileName>
       </Editor.4>
       <Editor.5>
-       <FileBarIndex>8</FileBarIndex>
+       <FileBarIndex>0</FileBarIndex>
+       <RectPosBottom>626</RectPosBottom>
+       <RectPosLeft>156</RectPosLeft>
+       <RectPosRight>731</RectPosRight>
+       <RectPosTop>156</RectPosTop>
+       <RelativeFileName>..\src\Lib\arm_cfft_f32.c</RelativeFileName>
+      </Editor.5>
+      <Editor.6>
+       <FileBarIndex>9</FileBarIndex>
        <RectPosBottom>574</RectPosBottom>
        <RectPosLeft>104</RectPosLeft>
        <RectPosRight>750</RectPosRight>
        <RectPosTop>104</RectPosTop>
        <RelativeFileName>..\src\Lib\fft_float.c</RelativeFileName>
-      </Editor.5>
-      <Editor.6>
-       <FileBarIndex>3</FileBarIndex>
+      </Editor.6>
+      <Editor.7>
+       <FileBarIndex>6</FileBarIndex>
        <RectPosBottom>652</RectPosBottom>
        <RectPosLeft>182</RectPosLeft>
        <RectPosRight>828</RectPosRight>
        <RectPosTop>182</RectPosTop>
        <RelativeFileName>..\..\..\bsp\libboard_samv7-ek\include\wm8904.h</RelativeFileName>
-      </Editor.6>
-      <Editor.7>
-       <FileBarIndex>2</FileBarIndex>
+      </Editor.7>
+      <Editor.8>
+       <FileBarIndex>3</FileBarIndex>
        <RectPosBottom>652</RectPosBottom>
        <RectPosLeft>182</RectPosLeft>
        <RectPosRight>757</RectPosRight>
        <RectPosTop>182</RectPosTop>
        <RelativeFileName>..\..\..\hal\libchip_samv7\source\exceptions.c</RelativeFileName>
-      </Editor.7>
-      <Editor.8>
-       <FileBarIndex>9</FileBarIndex>
+      </Editor.8>
+      <Editor.9>
+       <FileBarIndex>10</FileBarIndex>
        <RectPosBottom>697</RectPosBottom>
        <RectPosLeft>96</RectPosLeft>
        <RectPosRight>916</RectPosRight>
        <RectPosTop>96</RectPosTop>
        <RelativeFileName>..\..\..\hal\libchip_samv7\source\timetick.c</RelativeFileName>
-      </Editor.8>
-      <Editor.9>
-       <FileBarIndex>7</FileBarIndex>
-       <RectPosBottom>548</RectPosBottom>
-       <RectPosLeft>78</RectPosLeft>
-       <RectPosRight>724</RectPosRight>
-       <RectPosTop>78</RectPosTop>
-       <RelativeFileName>..\..\..\toolset\gcc\startup_sam.c</RelativeFileName>
       </Editor.9>
       <EditorHistoryFile.0>
        <RelativeFileName>..\..\..\hal\libchip_samv7\source\twid.c</RelativeFileName>
@@ -1395,7 +1402,7 @@
          <Condition></Condition>
          <Condition_Count>0</Condition_Count>
          <ConditionEnabled>False</ConditionEnabled>
-         <Name>&quot;..\src\Asw\Main.c&quot;::151</Name>
+         <Name>&quot;..\src\Asw\Main.c&quot;::150</Name>
         </__>
        </BP.4>
        <BP.5>
@@ -1408,7 +1415,7 @@
          <Condition></Condition>
          <Condition_Count>0</Condition_Count>
          <ConditionEnabled>False</ConditionEnabled>
-         <Name>&quot;..\src\Asw\Main.c&quot;::154</Name>
+         <Name>&quot;..\src\Asw\Main.c&quot;::153</Name>
         </__>
        </BP.5>
        <BP.6>
@@ -1421,7 +1428,7 @@
          <Condition></Condition>
          <Condition_Count>0</Condition_Count>
          <ConditionEnabled>False</ConditionEnabled>
-         <Name>&quot;..\src\Asw\Main.c&quot;::157</Name>
+         <Name>&quot;..\src\Asw\Main.c&quot;::156</Name>
         </__>
        </BP.6>
        <BP.7>
@@ -1434,7 +1441,7 @@
          <Condition></Condition>
          <Condition_Count>0</Condition_Count>
          <ConditionEnabled>False</ConditionEnabled>
-         <Name>&quot;..\src\Asw\Main.c&quot;::159</Name>
+         <Name>&quot;..\src\Asw\Main.c&quot;::158</Name>
         </__>
        </BP.7>
       </Fetch>
@@ -1672,7 +1679,7 @@
       </Update>
       <WatchExport>
        <Expression>0</Expression>
-       <FileName>..\..\..\fft_output\Output_Data_2000hz.txt</FileName>
+       <FileName>..\..\..\fft_output\Output_Data_2000hz2.txt</FileName>
        <Location>0</Location>
        <Type>0</Type>
        <Value>1</Value>
@@ -2165,23 +2172,41 @@
        <Items.0>
         <__>
          <Name>Files</Name>
-         <Options>1</Options>
+         <Options>5</Options>
          <Items.0>
           <__>
            <Name>Asw</Name>
-           <Options>1</Options>
+           <Options>5</Options>
+           <Items.0>
+            <__>
+             <Name>Button_Ctrl.c</Name>
+             <Options>4</Options>
+            </__>
+           </Items.0>
           </__>
          </Items.0>
          <Items.1>
           <__>
            <Name>Board</Name>
            <Options>1</Options>
+           <Items.0>
+            <__>
+             <Name>board_lowlevel.c</Name>
+             <Options>4</Options>
+            </__>
+           </Items.0>
           </__>
          </Items.1>
          <Items.2>
           <__>
            <Name>Bsw</Name>
            <Options>1</Options>
+           <Items.0>
+            <__>
+             <Name>DMA_Codec.c</Name>
+             <Options>4</Options>
+            </__>
+           </Items.0>
           </__>
          </Items.2>
          <Items.3>
@@ -2190,7 +2215,7 @@
            <Options>1</Options>
            <Items.0>
             <__>
-             <Name>wdt.c</Name>
+             <Name>exceptions.c</Name>
              <Options>4</Options>
             </__>
            </Items.0>
@@ -2199,7 +2224,7 @@
          <Items.4>
           <__>
            <Name>Lib</Name>
-           <Options>5</Options>
+           <Options>1</Options>
            <Items.0>
             <__>
              <Name>arm_bitreversal2.S</Name>
@@ -2212,36 +2237,18 @@
           <__>
            <Name>Objects</Name>
            <Options>1</Options>
-           <Items.0>
-            <__>
-             <Name>MemAlloc.o</Name>
-             <Options>4</Options>
-            </__>
-           </Items.0>
           </__>
          </Items.5>
          <Items.6>
           <__>
            <Name>Source files</Name>
            <Options>1</Options>
-           <Items.0>
-            <__>
-             <Name>dac_dma.c</Name>
-             <Options>4</Options>
-            </__>
-           </Items.0>
           </__>
          </Items.6>
          <Items.7>
           <__>
            <Name>Toolset</Name>
            <Options>1</Options>
-           <Items.0>
-            <__>
-             <Name>sam_flash.ld</Name>
-             <Options>4</Options>
-            </__>
-           </Items.0>
           </__>
          </Items.7>
         </__>

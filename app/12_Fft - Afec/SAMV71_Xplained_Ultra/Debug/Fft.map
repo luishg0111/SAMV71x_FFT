@@ -135,14 +135,9 @@ Allocating common symbols
 Common symbol       size              file
 
 scale_factor        0x4               D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o
-fft_signalPower     0x1000            D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o
 errno               0x4               c:/isystem/winidea9/gcc/arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/cortex-m7/softfp/fpv5-d16\libc.a(lib_a-reent.o)
 AudioBuffer         0x1000            D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o
-u32fft_maxPowerIndex
-                    0x4               D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o
-fft_inputData       0x2000            D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o
 DelayTimer          0x10              D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\timetick.o
-fft_maxPower        0x4               D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o
 
 Discarded input sections
 
@@ -13187,7 +13182,7 @@ LOAD D:\SAMV71x_FFT\app\12_Fft - Afec\src\Lib\libm.a
                 0x204009ac                . = ALIGN (0x4)
                 0x204009ac                _erelocate = .
 
-.bss            0x204009c0     0x431c load address 0x0044dbe0
+.bss            0x204009c0     0x4314 load address 0x0044dbe0
                 0x204009c0                . = ALIGN (0x4)
                 0x204009c0                _sbss = .
                 0x204009c0                _szero = .
@@ -13200,57 +13195,56 @@ LOAD D:\SAMV71x_FFT\app\12_Fft - Afec\src\Lib\libm.a
  .bss           0x204009fc        0x6 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\dbg_console.o
  *fill*         0x20400a02        0x2 
  .bss           0x20400a04       0x44 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\pio_it.o
- .bss           0x20400a48       0x10 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o
- *fill*         0x20400a58        0x8 
- .bss           0x20400a60      0x221 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\DMA_Codec.o
- *fill*         0x20400c81        0x3 
- .bss           0x20400c84        0x4 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o
-                0x20400c84                ifftFlag
+ .bss           0x20400a48     0x3018 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o
+                0x20400a50                fft_inputData
+                0x20402a50                fft_signalPower
+                0x20403a50                u32fft_maxPowerIndex
+                0x20403a54                fft_maxPower
+ .bss           0x20403a60      0x221 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\DMA_Codec.o
+ *fill*         0x20403c81        0x3 
+ .bss           0x20403c84        0x4 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o
+                0x20403c84                ifftFlag
  .bss.__malloc_max_total_mem
-                0x20400c88        0x4 c:/isystem/winidea9/gcc/arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/cortex-m7/softfp/fpv5-d16\libc.a(lib_a-mallocr.o)
-                0x20400c88                __malloc_max_total_mem
+                0x20403c88        0x4 c:/isystem/winidea9/gcc/arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/cortex-m7/softfp/fpv5-d16\libc.a(lib_a-mallocr.o)
+                0x20403c88                __malloc_max_total_mem
  .bss.__malloc_max_sbrked_mem
-                0x20400c8c        0x4 c:/isystem/winidea9/gcc/arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/cortex-m7/softfp/fpv5-d16\libc.a(lib_a-mallocr.o)
-                0x20400c8c                __malloc_max_sbrked_mem
+                0x20403c8c        0x4 c:/isystem/winidea9/gcc/arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/cortex-m7/softfp/fpv5-d16\libc.a(lib_a-mallocr.o)
+                0x20403c8c                __malloc_max_sbrked_mem
  .bss.__malloc_top_pad
-                0x20400c90        0x4 c:/isystem/winidea9/gcc/arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/cortex-m7/softfp/fpv5-d16\libc.a(lib_a-mallocr.o)
-                0x20400c90                __malloc_top_pad
+                0x20403c90        0x4 c:/isystem/winidea9/gcc/arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/cortex-m7/softfp/fpv5-d16\libc.a(lib_a-mallocr.o)
+                0x20403c90                __malloc_top_pad
  .bss.__malloc_current_mallinfo
-                0x20400c94       0x28 c:/isystem/winidea9/gcc/arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/cortex-m7/softfp/fpv5-d16\libc.a(lib_a-mallocr.o)
-                0x20400c94                __malloc_current_mallinfo
+                0x20403c94       0x28 c:/isystem/winidea9/gcc/arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/cortex-m7/softfp/fpv5-d16\libc.a(lib_a-mallocr.o)
+                0x20403c94                __malloc_current_mallinfo
  *(COMMON)
- COMMON         0x20400cbc       0x10 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\timetick.o
-                0x20400cbc                DelayTimer
- COMMON         0x20400ccc     0x4008 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o
-                0x20400ccc                fft_signalPower
-                0x20401ccc                AudioBuffer
-                0x20402ccc                u32fft_maxPowerIndex
-                0x20402cd0                fft_inputData
-                0x20404cd0                fft_maxPower
- COMMON         0x20404cd4        0x4 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o
-                0x20404cd4                scale_factor
- COMMON         0x20404cd8        0x4 c:/isystem/winidea9/gcc/arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/cortex-m7/softfp/fpv5-d16\libc.a(lib_a-reent.o)
-                0x20404cd8                errno
-                0x20404cdc                . = ALIGN (0x4)
-                0x20404cdc                _ebss = .
-                0x20404cdc                _ezero = .
+ COMMON         0x20403cbc       0x10 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\timetick.o
+                0x20403cbc                DelayTimer
+ COMMON         0x20403ccc     0x1000 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o
+                0x20403ccc                AudioBuffer
+ COMMON         0x20404ccc        0x4 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o
+                0x20404ccc                scale_factor
+ COMMON         0x20404cd0        0x4 c:/isystem/winidea9/gcc/arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/cortex-m7/softfp/fpv5-d16\libc.a(lib_a-reent.o)
+                0x20404cd0                errno
+                0x20404cd4                . = ALIGN (0x4)
+                0x20404cd4                _ebss = .
+                0x20404cd4                _ezero = .
 
-.stack          0x20404cdc     0x4004 load address 0x00451efc
-                0x20404ce0                . = ALIGN (0x8)
- *fill*         0x20404cdc        0x4 
-                0x20404ce0                _sstack = .
-                0x20408ce0                . = (. + STACK_SIZE)
- *fill*         0x20404ce0     0x4000 
-                0x20408ce0                . = ALIGN (0x8)
-                0x20408ce0                _estack = .
+.stack          0x20404cd4     0x4004 load address 0x00451ef4
+                0x20404cd8                . = ALIGN (0x8)
+ *fill*         0x20404cd4        0x4 
+                0x20404cd8                _sstack = .
+                0x20408cd8                . = (. + STACK_SIZE)
+ *fill*         0x20404cd8     0x4000 
+                0x20408cd8                . = ALIGN (0x8)
+                0x20408cd8                _estack = .
 
-.heap           0x20408ce0     0x1000 load address 0x00455f00
-                0x20408ce0                . = ALIGN (0x8)
-                0x20408ce0                _sheap = .
-                0x20409ce0                . = (. + HEAP_SIZE)
- *fill*         0x20408ce0     0x1000 
-                0x20409ce0                . = ALIGN (0x8)
-                0x20409ce0                _eheap = .
+.heap           0x20408cd8     0x1000 load address 0x00455ef8
+                0x20408cd8                . = ALIGN (0x8)
+                0x20408cd8                _sheap = .
+                0x20409cd8                . = (. + HEAP_SIZE)
+ *fill*         0x20408cd8     0x1000 
+                0x20409cd8                . = ALIGN (0x8)
+                0x20409cd8                _eheap = .
 
 .my_heap        0x20440000     0x1000
                 0x20440000                . = ALIGN (0x4)
@@ -13271,7 +13265,7 @@ LOAD c:/isystem/winidea9/gcc/arm/bin/../lib/gcc/arm-none-eabi/4.9.3/cortex-m7/so
 LOAD c:/isystem/winidea9/gcc/arm/bin/../lib/gcc/arm-none-eabi/4.9.3/../../../../arm-none-eabi/lib/cortex-m7/softfp/fpv5-d16\libm.a
 OUTPUT(Fft.elf elf32-littlearm)
 
-.debug_info     0x00000000    0x1031f
+.debug_info     0x00000000    0x1031d
  .debug_info    0x00000000      0x515 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\system_sam.o
  .debug_info    0x00000515      0x4cc D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\syscalls.o
  .debug_info    0x000009e1      0x410 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\xdma_hardware_interface.o
@@ -13290,22 +13284,22 @@ OUTPUT(Fft.elf elf32-littlearm)
  .debug_info    0x00009615      0xf6c D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\pio_it.o
  .debug_info    0x0000a581      0x59c D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\exceptions.o
  .debug_info    0x0000ab1d      0x327 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\mpu.o
- .debug_info    0x0000ae44     0x116d D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o
- .debug_info    0x0000bfb1      0x88e D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Wdg.o
- .debug_info    0x0000c83f      0x26a D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Fpu.o
- .debug_info    0x0000caa9      0x501 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\wm8904.o
- .debug_info    0x0000cfaa      0x254 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\SSC_Codec.o
- .debug_info    0x0000d1fe      0xf8e D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\DMA_Codec.o
- .debug_info    0x0000e18c      0x158 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o
- .debug_info    0x0000e2e4      0x20e D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o
- .debug_info    0x0000e4f2       0x8d D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_bitreversal2.o
- .debug_info    0x0000e57f      0x520 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_f32.o
- .debug_info    0x0000ea9f      0x436 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_radix8_f32.o
- .debug_info    0x0000eed5      0x18e D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cmplx_mag_f32.o
- .debug_info    0x0000f063      0x95b D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_common_tables.o
- .debug_info    0x0000f9be      0x961 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_const_structs.o
+ .debug_info    0x0000ae44     0x116b D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o
+ .debug_info    0x0000bfaf      0x88e D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Wdg.o
+ .debug_info    0x0000c83d      0x26a D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Fpu.o
+ .debug_info    0x0000caa7      0x501 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\wm8904.o
+ .debug_info    0x0000cfa8      0x254 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\SSC_Codec.o
+ .debug_info    0x0000d1fc      0xf8e D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\DMA_Codec.o
+ .debug_info    0x0000e18a      0x158 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o
+ .debug_info    0x0000e2e2      0x20e D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o
+ .debug_info    0x0000e4f0       0x8d D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_bitreversal2.o
+ .debug_info    0x0000e57d      0x520 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_f32.o
+ .debug_info    0x0000ea9d      0x436 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_radix8_f32.o
+ .debug_info    0x0000eed3      0x18e D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cmplx_mag_f32.o
+ .debug_info    0x0000f061      0x95b D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_common_tables.o
+ .debug_info    0x0000f9bc      0x961 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_const_structs.o
 
-.debug_abbrev   0x00000000     0x2e9d
+.debug_abbrev   0x00000000     0x2eac
  .debug_abbrev  0x00000000      0x127 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\system_sam.o
  .debug_abbrev  0x00000127      0x15e D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\syscalls.o
  .debug_abbrev  0x00000285       0xfb D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\xdma_hardware_interface.o
@@ -13324,20 +13318,20 @@ OUTPUT(Fft.elf elf32-littlearm)
  .debug_abbrev  0x00001a44      0x22b D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\pio_it.o
  .debug_abbrev  0x00001c6f      0x152 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\exceptions.o
  .debug_abbrev  0x00001dc1      0x144 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\mpu.o
- .debug_abbrev  0x00001f05      0x2bf D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o
- .debug_abbrev  0x000021c4      0x191 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Wdg.o
- .debug_abbrev  0x00002355      0x148 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Fpu.o
- .debug_abbrev  0x0000249d      0x15d D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\wm8904.o
- .debug_abbrev  0x000025fa       0xbb D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\SSC_Codec.o
- .debug_abbrev  0x000026b5      0x2c8 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\DMA_Codec.o
- .debug_abbrev  0x0000297d       0x95 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o
- .debug_abbrev  0x00002a12       0xcb D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o
- .debug_abbrev  0x00002add       0x14 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_bitreversal2.o
- .debug_abbrev  0x00002af1      0x120 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_f32.o
- .debug_abbrev  0x00002c11       0x8b D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_radix8_f32.o
- .debug_abbrev  0x00002c9c       0xd2 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cmplx_mag_f32.o
- .debug_abbrev  0x00002d6e       0x85 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_common_tables.o
- .debug_abbrev  0x00002df3       0xaa D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_const_structs.o
+ .debug_abbrev  0x00001f05      0x2ce D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o
+ .debug_abbrev  0x000021d3      0x191 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Wdg.o
+ .debug_abbrev  0x00002364      0x148 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Fpu.o
+ .debug_abbrev  0x000024ac      0x15d D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\wm8904.o
+ .debug_abbrev  0x00002609       0xbb D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\SSC_Codec.o
+ .debug_abbrev  0x000026c4      0x2c8 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\DMA_Codec.o
+ .debug_abbrev  0x0000298c       0x95 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o
+ .debug_abbrev  0x00002a21       0xcb D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o
+ .debug_abbrev  0x00002aec       0x14 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_bitreversal2.o
+ .debug_abbrev  0x00002b00      0x120 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_f32.o
+ .debug_abbrev  0x00002c20       0x8b D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_radix8_f32.o
+ .debug_abbrev  0x00002cab       0xd2 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cmplx_mag_f32.o
+ .debug_abbrev  0x00002d7d       0x85 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_common_tables.o
+ .debug_abbrev  0x00002e02       0xaa D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_const_structs.o
 
 .debug_aranges  0x00000000      0x3f0
  .debug_aranges
@@ -13405,7 +13399,7 @@ OUTPUT(Fft.elf elf32-littlearm)
  .debug_aranges
                 0x000003d8       0x18 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_const_structs.o
 
-.debug_macro    0x00000000    0x36061
+.debug_macro    0x00000000    0x3605b
  .debug_macro   0x00000000      0xdbd D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\system_sam.o
  .debug_macro   0x00000dbd       0x22 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\system_sam.o
  .debug_macro   0x00000ddf       0x44 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\system_sam.o
@@ -13616,20 +13610,20 @@ OUTPUT(Fft.elf elf32-littlearm)
  .debug_macro   0x0002c808     0x1308 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Fpu.o
  .debug_macro   0x0002db10     0x12d4 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\wm8904.o
  .debug_macro   0x0002ede4     0x1305 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\SSC_Codec.o
- .debug_macro   0x000300e9       0x28 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\SSC_Codec.o
- .debug_macro   0x00030111     0x1306 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\DMA_Codec.o
- .debug_macro   0x00031417       0x22 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\DMA_Codec.o
- .debug_macro   0x00031439      0xaa4 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o
- .debug_macro   0x00031edd       0x12 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o
- .debug_macro   0x00031eef       0x10 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o
- .debug_macro   0x00031eff       0xd6 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o
- .debug_macro   0x00031fd5      0xab7 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o
- .debug_macro   0x00032a8c       0x7c D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o
- .debug_macro   0x00032b08      0xaad D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_f32.o
- .debug_macro   0x000335b5      0xaa4 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_radix8_f32.o
- .debug_macro   0x00034059      0xaa4 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cmplx_mag_f32.o
- .debug_macro   0x00034afd      0xaad D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_common_tables.o
- .debug_macro   0x000355aa      0xab7 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_const_structs.o
+ .debug_macro   0x000300e9       0x22 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\SSC_Codec.o
+ .debug_macro   0x0003010b     0x1306 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\DMA_Codec.o
+ .debug_macro   0x00031411       0x22 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\DMA_Codec.o
+ .debug_macro   0x00031433      0xaa4 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o
+ .debug_macro   0x00031ed7       0x12 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o
+ .debug_macro   0x00031ee9       0x10 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o
+ .debug_macro   0x00031ef9       0xd6 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o
+ .debug_macro   0x00031fcf      0xab7 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o
+ .debug_macro   0x00032a86       0x7c D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o
+ .debug_macro   0x00032b02      0xaad D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_f32.o
+ .debug_macro   0x000335af      0xaa4 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_radix8_f32.o
+ .debug_macro   0x00034053      0xaa4 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cmplx_mag_f32.o
+ .debug_macro   0x00034af7      0xaad D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_common_tables.o
+ .debug_macro   0x000355a4      0xab7 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_const_structs.o
 
 .debug_line     0x00000000    0x18aec
  .debug_line    0x00000000      0xae0 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\system_sam.o
@@ -13665,7 +13659,7 @@ OUTPUT(Fft.elf elf32-littlearm)
  .debug_line    0x000184e3      0x2f9 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_common_tables.o
  .debug_line    0x000187dc      0x310 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_const_structs.o
 
-.debug_str      0x00000000    0x80973
+.debug_str      0x00000000    0x8095a
  .debug_str     0x00000000    0x6dd87 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\system_sam.o
                               0x6e220 (size before relaxing)
  .debug_str     0x0006dd87     0xdb0e D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\syscalls.o
@@ -13702,31 +13696,31 @@ OUTPUT(Fft.elf elf32-littlearm)
                               0x75eb3 (size before relaxing)
  .debug_str     0x0007e8eb      0x136 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\mpu.o
                               0x75e0c (size before relaxing)
- .debug_str     0x0007ea21      0x4d8 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o
-                              0x7c267 (size before relaxing)
- .debug_str     0x0007eef9       0xc7 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Wdg.o
+ .debug_str     0x0007ea21      0x4d3 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Main.o
+                              0x7c262 (size before relaxing)
+ .debug_str     0x0007eef4       0xc7 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Wdg.o
                               0x7badc (size before relaxing)
- .debug_str     0x0007efc0       0xec D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Fpu.o
+ .debug_str     0x0007efbb       0xec D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\Fpu.o
                               0x7b65e (size before relaxing)
- .debug_str     0x0007f0ac      0x11e D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\wm8904.o
+ .debug_str     0x0007f0a7      0x11e D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\wm8904.o
                               0x7b6bd (size before relaxing)
- .debug_str     0x0007f1ca       0xf3 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\SSC_Codec.o
-                              0x7b8df (size before relaxing)
- .debug_str     0x0007f2bd      0x139 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\DMA_Codec.o
+ .debug_str     0x0007f1c5       0xdf D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\SSC_Codec.o
+                              0x7b8cb (size before relaxing)
+ .debug_str     0x0007f2a4      0x139 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\DMA_Codec.o
                               0x7bf8a (size before relaxing)
- .debug_str     0x0007f3f6      0x60b D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o
+ .debug_str     0x0007f3dd      0x60b D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_max_f32.o
                                0x60cb (size before relaxing)
- .debug_str     0x0007fa01      0x563 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o
+ .debug_str     0x0007f9e8      0x563 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\fft_float.o
                                0x65f8 (size before relaxing)
- .debug_str     0x0007ff64       0xf8 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_f32.o
+ .debug_str     0x0007ff4b       0xf8 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_f32.o
                                0x65e8 (size before relaxing)
- .debug_str     0x0008005c       0x6f D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_radix8_f32.o
+ .debug_str     0x00080043       0x6f D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cfft_radix8_f32.o
                                0x60d3 (size before relaxing)
- .debug_str     0x000800cb      0x118 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cmplx_mag_f32.o
+ .debug_str     0x000800b2      0x118 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_cmplx_mag_f32.o
                                0x6168 (size before relaxing)
- .debug_str     0x000801e3      0x518 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_common_tables.o
+ .debug_str     0x000801ca      0x518 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_common_tables.o
                                0x69bf (size before relaxing)
- .debug_str     0x000806fb      0x278 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_const_structs.o
+ .debug_str     0x000806e2      0x278 D:\SAMV71x_FFT\app\12_Fft - Afec\SAMV71_Xplained_Ultra\Debug\arm_const_structs.o
                                0x6bad (size before relaxing)
 
 .comment        0x00000000       0x70

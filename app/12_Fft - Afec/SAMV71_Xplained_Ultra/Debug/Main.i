@@ -26970,13 +26970,13 @@ extern void SSC_Config(void);
 
 
 
-float fft_inputData[(2048)];
+float fft_inputData[(2048)] = {0.0};
 
-float fft_signalPower[(2048)/2];
+float fft_signalPower[(2048)/2] = {0.0};
 
-uint32_t u32fft_maxPowerIndex;
+uint32_t u32fft_maxPowerIndex = 0;
 
-float fft_maxPower;
+float fft_maxPower = 0.0;
 
 uint16_t AudioBuffer[2048];
 float fft_signalPower[(2048) / 2];
@@ -27010,9 +27010,9 @@ void TWIHS0_Handler(void)
 
 static void Codec_To_InputFFT(void)
 {
-  __uint16_t u16i = 0;
- for (u16i = 0; u16i < (2048); u16i ++) {
-  fft_inputData[u16i] = (float)AudioBuffer[u16i];
+  int i = 0;
+ for (i = 0; i < (2048); i ++) {
+  fft_inputData[i] = (float)AudioBuffer[i];
  }
 }
 # 96 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
@@ -27032,7 +27032,7 @@ extern int main( void )
 
  printf( "\n\r-- Scheduler Project %s --\n\r", "1.3" ) ;
  printf( "-- %s\n\r", "SAM V71 Xplained Ultra" ) ;
- printf( "-- Compiled: %s %s With %s --\n\r", "May 14 2023", "20:47:23" , "GCC");
+ printf( "-- Compiled: %s %s With %s --\n\r", "May 14 2023", "21:31:57" , "GCC");
 
   printf("Configuracion del SystemSystick a 1ms.\n\r");
   if (TimeTick_Configure())
