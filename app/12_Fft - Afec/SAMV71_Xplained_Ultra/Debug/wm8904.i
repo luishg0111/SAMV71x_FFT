@@ -26820,7 +26820,7 @@ static WM8904_PARA wm8904_access_slow[]=
 
  { 0x0042, 0x19},
  { 0x00E8, 0x1A},
- { 0x0820, 0x1B},
+ { 0x08C0, 0x1B},
 
 
  { 0x0003, 0x0C},
@@ -26849,47 +26849,48 @@ static WM8904_PARA wm8904_access_main[] =
 
 
 
-    { 0x0019, 0x04},
-    { 0x0043, 0x05},
+ { 0x0019, 4},
+ { 0x0043, 5},
+
+
+
+ { 0xFFFF, 9},
+
+
+ { 0x0003, 12},
+
+ { 0x0003, 14},
+
+
+
+ { 0x000F, 18},
+
+ { 0x845E, 20},
+
+ { 0x0006, 22},
+
+
+ { 0x404A, 25},
+
+ { 0x0840, 27},
 
 
 
 
 
-
-    { 0x0003, 0x0C},
-
-    { 0x0003, 0x0E},
-
-
-
-    { 0x000F, 0x12},
-
-    { 0x845E, 0x14},
-
-    { 0x0006, 0x16},
-
-
-    { 0x404A, 0x19},
-
-    { 0x0840, 0x1B},
-
-
-
-
-
-    { 0x0000, 0x21},
+ { 0x0000, 33},
 # 199 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\wm8904_Codec\\wm8904.c"
-    { 0x0005, 0x2C},
-    { 0x0005, 0x2D},
-    { 0x0000, 0x2E},
-    { 0x0000, 0x2F},
-# 213 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\wm8904_Codec\\wm8904.c"
-    { 0x00AD, 0x3A},
+ { 0x0012, 44},
+ { 0x0012, 45},
+ { 0x0000, 46},
+ { 0x0000, 47},
+# 212 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\wm8904_Codec\\wm8904.c"
+ { 0x017F, 57},
+ { 0x00AD, 58},
 # 222 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\wm8904_Codec\\wm8904.c"
-    { 0x0003, 0x43},
+ { 0x0003, 67},
 # 245 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\wm8904_Codec\\wm8904.c"
-    { 0x00FF, 0x5A},
+ { 0x00FF, 90},
 
 
 
@@ -26897,18 +26898,18 @@ static WM8904_PARA wm8904_access_main[] =
 
 
 
-    { 0x0001, 0x62},
+ { 0x0001, 98},
 
 
 
 
 
-    { 0x0005, 0x68},
+ { 0x0005, 104},
 # 271 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\wm8904_Codec\\wm8904.c"
-    { 0x0004, 0x74},
-    { 0x0704, 0x75},
-    { 0x8000, 0x76},
-    { 0x1760, 0x77},
+ { 0x0004, 116},
+ { 0x0704, 117},
+ { 0x8000, 118},
+ { 0x1760, 119},
 # 404 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Bsw\\Ecual\\wm8904_Codec\\wm8904.c"
  { 0x55AA, 255}
 };

@@ -5,7 +5,7 @@
 #include "Std_types.h"
 
 /*      Macros */
-#define SAMPLE_RATE             (8000)
+#define SAMPLE_RATE             (48000)
 #define SLOT_BY_FRAME           (1)
 #define BITS_BY_SLOT            (16)
 #define SSC_IF                  SSC

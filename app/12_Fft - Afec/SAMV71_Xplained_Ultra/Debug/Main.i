@@ -26963,7 +26963,6 @@ extern void SSC_Config(void);
 
 
 
-#define SAMP_PER (50)
 #define BUFF_SIZE (2048)
 
 #define TWI_CLOCK 400000
@@ -27016,7 +27015,7 @@ static void Codec_To_InputFFT(void)
   fft_inputData[u16i] = (float)AudioBuffer[u16i];
  }
 }
-# 97 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
+# 96 "D:\\SAMV71x_FFT\\app\\12_Fft - Afec\\src\\Asw\\Main.c"
 extern int main( void )
 {
   uint16_t data = 0;
@@ -27033,7 +27032,7 @@ extern int main( void )
 
  printf( "\n\r-- Scheduler Project %s --\n\r", "1.3" ) ;
  printf( "-- %s\n\r", "SAM V71 Xplained Ultra" ) ;
- printf( "-- Compiled: %s %s With %s --\n\r", "May 14 2023", "15:09:27" , "GCC");
+ printf( "-- Compiled: %s %s With %s --\n\r", "May 14 2023", "20:47:23" , "GCC");
 
   printf("Configuracion del SystemSystick a 1ms.\n\r");
   if (TimeTick_Configure())

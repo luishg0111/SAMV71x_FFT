@@ -5,3 +5,5 @@ os/
 app/12_Fft - Afec/SAMV71_Xplained_Ultra/Debug/
 app/12_Fft - Afec Test 1/
 app/12_Fft - Afec Test 2/
+fft_output/fft_graphs.xlsx
+fft_output/~$fft_graphs.xlsx

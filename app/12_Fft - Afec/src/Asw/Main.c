@@ -32,7 +32,6 @@
 
 /*~~~~~~  Local definitions ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-#define SAMP_PER  (50)
 #define BUFF_SIZE (2048)
 /** TWI High Speed clock */
 #define TWI_CLOCK		  400000
